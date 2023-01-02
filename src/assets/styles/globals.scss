@@ -4,7 +4,8 @@
 @use './variables/responsive' as *;
 
 @use './components/button';
-@use './components/sidebar';
+@use './components/feed';
+@use './components/login';
 // @use './components/checkbox';
 @use './components/inputbox';
 @use './components/navigation';

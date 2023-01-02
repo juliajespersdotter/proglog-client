@@ -31,10 +31,8 @@ input::placeholder {
 .inputbox {
 	@include typography.description-text;
 	font-family: typography.$font-text;
-	font-weight: 400;
-	width: 30rem;
+	font-weight: lighter;
 	margin: 0 auto;
-	padding: 0.3rem;
 	padding-left: 1rem;
 	background-color: colors.$secondary-blue;
 	border: 1.5px solid colors.$primary-blue;
@@ -43,4 +41,15 @@ input::placeholder {
 .inputbox::placeholder {
 	color: white;
 	opacity: 1;
+}
+
+.input--small {
+	width: 15rem;
+	padding: 0.8rem;
+	padding-left: 0.8rem;
+}
+
+.input--large {
+	padding: 0.3rem;
+	width: 30rem;
 }

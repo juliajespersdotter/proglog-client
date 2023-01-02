@@ -7,7 +7,11 @@ const Navigation = () => {
 		<nav id='navigation'>
 			<h4>WELCOME, PLAYER</h4>
 			<form action='submit'>
-				<input type='text' className='inputbox' placeholder='SEARCH_' />
+				<input
+					type='text'
+					className='inputbox input--large'
+					placeholder='SEARCH_'
+				/>
 			</form>
 			<ul id='nav-links'>
 				<li>

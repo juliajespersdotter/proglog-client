@@ -37,28 +37,31 @@
 	// 	stroke-dasharray: 10;
 	// }
 }
-/*
+
 .button--secondary {
-	background: none;
-	color: colors.$white;
-	border: 2px solid colors.$primary-200;
+	@include typography.small-text;
+	background-color: colors.$primary-black;
+	background-image: url('../images/buttons/Login/button-red-small.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	color: colors.$primary-white;
 
-	&:hover {
-		background-color: colors.$primary-50;
-	}
+	// &:hover {
+	// 	background-color: colors.$primary-50;
+	// }
 
-	&:active {
-		border: none;
-		background-color: colors.$primary-300;
-	}
+	// &:active {
+	// 	border: none;
+	// 	background-color: colors.$primary-300;
+	// }
 
-	&:focus {
-		background-color: none;
-		border: dashed 2px colors.$primary-200;
-		stroke-dasharray: 10;
-	}
+	// &:focus {
+	// 	background-color: none;
+	// 	border: dashed 2px colors.$primary-200;
+	// 	stroke-dasharray: 10;
+	// }
 }
-
+/*
 .button--tertiery {
 	background: none;
 	color: colors.$white;

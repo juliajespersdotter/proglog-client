@@ -4,15 +4,25 @@ import FeedPage from './pages/FeedPage'
 import NotFound from './components/NotFound'
 import Navigation from './components/Navigation'
 import './assets/styles/globals.scss'
+import LandingPage from './pages/LandingPage'
 
 function App() {
 	return (
 		<div id='App'>
 			{/**Navigation**/}
-			<Navigation />
+			{/* <Navigation /> */}
 			{/**Routes**/}
 			<Routes>
-				<Route path='/' element={<FeedPage />} />
+				<Route
+					path='/'
+					element={
+						<>
+							<Navigation />
+							<FeedPage />
+						</>
+					}
+				/>
+				<Route path='/login' element={<LandingPage />} />
 				<Route path='*' element={<NotFound />} />
 			</Routes>
 		</div>

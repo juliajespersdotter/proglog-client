@@ -1,0 +1,23 @@
+.login {
+	display: flex;
+	flex-direction: column;
+	right: 0;
+	top: 0;
+	align-items: flex-end;
+	padding: 5%;
+	gap: 2rem;
+	text-align: right;
+	position: absolute;
+
+	h3 {
+		padding: 0;
+		margin: 0;
+	}
+
+	#login-form {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		gap: 1rem;
+	}
+}

@@ -81,8 +81,6 @@ p {
 }
 
 @mixin small-text {
-	font-family: $font-text;
-	font-weight: 300;
 	font-size: 0.85rem;
 	line-height: 1.5rem;
 	letter-spacing: 0.02em;
@@ -94,7 +92,7 @@ p {
 }
 
 @mixin description-text {
-	font-size: 0.75rem;
+	font-size: 0.65rem;
 	line-height: 1rem;
 	letter-spacing: 0.02em;
 	color: white;
