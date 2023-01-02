@@ -1,0 +1,28 @@
+// navigation
+@use '../variables/colors';
+@use '../general/typography';
+
+#navigation {
+	border: 2px solid colors.$primary-yellow;
+	font-family: typography.$font-headings;
+	font-weight: 700;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+
+	#nav-links {
+		gap: 2rem;
+		list-style-type: none;
+		display: flex;
+	}
+
+	form {
+		width: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}

@@ -1,0 +1,46 @@
+// inputbox
+@use '../variables/colors';
+@use '../general/typography';
+
+*::-webkit-input-placeholder {
+	color: white;
+}
+*:-moz-placeholder {
+	/* FF 4-18 */
+	color: white;
+	opacity: 1;
+}
+*::-moz-placeholder {
+	/* FF 19+ */
+	color: white;
+	opacity: 1;
+}
+*:-ms-input-placeholder {
+	/* IE 10+ */
+	color: white;
+}
+*::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: white;
+}
+input::placeholder {
+	/* modern browser */
+	color: white;
+}
+
+.inputbox {
+	@include typography.description-text;
+	font-family: typography.$font-text;
+	font-weight: 400;
+	width: 30rem;
+	margin: 0 auto;
+	padding: 0.3rem;
+	padding-left: 1rem;
+	background-color: colors.$secondary-blue;
+	border: 1.5px solid colors.$primary-blue;
+}
+
+.inputbox::placeholder {
+	color: white;
+	opacity: 1;
+}
