@@ -1,0 +1,42 @@
+@use './general/typography';
+
+@use './variables/colors';
+@use './variables/responsive' as *;
+
+// @use './components/button';
+// @use './components/checkbox';
+// @use './components/input';
+// @use './components/navigation';
+// @use './components/hero';
+// @use './components/footer';
+// @use './components/contactform';
+
+html,
+body {
+	background-color: colors.$primary-black;
+	padding: 0;
+	margin: 0 auto;
+}
+
+#container {
+	position: relative;
+	min-height: 100vh;
+}
+
+main {
+	padding-bottom: 25rem;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+a {
+	font-family: typography.$font-text;
+	color: inherit;
+	text-decoration: none;
+}
+
+#dev-background {
+	background-color: rgb(229, 229, 229);
+}

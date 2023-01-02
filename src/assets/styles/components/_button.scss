@@ -1,0 +1,91 @@
+// button
+@use '../variables/colors';
+@use '../general/typography';
+
+.button {
+  font-family: typography.$font-headings;
+  font-weight: 400;
+  font-size: 1.25rem;
+  letter-spacing: 0.1em;
+  
+  padding: 1.125rem 3rem 1.375rem 3rem;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.button--primary {
+	background-color: colors.$primary-100;
+	color: colors.$black;
+
+	&:hover {
+		background-color: colors.$primary-200;
+	}
+
+	&:active {
+		background-color: colors.$primary-300;
+	}
+
+	&:focus {
+		background-color: colors.$primary-100;
+		border: dashed 2px colors.$black;
+		stroke-dasharray: 10;
+	}
+}
+
+.button--secondary {
+	background: none;
+	color: colors.$white;
+	border: 2px solid colors.$primary-200;
+
+	&:hover {
+		background-color: colors.$primary-50;
+	}
+
+	&:active {
+		border: none;
+		background-color: colors.$primary-300;
+	}
+
+	&:focus {
+		background-color: none;
+		border: dashed 2px colors.$primary-200;
+		stroke-dasharray: 10;
+	}
+}
+
+.button--tertiery {
+	background: none;
+	color: colors.$white;
+
+	&:hover {
+		background-color: colors.$primary-700;
+		background: transparent
+			url('../../assets/graphics/signup-underline.svg') 50% 80% no-repeat;
+	}
+
+	&:active::after {
+		background: transparent
+			url('../../assets/graphics/signup-underline.svg') 50% 80% no-repeat;
+	}
+
+	&:focus {
+		background-color: none;
+		background: transparent
+			url('../../assets/graphics/signup-underline.svg') 50% 80% no-repeat;
+		border: dashed 2px colors.$white;
+		stroke-dasharray: 10;
+	}
+}
+
+.button--arrow {
+	border: none;
+	background-color: colors.$primary-700;
+	padding: 2rem 0.8rem;
+	cursor: pointer;
+}
+
+.button--arrow__icon {
+	color: colors.$primary-200;
+	width: 14px;
+}
