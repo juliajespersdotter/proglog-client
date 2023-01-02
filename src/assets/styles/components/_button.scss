@@ -16,18 +16,18 @@
 
 .button--primary {
 	background-color: colors.$primary-black;
-	background-image: url('../button-red.png');
+	background-image: url('../images/buttons/button-red.png');
 	background-repeat: no-repeat;
 	background-position: center;
 	color: colors.$primary-white;
 
 	&:hover {
-		background-image: url('../button-white.png');
+		background-image: url('../images/buttons/button-white.png');
 		color: colors.$primary-black;
 	}
 
 	&:active {
-		background-image: url('../button-grey.png');
+		background-image: url('../images/buttons/button-grey.png');
 		color: colors.$primary-black;
 	}
 
