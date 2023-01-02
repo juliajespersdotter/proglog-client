@@ -3,7 +3,8 @@
 @use './variables/colors';
 @use './variables/responsive' as *;
 
-// @use './components/button';
+@use './components/button';
+@use './components/sidebar';
 // @use './components/checkbox';
 @use './components/inputbox';
 @use './components/navigation';
@@ -13,6 +14,7 @@
 
 html,
 body {
+	color: colors.$primary-white;
 	background-color: colors.$primary-black;
 	padding: 0;
 	margin: 0 auto;

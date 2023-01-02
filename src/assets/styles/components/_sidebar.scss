@@ -1,0 +1,33 @@
+// sidebar
+@use '../variables/colors';
+@use '../general/typography';
+
+.feedpage {
+	display: flex;
+	position: relative;
+	justify-content: space-between;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	height: 100vh;
+
+	.feed {
+		margin-top: 4rem;
+		padding: 2rem;
+		width: 60%;
+		z-index: 3;
+	}
+
+	.sidebar {
+		position: sticky;
+		z-index: 1;
+		margin-top: 4rem;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2rem;
+		padding-top: 2rem;
+		flex-direction: column;
+		border: 2px solid colors.$primary-blue;
+		height: 90vh;
+		width: 20%;
+	}
+}

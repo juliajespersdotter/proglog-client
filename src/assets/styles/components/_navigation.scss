@@ -3,6 +3,11 @@
 @use '../general/typography';
 
 #navigation {
+	color: colors.$primary-white;
+	background-color: colors.$primary-black;
+	position: absolute;
+	z-index: 999;
+	top: 0;
 	border: 2px solid colors.$primary-yellow;
 	font-family: typography.$font-headings;
 	font-weight: 700;
@@ -15,8 +20,14 @@
 
 	#nav-links {
 		gap: 2rem;
+		width: 20%;
+		justify-content: center;
 		list-style-type: none;
 		display: flex;
+
+		li:hover {
+			color: colors.$primary-blue;
+		}
 	}
 
 	form {
