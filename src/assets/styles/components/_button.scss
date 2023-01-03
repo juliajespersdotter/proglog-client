@@ -39,7 +39,8 @@
 }
 
 .button--secondary {
-	@include typography.small-text;
+	font-size: 1rem;
+	// @include typography.small-text;
 	background-color: colors.$primary-black;
 	background-image: url('../images/buttons/Login/button-red-small.png');
 	background-repeat: no-repeat;

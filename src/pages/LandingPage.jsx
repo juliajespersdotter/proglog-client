@@ -3,6 +3,9 @@ import React from 'react'
 const LandingPage = () => {
 	return (
 		<div id='container'>
+			<div className='landing-image'>
+				<img src='' alt='' />
+			</div>
 			<div className='login'>
 				<h3>LOGIN</h3>
 				<form id='login-form' action='submit'>
@@ -16,7 +19,7 @@ const LandingPage = () => {
 						type='text'
 						placeholder='PASSWORD_'
 					/>
-					<button className='button button--secondary'>LOGIN</button>
+					<button className='button button--secondary'>SUBMIT</button>
 				</form>
 			</div>
 		</div>
