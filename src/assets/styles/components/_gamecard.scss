@@ -18,7 +18,7 @@
 
 	.game-card {
 		@media (min-width: responsive.$screen-large) {
-			width: 25%;
+			// width: 25%;
 		}
 		width: 25%;
 		display: flex;
@@ -37,14 +37,10 @@
 			flex-direction: column;
 			align-items: flex-start;
 			flex-wrap: nowrap;
-			padding: 1rem;
-
-			button {
-				// width: 20%;
-			}
+			padding-left: 1rem;
 
 			h4 {
-				width: 75%;
+				// width: 100%;
 				font-family: typography.$font-text;
 			}
 		}
