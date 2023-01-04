@@ -1,18 +1,13 @@
 import React from 'react'
 import { BiMessageRounded, BiBell, BiCog } from 'react-icons/bi'
 import { FiUsers } from 'react-icons/fi'
+import SearchBar from './SearchBar'
 
 const Navigation = () => {
 	return (
 		<nav id='navigation'>
 			<h4>WELCOME, PLAYER</h4>
-			<form action='submit'>
-				<input
-					type='text'
-					className='inputbox input--large'
-					placeholder='SEARCH_'
-				/>
-			</form>
+			<SearchBar />
 			<ul id='nav-links'>
 				<li>
 					<FiUsers />

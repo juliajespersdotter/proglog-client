@@ -1,0 +1,66 @@
+// gamecard
+@use '../variables/colors';
+@use '../general/typography';
+@use '../variables/responsive';
+
+.game-feed {
+	padding-top: 2rem;
+	gap: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 100%;
+	margin: 0 auto;
+
+	// @media (min-width: responsive.$screen-large) {
+	// 	width: 100%;
+	// }
+
+	.game-card {
+		@media (min-width: responsive.$screen-large) {
+			width: 25%;
+		}
+		width: 25%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-start;
+		background-color: colors.$secondary-blue;
+		margin-bottom: 3rem;
+		padding: 0;
+		padding-bottom: 2em;
+		border-radius: 20px 20px 20px 20px;
+
+		.game-card--title {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			flex-wrap: nowrap;
+			padding: 1rem;
+
+			button {
+				// width: 20%;
+			}
+
+			h4 {
+				width: 75%;
+				font-family: typography.$font-text;
+			}
+		}
+
+		.game-card--image {
+			text-align: center;
+			height: 13rem;
+			width: 100%;
+
+			img {
+				border-radius: 20px 20px 0px 0px;
+				max-height: 100%;
+				max-width: 100%;
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+}

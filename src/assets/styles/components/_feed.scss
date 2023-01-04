@@ -1,33 +1,46 @@
 // sidebar
 @use '../variables/colors';
 @use '../general/typography';
+@use '../variables/responsive';
 
 .feedpage {
 	display: flex;
-	position: relative;
+	position: absolute;
+	z-index: 1;
 	justify-content: space-between;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	height: 100vh;
 
 	.feed {
+		@media (min-width: responsive.$screen-large) {
+			width: 85%;
+			margin: 0 auto;
+			margin-top: 4rem;
+		}
 		margin-top: 4rem;
 		padding: 2rem;
-		width: 60%;
+		width: 80%;
 		z-index: 3;
 	}
+}
 
-	.sidebar {
-		position: sticky;
-		z-index: 1;
-		margin-top: 4rem;
-		display: flex;
-		flex-wrap: wrap;
-		gap: 2rem;
-		padding-top: 4rem;
-		flex-direction: column;
-		border: 2px solid colors.$primary-blue;
-		height: 90vh;
-		width: 20%;
+.sidebar {
+	@media (min-width: responsive.$screen-large) {
+		width: 15%;
 	}
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	bottom: 0;
+	z-index: 5;
+	margin-top: 4rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	padding-top: 4rem;
+	flex-direction: column;
+	border: 2px solid colors.$primary-blue;
+	height: 90vh;
+	width: 20%;
 }

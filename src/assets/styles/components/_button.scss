@@ -14,6 +14,23 @@
 	box-sizing: border-box;
 }
 
+.button--small {
+	font-family: typography.$font-text;
+	text-align: center;
+	font-size: 1rem;
+	background-color: colors.$secondary-blue;
+	color: colors.$primary-grey;
+	border: 1px solid colors.$primary-blue;
+	border-radius: 50%;
+	height: 2rem;
+	width: 2rem;
+
+	&:hover {
+		background-color: colors.$primary-white;
+		color: colors.$primary-black;
+	}
+}
+
 .button--primary {
 	background-color: colors.$primary-black;
 	background-image: url('../images/buttons/button-red.png');

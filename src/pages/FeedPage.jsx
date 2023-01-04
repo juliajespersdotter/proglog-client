@@ -1,10 +1,15 @@
 import React from 'react'
 import { useQuery } from 'react-query'
+import GameCard from '../components/GameCard'
 import RAWG_API from '../services/RAWG_API'
 
 const FeedPage = () => {
-	// const { isLoading, isError, data } = useQuery('games', RAWG_API.getGames)
-	// console.log(data)
+	const {
+		isLoading,
+		isError,
+		data: games,
+	} = useQuery('games', RAWG_API.getGames)
+	console.log(games)
 	return (
 		<div id='container' className='feedpage'>
 			<div className='sidebar'>
@@ -14,12 +19,13 @@ const FeedPage = () => {
 				<button className='button button--primary'>BROWSE</button>
 			</div>
 			<div className='feed'>
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit.
-					Voluptates fugiat dolore numquam unde facere sunt eum
-					nesciunt laborum? Corporis libero at earum nihil numquam
-					illum alias dolorem suscipit officiis natus.
-				</p>
+				<h2>Games</h2>
+				<div className='game-feed'>
+					{games &&
+						games.data.results.map(game => (
+							<GameCard data={game} />
+						))}
+				</div>
 			</div>
 			<div className='sidebar'></div>
 		</div>
