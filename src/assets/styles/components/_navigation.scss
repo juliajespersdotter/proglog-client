@@ -1,6 +1,7 @@
 // navigation
 @use '../variables/colors';
 @use '../general/typography';
+@use '../variables/responsive';
 
 #navigation {
 	color: colors.$primary-white;
@@ -19,8 +20,12 @@
 	align-items: center;
 
 	#nav-links {
-		gap: 2rem;
+		@media (min-width: responsive.$screen-large) {
+			width: 15%;
+		}
+
 		width: 20%;
+		gap: 2rem;
 		justify-content: center;
 		list-style-type: none;
 		display: flex;
