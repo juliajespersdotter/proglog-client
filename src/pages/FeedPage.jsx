@@ -10,15 +10,6 @@ import { useEffect } from 'react'
 const FeedPage = () => {
 	const { currentUser, loading } = useAuthContext()
 
-	// const getUser = async () => {
-	// 	const res = await User_API.authenticateUser()
-	// 	setUser(res.data)
-	// 	console.log(res.data)
-	// }
-	useEffect(() => {
-		// console.log(currentUser)
-		// getUser()
-	}, [])
 	const {
 		isLoading,
 		isError,

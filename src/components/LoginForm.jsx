@@ -10,7 +10,6 @@ const LoginForm = () => {
 		const res = await User_API.authenticateUser()
 
 		if (res.status === 'success') {
-			// console.log('User:', res.data)
 			navigate('/')
 			await setUser(res)
 		}
@@ -27,7 +26,6 @@ const LoginForm = () => {
 		if (newWindow) {
 			const timer = setInterval(() => {
 				if (newWindow.closed) {
-					// console.log('Yay we are authenticated!')
 					fetchAuthUser()
 					if (timer) clearInterval(timer)
 				}
@@ -46,7 +44,6 @@ const LoginForm = () => {
 		if (newWindow) {
 			const timer = setInterval(() => {
 				if (newWindow.closed) {
-					// console.log('Yay we are authenticated!')
 					fetchAuthUser()
 					if (timer) clearInterval(timer)
 				}
