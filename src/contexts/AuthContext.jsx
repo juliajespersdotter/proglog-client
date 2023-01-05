@@ -10,45 +10,14 @@ const useAuthContext = () => {
 
 const AuthContextProvider = ({ children }) => {
 	const [currentUser, setCurrentUser] = useState(null)
-	const [token, setToken] = useState(null)
-	const navigate = useNavigate()
 	// const [userName, setUserName] = useState(null)
 	// const [userEmail, setUserEmail] = useState(null)
 	// const [userPhotoUrl, setUserPhotoUrl] = useState(null)
-	// const [loading, setLoading] = useState(true)
+	const [loading, setLoading] = useState(true)
 
-	const getUser = async () => {
-		const user = await User_API.getUser()
-		console.log('user', user)
-		setCurrentUser(currentUser)
-		// if (res.status === 'success') {
-		// 	setCurrentUser(res.data)
-		// 	console.log(currentUser)
-		// 	const res = await User_API.steamLogin()
-		// } else {
-		// 	console.log('didnt get result')
-		// 	console.log(res.data)
-		// 	// setToken(res.data.access_token)
-		// 	// localStorage.setItem(
-		// 	// 	'userData',
-		// 	// 	JSON.stringify(res.data.access_token)
-		// 	// )
-		// 	return { status: 'success' }
-		// }
-	}
-
-	const googleLogin = async () => {
-		// const res = await User_API.googleLogin()
-		// if (res.status === 'success') {
-		// 	setCurrentUser(res.data)
-		// 	console.log(res.data)
-		// 	// setToken(res.data.access_token)
-		// 	// localStorage.setItem(
-		// 	// 	'userData',
-		// 	// 	JSON.stringify(res.data.access_token)
-		// 	// )
-		// 	return { status: 'success' }
-		// }
+	const setUser = async data => {
+		// console.log('user', user)
+		setCurrentUser(data.user)
 	}
 
 	// const resetPassword = email => {
@@ -63,22 +32,17 @@ const AuthContextProvider = ({ children }) => {
 	// 	return updatePassword(currentUser, newPassword)
 	// }
 
-	// useEffect(() => {
-	// 	// listen for auth-state changes
-	// 	const unsubscribe = onAuthStateChanged(auth, user => {
-	// 		setCurrentUser(user)
-	// 		setUserName(user?.displayName)
-	// 		setUserEmail(user?.email)
-	// 		setUserPhotoUrl(user?.photoURL)
-	// 		setLoading(false)
-	// 	})
-
-	// return unsubscribe
-	// }, [])
+	useEffect(() => {
+		User_API.authenticateUser()
+			.then(user => setCurrentUser(user.user))
+			.catch(_error => {})
+			.finally(() => setLoading(false))
+	}, [])
 
 	const contextValues = {
 		currentUser,
-		getUser,
+		setUser,
+		loading,
 		// reloadUser,
 		// resetPassword,
 		// setEmail,
@@ -90,7 +54,7 @@ const AuthContextProvider = ({ children }) => {
 
 	return (
 		<AuthContext.Provider value={contextValues}>
-			{children}
+			{!loading && children}
 		</AuthContext.Provider>
 	)
 }

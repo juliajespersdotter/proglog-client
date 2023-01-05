@@ -9,7 +9,9 @@ axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL
  * @returns Promise
  */
 const get = async (endpoint, options) => {
-	const res = await axios.get(endpoint, options)
+	const res = await axios.get(endpoint, options).catch(err => {
+		console.log('Error getting data', err)
+	})
 	console.log(res.data)
 	return res.data
 }
@@ -19,20 +21,12 @@ const get = async (endpoint, options) => {
  *
  * Login with steam
  */
-const getUser = () => {
-	return get('/auth/user', { withCredentials: true })
-}
-
-/**
- * Login with Google
- */
-const googleLogin = () => {
-	return get(`/auth/google`)
+const authenticateUser = () => {
+	return get('/user', { withCredentials: true })
 }
 
 const exports = {
-	getUser,
-	googleLogin,
+	authenticateUser,
 }
 
 export default exports

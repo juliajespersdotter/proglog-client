@@ -6,7 +6,9 @@ import SearchBar from './SearchBar'
 const Navigation = () => {
 	return (
 		<nav id='navigation'>
-			<h4>WELCOME, PLAYER</h4>
+			<h4>
+				Prog<span className='heading--yellow'>Log</span>
+			</h4>
 			<SearchBar />
 			<ul id='nav-links'>
 				<li>
