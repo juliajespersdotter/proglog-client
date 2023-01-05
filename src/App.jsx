@@ -5,6 +5,7 @@ import NotFound from './components/NotFound'
 import Navigation from './components/Navigation'
 import './assets/styles/globals.scss'
 import LandingPage from './pages/LandingPage'
+import LoginSuccess from './pages/LoginSuccess'
 
 function App() {
 	return (
@@ -23,6 +24,7 @@ function App() {
 					}
 				/>
 				<Route path='/login' element={<LandingPage />} />
+				<Route path='/login/success' element={<LoginSuccess />} />
 				<Route path='*' element={<NotFound />} />
 			</Routes>
 		</div>

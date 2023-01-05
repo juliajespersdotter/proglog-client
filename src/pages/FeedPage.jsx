@@ -3,14 +3,20 @@ import { useQuery } from 'react-query'
 import GameCard from '../components/GameCard'
 import RAWG_API from '../services/RAWG_API'
 import StickyBox from 'react-sticky-box'
+import { useAuthContext } from '../contexts/AuthContext'
+import { useEffect } from 'react'
 
 const FeedPage = () => {
+	const { currentUser, getUser } = useAuthContext()
+
+	useEffect(() => {
+		getUser()
+	}, [])
 	const {
 		isLoading,
 		isError,
 		data: games,
 	} = useQuery('games', RAWG_API.getGames)
-	console.log(games)
 	return (
 		<div id='container' className='feedpage'>
 			<StickyBox offsetTop={10} offsetBottom={20}>

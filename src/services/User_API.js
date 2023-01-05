@@ -14,28 +14,25 @@ const get = async (endpoint, options) => {
 	return res.data
 }
 
-// Access the backend to get game data
-
+// Access the backend to authorize user
 /**
  *
- * @returns all games in DB
+ * Login with steam
  */
-const getGames = () => {
-	// return get(`/api/games`)
+const getUser = () => {
+	return get('/auth/user', { withCredentials: true })
 }
 
 /**
- *
- * @param {integer} gameId
- * @returns Specific game's info
+ * Login with Google
  */
-const getGame = gameId => {
-	return get(`/api/games/${gameId}`)
+const googleLogin = () => {
+	return get(`/auth/google`)
 }
 
 const exports = {
-	getGames,
-	getGame,
+	getUser,
+	googleLogin,
 }
 
 export default exports
