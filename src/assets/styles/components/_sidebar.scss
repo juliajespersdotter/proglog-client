@@ -1,0 +1,24 @@
+// sidebar
+@use '../variables/colors';
+@use '../general/typography';
+@use '../variables/responsive';
+
+.sidebar {
+	@media (min-width: responsive.$screen-large) {
+		width: 100%;
+	}
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	z-index: 5;
+	margin-top: 4rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	padding: 2rem;
+	padding-top: 4rem;
+	flex-direction: column;
+	border: 2px solid colors.$primary-blue;
+	height: 91vh;
+	width: 20%;
+}
