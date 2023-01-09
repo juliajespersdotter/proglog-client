@@ -9,7 +9,6 @@ import LoadingSpinner from '../components/LoadingSpinner'
 const LibraryPage = () => {
 	const { currentUser } = useAuthContext()
 	const { data: lists, isLoading } = useUserLists(currentUser.userId)
-	console.log(lists)
 
 	return (
 		<div id='container' className='main-content--container'>

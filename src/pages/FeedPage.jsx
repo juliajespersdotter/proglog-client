@@ -6,9 +6,11 @@ import { useAuthContext } from '../contexts/AuthContext'
 import SideBar from '../components/SideBar'
 import SideProfileBar from '../components/SideProfileBar'
 import LoadingSpinner from '../components/LoadingSpinner'
+import useUserLists from '../hooks/useUserLists'
 
 const FeedPage = () => {
 	const { currentUser, loading } = useAuthContext()
+	const { data: lists } = useUserLists(currentUser.userId)
 
 	const {
 		isLoading,
@@ -25,7 +27,15 @@ const FeedPage = () => {
 				)}
 				{isLoading && <LoadingSpinner />}
 				<div className='game-feed'>
-					{games && games.data.map(game => <GameCard data={game} />)}
+					{games &&
+						games.data.map(game => (
+							<GameCard
+								key={game.id}
+								data={game}
+								lists={lists}
+								user={currentUser}
+							/>
+						))}
 				</div>
 			</div>
 			<SideProfileBar currentUser={currentUser} />

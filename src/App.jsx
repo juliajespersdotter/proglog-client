@@ -10,6 +10,7 @@ import LibraryPage from './pages/LibraryPage'
 import ProfilePage from './pages/ProfilePage'
 import SideBar from './components/SideBar'
 import ListPage from './pages/ListPage'
+import GamePage from './pages/GamePage'
 
 function App() {
 	return (
@@ -56,6 +57,17 @@ function App() {
 							<PrivateRoute>
 								<Navigation />
 								<LibraryPage />
+							</PrivateRoute>
+						</>
+					}
+				/>
+				<Route
+					path='/game/:gameId'
+					element={
+						<>
+							<PrivateRoute>
+								<Navigation />
+								<GamePage />
 							</PrivateRoute>
 						</>
 					}

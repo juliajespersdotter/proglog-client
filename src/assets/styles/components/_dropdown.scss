@@ -1,0 +1,39 @@
+// dropdown
+@use '../variables/colors';
+@use '../general/typography';
+@use '../variables/responsive';
+
+.dropdown {
+	overflow: hidden;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+// .dropdown-button:active::after .dropdown-content {
+// 	display: block;
+// }
+
+.dropdown-content a {
+	display: flex;
+	align-items: left;
+	// margin-top: 2rem;
+	padding: 1rem;
+	justify-content: left;
+	background-color: colors.$primary-white;
+	color: colors.$primary-black;
+	// position: absolute;
+	flex-direction: column;
+	z-index: 999;
+	// display: none;
+}
+
+.dropdown-link {
+	display: block;
+	padding: 1rem;
+	// padding-top: 1rem;
+	// padding-bottom: 1rem;
+	float: none;
+}

@@ -39,10 +39,22 @@ const getUserLists = userId => {
 	return get(`/user/lists/${userId}`, { withCredentials: true })
 }
 
+const addGameToList = async (userId, gameId, listId) => {
+	console.log(userId)
+	const res = await axios
+		.post(`/user/add/${userId}`, { gameId, listId })
+		.catch(err => {
+			console.log('Error getting data', err)
+		})
+	// console.log(res.data)
+	// return res.data
+}
+
 const exports = {
 	authenticateUser,
 	logoutUser,
 	getUserLists,
+	addGameToList,
 }
 
 export default exports
