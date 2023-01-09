@@ -5,7 +5,7 @@
 
 .sidebar {
 	@media (min-width: responsive.$screen-large) {
-		width: 100%;
+		width: 15rem;
 	}
 	position: -webkit-sticky;
 	position: sticky;
@@ -21,4 +21,21 @@
 	border: 2px solid colors.$primary-blue;
 	height: 91vh;
 	width: 20%;
+}
+
+.sidebar--profile {
+	align-items: center;
+}
+
+.img--avatar {
+	display: block;
+	// min-height: 100%;
+	// max-width: 100%;
+}
+
+.avatar {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: auto;
 }

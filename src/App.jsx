@@ -9,6 +9,7 @@ import PrivateRoute from './components/PrivateRoute/privateRoute'
 import LibraryPage from './pages/LibraryPage'
 import ProfilePage from './pages/ProfilePage'
 import SideBar from './components/SideBar'
+import ListPage from './pages/ListPage'
 
 function App() {
 	return (
@@ -20,8 +21,18 @@ function App() {
 						<>
 							<PrivateRoute>
 								<Navigation />
-								{/* <SideBar /> */}
 								<FeedPage />
+							</PrivateRoute>
+						</>
+					}
+				/>
+				<Route
+					path='/list/:id'
+					element={
+						<>
+							<PrivateRoute>
+								<Navigation />
+								<ListPage />
 							</PrivateRoute>
 						</>
 					}

@@ -3,6 +3,10 @@
 @use '../general/typography';
 @use '../variables/responsive';
 
+.heading-yellow {
+	color: colors.$primary-yellow;
+}
+
 #navigation {
 	color: colors.$primary-white;
 	background-color: colors.$primary-black;

@@ -25,8 +25,13 @@ const authenticateUser = () => {
 	return get('/user', { withCredentials: true })
 }
 
+const getUserLists = userId => {
+	return get(`/user/lists/${userId}`, { withCredentials: true })
+}
+
 const exports = {
 	authenticateUser,
+	getUserLists,
 }
 
 export default exports

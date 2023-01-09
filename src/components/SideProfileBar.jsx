@@ -8,8 +8,10 @@ const SideProfileBar = () => {
 
 	return (
 		<StickyBox offsetTop={20} offsetBottom={20}>
-			<div className='sidebar'>
-				<img className='avatar' src={currentUser.avatar} />
+			<div className='sidebar sidebar--profile'>
+				<div className='avatar'>
+					<img className='img--avatar' src={currentUser.avatar} />
+				</div>
 				<p>{currentUser.username}</p>
 				{/* <button className='button button--primary'>NEWS</button>
 					<button className='button button--primary'>BROWSE</button> */}

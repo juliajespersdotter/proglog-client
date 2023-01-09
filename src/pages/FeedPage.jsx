@@ -15,9 +15,9 @@ const FeedPage = () => {
 		data: games,
 	} = useQuery('games', RAWG_API.getGames)
 	return (
-		<div id='container' className='feedpage'>
+		<div id='container' className='main-content--container'>
 			<SideBar />
-			<div className='feed'>
+			<div className='main-content'>
 				{!loading && currentUser && (
 					<h4>Welcome, {currentUser.username}</h4>
 				)}
