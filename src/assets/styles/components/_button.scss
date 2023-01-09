@@ -82,24 +82,33 @@
 }
 
 .button--tertiery {
-	background: none;
-	// color: colors.$white;
-
 	&:hover {
 		border-bottom: 2px dashed colors.$primary-blue;
 	}
 
 	&:active::after {
+		border-bottom: 2px dashed;
 	}
 
 	&:focus {
-		background-color: none;
-
 		// border: dashed 2px colors.$white;
 		stroke-dasharray: 10;
 	}
 }
 
+.button--steam {
+	background-image: url('../images/buttons/Login/steam-login.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 100%;
+}
+
+.button--google {
+	background-image: url('../images/buttons/Login/google-buttons/1x/btn_google_signin_dark_normal_web.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 100%;
+}
 // .button--arrow {
 // 	border: none;
 // 	background-color: colors.$primary-700;

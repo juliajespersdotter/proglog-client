@@ -26,12 +26,9 @@ const SideProfileBar = () => {
 				<h3>{currentUser.username}</h3>
 				{/* <button className='button button--primary'>NEWS</button>
 					<button className='button button--primary'>BROWSE</button> */}
-				<button
-					className='button button--tertiery'
-					onClick={() => logoutUser()}
-				>
+				<a className='button--tertiery' onClick={() => logoutUser()}>
 					Logout
-				</button>
+				</a>
 			</div>
 		</StickyBox>
 	)

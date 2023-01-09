@@ -66,18 +66,8 @@ const LoginForm = () => {
 					placeholder='PASSWORD_'
 				/>
 			</form>
-			<button
-				onClick={redirectToGoogle}
-				className='button button--secondary'
-			>
-				Login with Google
-			</button>
-			<button
-				onClick={redirectToSteam}
-				className='button button--secondary'
-			>
-				Login with Steam
-			</button>
+			<a onClick={redirectToGoogle} className='button button--google'></a>
+			<a onClick={redirectToSteam} className='button button--steam'></a>
 		</div>
 	)
 }

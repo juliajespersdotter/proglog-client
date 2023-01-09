@@ -10,7 +10,6 @@ import LibraryPage from './pages/LibraryPage'
 import ProfilePage from './pages/ProfilePage'
 import SideBar from './components/SideBar'
 import ListPage from './pages/ListPage'
-import LogoutPage from './pages/LogoutPage'
 
 function App() {
 	return (
@@ -57,16 +56,6 @@ function App() {
 							<PrivateRoute>
 								<Navigation />
 								<LibraryPage />
-							</PrivateRoute>
-						</>
-					}
-				/>
-				<Route
-					path='/logout'
-					element={
-						<>
-							<PrivateRoute>
-								<LogoutPage />
 							</PrivateRoute>
 						</>
 					}
