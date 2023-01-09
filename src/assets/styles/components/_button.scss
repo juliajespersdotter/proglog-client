@@ -16,18 +16,26 @@
 }
 
 .button--small {
-	font-family: typography.$font-text;
+	background-color: colors.$primary-black;
+	background-image: url('../images/buttons/button-red.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	display: flex;
+	align-items: center;
+	padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+	justify-content: center;
 	text-align: center;
 	font-size: 1rem;
-	background-color: colors.$secondary-blue;
-	color: colors.$primary-grey;
-	border: 1px solid colors.$primary-blue;
-	border-radius: 50%;
-	height: 2rem;
-	width: 2rem;
+	color: colors.$primary-white;
 
 	&:hover {
-		background-color: colors.$primary-white;
+		background-image: url('../images/buttons/button-white.png');
+		color: colors.$primary-black;
+	}
+
+	&:active {
+		background-image: url('../images/buttons/button-grey.png');
 		color: colors.$primary-black;
 	}
 }

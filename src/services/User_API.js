@@ -12,7 +12,7 @@ const get = async (endpoint, options) => {
 	const res = await axios.get(endpoint, options).catch(err => {
 		console.log('Error getting data', err)
 	})
-	// console.log(res.data)
+	console.log(res.data)
 	return res.data
 }
 
@@ -31,7 +31,6 @@ const logoutUser = async () => {
 		.catch(err => {
 			console.log('Error getting data', err)
 		})
-	console.log(res.data)
 	return res.data
 	// return get(`/auth/logout`, { withCredentials: true })
 }

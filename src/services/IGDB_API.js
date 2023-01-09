@@ -21,7 +21,7 @@ const get = async (endpoint, options) => {
  * @returns all games in DB
  */
 const getGames = () => {
-	// return get(`/api/games`)
+	return get(`/api/games`)
 }
 
 /**

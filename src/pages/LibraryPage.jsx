@@ -20,7 +20,7 @@ const LibraryPage = () => {
 					{isLoading && <LoadingSpinner />}
 					{lists &&
 						lists.data.map(list => (
-							<ListCard key={list.list_id} list={list} />
+							<ListCard key={list.id} list={list} />
 						))}
 				</div>
 			</div>
