@@ -80,39 +80,34 @@
 	// 	stroke-dasharray: 10;
 	// }
 }
-/*
+
 .button--tertiery {
 	background: none;
-	color: colors.$white;
+	// color: colors.$white;
 
 	&:hover {
-		background-color: colors.$primary-700;
-		background: transparent
-			url('../../assets/graphics/signup-underline.svg') 50% 80% no-repeat;
+		border-bottom: 2px dashed colors.$primary-blue;
 	}
 
 	&:active::after {
-		background: transparent
-			url('../../assets/graphics/signup-underline.svg') 50% 80% no-repeat;
 	}
 
 	&:focus {
 		background-color: none;
-		background: transparent
-			url('../../assets/graphics/signup-underline.svg') 50% 80% no-repeat;
-		border: dashed 2px colors.$white;
+
+		// border: dashed 2px colors.$white;
 		stroke-dasharray: 10;
 	}
 }
 
-.button--arrow {
-	border: none;
-	background-color: colors.$primary-700;
-	padding: 2rem 0.8rem;
-	cursor: pointer;
-}
+// .button--arrow {
+// 	border: none;
+// 	background-color: colors.$primary-700;
+// 	padding: 2rem 0.8rem;
+// 	cursor: pointer;
+// }
 
-.button--arrow__icon {
-	color: colors.$primary-200;
-	width: 14px;
-}*/
+// .button--arrow__icon {
+// 	color: colors.$primary-200;
+// 	width: 14px;
+// }

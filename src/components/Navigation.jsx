@@ -8,7 +8,7 @@ const Navigation = () => {
 	return (
 		<nav id='navigation'>
 			<h4>
-				<Link to='/'>
+				<Link to='/' className='button--tertiery'>
 					Prog<span className='heading--yellow'>Log</span>
 				</Link>
 			</h4>

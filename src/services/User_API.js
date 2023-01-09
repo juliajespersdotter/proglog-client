@@ -12,7 +12,7 @@ const get = async (endpoint, options) => {
 	const res = await axios.get(endpoint, options).catch(err => {
 		console.log('Error getting data', err)
 	})
-	console.log(res.data)
+	// console.log(res.data)
 	return res.data
 }
 
@@ -25,12 +25,24 @@ const authenticateUser = () => {
 	return get('/user', { withCredentials: true })
 }
 
+const logoutUser = async () => {
+	const res = await axios
+		.delete(`/user/logout`, { withCredentials: true })
+		.catch(err => {
+			console.log('Error getting data', err)
+		})
+	console.log(res.data)
+	return res.data
+	// return get(`/auth/logout`, { withCredentials: true })
+}
+
 const getUserLists = userId => {
 	return get(`/user/lists/${userId}`, { withCredentials: true })
 }
 
 const exports = {
 	authenticateUser,
+	logoutUser,
 	getUserLists,
 }
 

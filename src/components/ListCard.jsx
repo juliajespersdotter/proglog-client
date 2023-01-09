@@ -5,7 +5,9 @@ const ListCard = ({ list }) => {
 	return (
 		<div className='list-card'>
 			<h4>
-				<Link to={`/list/${list.id}`}>{list.list_name}</Link>
+				<Link to={`/list/${list.id}`} className='button--tertiery'>
+					{list.list_name}
+				</Link>
 			</h4>
 			<p>{list.description}</p>
 		</div>

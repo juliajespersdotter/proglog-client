@@ -3,10 +3,6 @@
 @use '../general/typography';
 @use '../variables/responsive';
 
-.heading-yellow {
-	color: colors.$primary-yellow;
-}
-
 #navigation {
 	color: colors.$primary-white;
 	background-color: colors.$primary-black;
@@ -22,6 +18,10 @@
 	width: 100%;
 	justify-content: space-between;
 	align-items: center;
+
+	.heading--yellow {
+		color: colors.$primary-red !important;
+	}
 
 	#nav-links {
 		@media (min-width: responsive.$screen-large) {
