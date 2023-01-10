@@ -18,7 +18,7 @@ const get = async (endpoint, options) => {
 
 /**
  *
- * @returns all games in DB
+ * @returns 20 games from DB
  */
 const getGames = () => {
 	return get(`/api/games`)
@@ -26,10 +26,18 @@ const getGames = () => {
 
 /**
  *
+ * @returns Upcoming games from today
+ */
+const getComingSoon = async () => {
+	return get(`/api/coming-soon`)
+}
+
+/**
+ *
  * @param {integer} gameId
  * @returns Specific game's info
  */
-const GetGamesWithIds = async gameIds => {
+const getGamesWithIds = async gameIds => {
 	const games = gameIds.toString()
 	const res = await axios
 		.post(
@@ -51,7 +59,8 @@ const GetGamesWithIds = async gameIds => {
 
 const exports = {
 	getGames,
-	GetGamesWithIds,
+	getGamesWithIds,
+	getComingSoon,
 }
 
 export default exports

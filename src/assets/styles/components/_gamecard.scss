@@ -6,6 +6,7 @@
 .game-feed {
 	padding-top: 2rem;
 	display: flex;
+	// gap: 20px;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -17,14 +18,28 @@
 	// }
 
 	.game-card {
-		width: 45%;
-		padding-bottom: 1rem;
-		margin-bottom: 3rem;
-	}
+		width: 15%;
+		padding: 0;
+		gap: 0.5rem;
+		// padding-bottom: 1rem;
+		// margin-bottom: 3rem;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
 
-	.game-card--title {
-		width: 65%;
-		padding-left: 1rem;
+		.game-card--image {
+			width: 100%;
+			height: auto;
+			// display: flex;
+			display: block;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.game-card--title {
+			width: 65%;
+			padding-left: 1rem;
+		}
 	}
 }
 
@@ -36,12 +51,17 @@
 	flex-direction: row-reverse;
 	justify-content: flex-end;
 	align-items: center;
-	background-color: colors.$secondary-blue;
+	// background-color: colors.$secondary-blue;
 	margin-bottom: 1rem;
 	padding: 0;
 	gap: 2rem;
-	border: 2px solid colors.$primary-yellow;
+	// border: 2px solid colors.$primary-yellow;
 	// border-radius: 20px 20px 20px 20px;
+
+	.button--small {
+		text-align: left;
+		justify-content: left;
+	}
 
 	.game-card--title {
 		width: 70%;
@@ -68,7 +88,8 @@
 		width: 20%;
 
 		img {
-			margin: 1rem 2rem 1rem 2rem;
+			width: 100%;
+			// margin: 1rem 2rem 1rem 2rem;
 			// border: 2px solid colors.$primary-grey;
 			max-height: 100%;
 			max-width: 100%;

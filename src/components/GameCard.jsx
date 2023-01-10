@@ -31,36 +31,46 @@ const GameCard = ({ data, lists, user }) => {
 			setCoverImg(data.cover)
 		} else if (data.screenshots) {
 			setCoverImg(data.screenshots[0])
+		} else if (data.artworks) {
+			setCoverImg(data.artworks[0])
 		}
 	}, [])
 	return (
 		<div className='game-card'>
-			<div className='game-card--title'>
+			<div className='game-card--image'>
 				<Link to={`/game/${data.id}`}>
-					<h4 className='button--tertiery'>{data.name}</h4>
+					{coverImg && (
+						<img
+							src={`https://images.igdb.com/igdb/image/upload/t_1080p/${coverImg.image_id}.jpg`}
+							alt=''
+						/>
+					)}
+					{!coverImg && <p>{data.name}</p>}
 				</Link>
-				<Dropdown className='dropdown'>
-					<Dropdown.Toggle
-						variant='dark'
-						className='button button--small'
-					>
-						Add <BiPlus />
-					</Dropdown.Toggle>
-					<Dropdown.Menu className='dropdown-content'>
-						{lists &&
-							lists.data.map(list => (
-								<Dropdown.Item
-									key={list.id}
-									data-key={list.id}
-									onClick={addToList}
-									href='#'
-								>
-									{list.list_name}
-								</Dropdown.Item>
-							))}
-						{gameAdded && <p>Added!</p>}
+			</div>
+			{/* <h4 className='button--tertiery'>{data.name}</h4> */}
+			<Dropdown className='dropdown'>
+				<Dropdown.Toggle
+					variant='dark'
+					className='button button--small'
+				>
+					Add <BiPlus />
+				</Dropdown.Toggle>
+				<Dropdown.Menu className='dropdown-content'>
+					{lists &&
+						lists.data.map(list => (
+							<Dropdown.Item
+								key={list.id}
+								data-key={list.id}
+								onClick={addToList}
+								href='#'
+							>
+								{list.list_name}
+								{gameAdded && <p>Added!</p>}
+							</Dropdown.Item>
+						))}
 
-						{/* {countries?.map(country => (
+					{/* {countries?.map(country => (
 						<div key={country._id}>
 							<Link
 								className='dropdown-link button--tertiery'
@@ -70,17 +80,8 @@ const GameCard = ({ data, lists, user }) => {
 							</Link>
 						</div>
 					))} */}
-					</Dropdown.Menu>
-				</Dropdown>
-			</div>
-			<div className='game-card--image'>
-				{coverImg && (
-					<img
-						src={`https://images.igdb.com/igdb/image/upload/t_1080p/${coverImg.image_id}.jpg`}
-						alt=''
-					/>
-				)}
-			</div>
+				</Dropdown.Menu>
+			</Dropdown>
 		</div>
 	)
 }
