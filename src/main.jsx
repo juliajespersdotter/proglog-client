@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import AuthContextProvider from './contexts/AuthContext'
 import App from './App'
 
-const queryClient = new QueryClient({
+export const queryClient = new QueryClient({
 	defaultOptions: {
 		queries: {
 			refetchOnWindowFocus: false,

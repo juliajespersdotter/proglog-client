@@ -29,13 +29,29 @@ const getGames = () => {
  * @param {integer} gameId
  * @returns Specific game's info
  */
-const getGame = gameId => {
-	return get(`/api/games/${gameId}`)
+const GetGamesWithIds = async gameIds => {
+	const games = gameIds.toString()
+	const res = await axios
+		.post(
+			`/api/games`,
+			{ ids: gameIds },
+			{
+				withCredentials: true,
+			}
+		)
+		.catch(err => {
+			console.log('Error getting data', err)
+			return false
+		})
+	// console.log(res.data)
+	if (res) {
+		return res.data
+	}
 }
 
 const exports = {
 	getGames,
-	getGame,
+	GetGamesWithIds,
 }
 
 export default exports

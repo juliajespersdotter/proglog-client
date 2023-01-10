@@ -17,54 +17,63 @@
 	// }
 
 	.game-card {
-		@media (min-width: responsive.$screen-large) {
-			// width: 25%;
-		}
 		width: 45%;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-around;
-		align-items: center;
-		background-color: colors.$secondary-blue;
-		margin-bottom: 3rem;
-		padding: 0;
 		padding-bottom: 1rem;
-		border: 2px solid colors.$primary-yellow;
-		// border-radius: 20px 20px 20px 20px;
+		margin-bottom: 3rem;
+	}
 
-		.game-card--title {
-			width: 60%;
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
-			flex-wrap: nowrap;
-			padding-left: 1rem;
+	.game-card--title {
+		width: 65%;
+		padding-left: 1rem;
+	}
+}
 
-			h4 {
-				// width: 100%;
-				padding-bottom: 1.5;
-				// margin-bottom: 1.5rem;
-				font-family: typography.$font-text;
-			}
+.game-card {
+	@media (min-width: responsive.$screen-large) {
+		// width: 25%;
+	}
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: flex-end;
+	align-items: center;
+	background-color: colors.$secondary-blue;
+	margin-bottom: 1rem;
+	padding: 0;
+	gap: 2rem;
+	border: 2px solid colors.$primary-yellow;
+	// border-radius: 20px 20px 20px 20px;
+
+	.game-card--title {
+		width: 70%;
+		justify-content: center;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		flex-wrap: nowrap;
+		h4 {
+			// width: 100%;
+			// padding-bottom: 1.5;
+			// margin-bottom: 1.5rem;
+			font-family: typography.$font-text;
 		}
+	}
 
-		.game-card--image {
-			display: flex;
-			justify-content: flex-end;
-			align-items: flex-start;
-			margin-left: 1rem;
-			// text-align: center;
-			// height: 13rem;
-			width: 20%;
+	.game-card--image {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-left: 1rem;
+		// text-align: center;
+		// height: 13rem;
+		width: 20%;
 
-			img {
-				margin: 1rem 2rem 1rem 2rem;
-				// border: 2px solid colors.$primary-grey;
-				max-height: 100%;
-				max-width: 100%;
-				// display: block;
-				// width: 100%;
-			}
+		img {
+			margin: 1rem 2rem 1rem 2rem;
+			// border: 2px solid colors.$primary-grey;
+			max-height: 100%;
+			max-width: 100%;
+			// display: block;
+			// width: 100%;
 		}
 	}
 }

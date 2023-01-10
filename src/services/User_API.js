@@ -1,4 +1,5 @@
 import axios from 'axios'
+import IGDB_API from './IGDB_API'
 
 axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL
 
@@ -12,8 +13,11 @@ const get = async (endpoint, options) => {
 	const res = await axios.get(endpoint, options).catch(err => {
 		console.log('Error getting data', err)
 	})
-	console.log(res.data)
-	return res.data
+	if (res) {
+		return res.data
+	} else {
+		return { status: 'error' }
+	}
 }
 
 // Access the backend to authorize user
@@ -39,21 +43,41 @@ const getUserLists = userId => {
 	return get(`/user/lists/${userId}`, { withCredentials: true })
 }
 
+const getList = listId => {
+	return get(`/user/lists/${listId}`, { withCredentials: true })
+}
+
+const getGamesInList = async listId => {
+	const res = await get(`/user/games/${listId}`, { withCredentials: true })
+	if (res.status === 'success') {
+		const igdbRes = await IGDB_API.GetGamesWithIds(res.data)
+		const list = res.list
+		const games = igdbRes.data
+		return { games, list }
+	} else {
+		return res
+	}
+}
+
 const addGameToList = async (userId, gameId, listId) => {
-	console.log(userId)
 	const res = await axios
-		.post(`/user/add/${userId}`, { gameId, listId })
+		.post(
+			`/user/add/${userId}`,
+			{ gameId, listId },
+			{ withCredentials: true }
+		)
 		.catch(err => {
 			console.log('Error getting data', err)
 		})
-	// console.log(res.data)
-	// return res.data
+	return res.data
 }
 
 const exports = {
 	authenticateUser,
 	logoutUser,
 	getUserLists,
+	getList,
+	getGamesInList,
 	addGameToList,
 }
 

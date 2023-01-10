@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react'
 import { BiPlus } from 'react-icons/bi'
 import { Link } from 'react-router-dom'
 import Dropdown from 'react-bootstrap/Dropdown'
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
+import { queryClient } from '../main'
 import User_API from '../services/User_API'
 
 //https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/dfgkfivjrhcksyymh9vw.jpg
 
 const GameCard = ({ data, lists, user }) => {
 	const [coverImg, setCoverImg] = useState('')
+	const [gameAdded, setGameAdded] = useState()
 
 	const addToList = async e => {
 		const listId = e.target.getAttribute('data-key')
@@ -16,6 +17,10 @@ const GameCard = ({ data, lists, user }) => {
 		const userId = user.userId
 
 		const res = await User_API.addGameToList(userId, gameId, listId)
+		if (res.status === 'success') {
+			queryClient.invalidateQueries('games-list')
+			setGameAdded(true)
+		}
 		// console.log(res.data)
 		// on click, add a loading spinner to show it is being added
 		// find list and add list_id + game_id to games_userlists table if user === currentUser
@@ -42,16 +47,18 @@ const GameCard = ({ data, lists, user }) => {
 						Add <BiPlus />
 					</Dropdown.Toggle>
 					<Dropdown.Menu className='dropdown-content'>
-						{lists.data.map(list => (
-							<Dropdown.Item
-								key={list.id}
-								data-key={list.id}
-								onClick={addToList}
-								href='#'
-							>
-								{list.list_name}
-							</Dropdown.Item>
-						))}
+						{lists &&
+							lists.data.map(list => (
+								<Dropdown.Item
+									key={list.id}
+									data-key={list.id}
+									onClick={addToList}
+									href='#'
+								>
+									{list.list_name}
+								</Dropdown.Item>
+							))}
+						{gameAdded && <p>Added!</p>}
 
 						{/* {countries?.map(country => (
 						<div key={country._id}>
