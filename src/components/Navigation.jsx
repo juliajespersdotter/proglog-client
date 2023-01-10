@@ -9,7 +9,7 @@ const Navigation = () => {
 		<nav id='navigation'>
 			<h4>
 				<Link to='/' className='button--tertiery'>
-					Prog<span className='heading--yellow'>Log</span>
+					Prog<span className='heading--red'>Log</span>
 				</Link>
 			</h4>
 			<SearchBar />

@@ -14,6 +14,7 @@
 @use './components/listcard';
 @use './components/loadingspinner';
 @use './components/dropdown';
+@use './components/profile';
 // @use './components/hero';
 // @use './components/footer';
 // @use './components/contactform';
@@ -37,6 +38,10 @@ main {
 
 * {
 	box-sizing: border-box;
+}
+
+.heading--red {
+	color: colors.$primary-red !important;
 }
 
 #dev-background {

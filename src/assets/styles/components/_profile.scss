@@ -1,0 +1,49 @@
+// Profile
+@use '../variables/colors';
+@use '../general/typography';
+@use '../variables/responsive';
+
+.profile--container {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	border: 4px dashed colors.$primary-blue;
+	background-color: colors.$secondary-blue;
+	// height: 90%;
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 5rem;
+	padding: 1rem;
+
+	.profile--image {
+		position: absolute;
+		z-index: 2;
+		top: -60px;
+		margin-left: auto;
+		margin-right: auto;
+		left: 0;
+		right: 0;
+		text-align: center;
+
+		img {
+			border: 4px solid colors.$primary-white;
+		}
+	}
+
+	.profile--info {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		z-index: 3;
+		text-align: center;
+		height: 100%;
+		width: 100%;
+	}
+
+	.profile--stats {
+		margin-top: 15rem;
+		text-align: left;
+		padding-left: 2rem;
+	}
+}

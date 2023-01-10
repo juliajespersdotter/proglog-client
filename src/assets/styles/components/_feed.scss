@@ -23,11 +23,10 @@
 		width: 80%;
 		z-index: 3;
 	}
-
-	.header--divider {
-		width: 100%;
-		background-color: colors.$secondary-blue;
-		border: 1px solid colors.$primary-blue;
-		padding: 1rem;
-	}
+}
+.header--divider {
+	width: 100%;
+	background-color: colors.$secondary-blue;
+	border: 1px solid colors.$primary-blue;
+	padding: 1rem;
 }

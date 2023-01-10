@@ -14,6 +14,7 @@ const get = async (endpoint, options) => {
 		console.log('Error getting data', err)
 	})
 	if (res) {
+		// console.log(res.data)
 		return res.data
 	} else {
 		return { status: 'error' }
@@ -37,6 +38,10 @@ const logoutUser = async () => {
 		})
 	return res.data
 	// return get(`/auth/logout`, { withCredentials: true })
+}
+
+const getSteamUserData = steamId => {
+	return get(`/api/steam/${steamId}`, { withCredentials: true })
 }
 
 const getUserLists = userId => {
@@ -75,6 +80,7 @@ const addGameToList = async (userId, gameId, listId) => {
 const exports = {
 	authenticateUser,
 	logoutUser,
+	getSteamUserData,
 	getUserLists,
 	getList,
 	getGamesInList,

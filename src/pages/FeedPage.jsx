@@ -36,7 +36,7 @@ const FeedPage = () => {
 						{games &&
 							games.data
 								.filter(game => game.platforms.includes(6))
-								.splice(0, 5)
+								.slice(0, 5)
 								.map(filteredGame => (
 									<GameCard
 										key={filteredGame.id}
