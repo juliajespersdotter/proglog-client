@@ -9,15 +9,18 @@ const ListForm = ({ user }) => {
 		register,
 		handleSubmit,
 		watch,
+		reset,
 		formState: { errors },
 	} = useForm()
 
 	const onSubmit = async data => {
 		console.log(data)
-		const res = await User_API.addList(user.userId, data)
-
-		if ((res.status = 'success')) {
-			queryClient.invalidateQueries('userlists')
+		if (data) {
+			const res = await User_API.addList(user.userId, data)
+			reset()
+			if ((res.status = 'success')) {
+				queryClient.invalidateQueries('userlists')
+			}
 		}
 	}
 	return (
@@ -28,6 +31,7 @@ const ListForm = ({ user }) => {
 			action='submit'
 		>
 			<input
+				required
 				{...register('name')}
 				className='inputbox input--small'
 				placeholder='NAME_'
@@ -35,6 +39,7 @@ const ListForm = ({ user }) => {
 				maxLength={30}
 			/>
 			<textarea
+				required
 				{...register('description')}
 				maxLength={45}
 				className='inputbox input--small'

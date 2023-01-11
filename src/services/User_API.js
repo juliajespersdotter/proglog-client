@@ -86,6 +86,16 @@ const addList = async (userId, data) => {
 	return res.data
 }
 
+const deleteList = async (userId, listId) => {
+	console.log(userId, listId)
+	const res = await axios
+		.delete(`/user/lists/${userId}/${listId}`, { withCredentials: true })
+		.catch(err => {
+			console.log('Error getting data')
+		})
+	return res.data
+}
+
 const exports = {
 	authenticateUser,
 	logoutUser,
@@ -95,6 +105,7 @@ const exports = {
 	getGamesInList,
 	addGameToList,
 	addList,
+	deleteList,
 }
 
 export default exports
