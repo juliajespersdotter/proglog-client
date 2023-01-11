@@ -5,6 +5,7 @@ import SideProfileBar from '../components/SideProfileBar'
 import { useAuthContext } from '../contexts/AuthContext'
 import useUserLists from '../hooks/useUserLists'
 import LoadingSpinner from '../components/LoadingSpinner'
+import ListForm from '../components/ListForm'
 
 const LibraryPage = () => {
 	const { currentUser } = useAuthContext()
@@ -14,7 +15,11 @@ const LibraryPage = () => {
 		<div id='container' className='main-content--container'>
 			<SideBar />
 			<div className='main-content'>
-				<h3>My Games</h3>
+				<div className='heading--container'>
+					<h3>My Games</h3>
+					<button className='button button--plus'>NEW_</button>
+					<ListForm user={currentUser} />
+				</div>
 				<div>
 					{isLoading && <LoadingSpinner />}
 					{lists &&

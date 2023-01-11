@@ -11,8 +11,10 @@ const Profile = ({ user, steamUser }) => {
 	}
 
 	useEffect(() => {
-		const sortedArray = mostPlayed()
-		setMostPlayedGames(sortedArray)
+		if (steamUser) {
+			const sortedArray = mostPlayed()
+			setMostPlayedGames(sortedArray)
+		}
 	}, [steamUser])
 
 	return (

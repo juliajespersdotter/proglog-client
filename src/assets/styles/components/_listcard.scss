@@ -9,3 +9,11 @@
 	padding: 0rem 1rem 1rem 2rem;
 	margin-bottom: 1rem;
 }
+
+.heading--container {
+	margin-bottom: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+}

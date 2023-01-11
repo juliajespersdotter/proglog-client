@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Profile from '../components/Profile'
 import SideBar from '../components/SideBar'
 import User_API from '../services/User_API'
@@ -8,15 +8,29 @@ import LoadingSpinner from '../components/LoadingSpinner'
 
 const ProfilePage = () => {
 	const { currentUser } = useAuthContext()
-	const { data: steamData, isLoading } = useSteamData(currentUser.steamId)
+	const [loading, setLoading] = useState(false)
+	const [steamData, setSteamData] = useState(null)
+	// const { data: steamData, isLoading } = useSteamData()
+
+	useEffect(() => {
+		const getSteamData = async () => {
+			setLoading(true)
+			const res = await User_API.getSteamUserData(currentUser.steamId)
+			setLoading(false)
+			setSteamData(res.data)
+		}
+		if (currentUser.steamId) {
+			getSteamData()
+		}
+	}, [])
 
 	return (
 		<div id='container' className='main-content--container'>
 			<SideBar />
 			<div className='main-content'>
-				{isLoading && <LoadingSpinner />}
-				{!isLoading && (
-					<Profile user={currentUser} steamUser={steamData.data} />
+				{loading && <LoadingSpinner />}
+				{!loading && (
+					<Profile user={currentUser} steamUser={steamData} />
 				)}
 			</div>
 			{/* <SideProfileBar /> */}
