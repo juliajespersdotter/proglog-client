@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react'
-import User_API from '../services/User_API'
+import PLDB_API from '../services/PLDB_API'
 
 const AuthContext = createContext()
 
@@ -16,7 +16,7 @@ const AuthContextProvider = ({ children }) => {
 	}
 
 	useEffect(() => {
-		User_API.authenticateUser()
+		PLDB_API.authenticateUser()
 			.then(user => (user ? setCurrentUser(user.user) : ''))
 			.catch(_error => {})
 			.finally(() => setLoading(false))

@@ -1,12 +1,12 @@
 import { useQuery } from 'react-query'
-import User_API from '../services/User_API'
+import PLDB_API from '../services/PLDB_API'
 import { useAuthContext } from '../contexts/AuthContext'
 
 const useSteamData = () => {
 	const { currentUser } = useAuthContext()
 	if (currentUser.steamId !== null) {
 		const id = currentUser.steamId
-		return useQuery(['steam', { id }], () => User_API.getSteamUserData(id))
+		return useQuery(['steam', { id }], () => PLDB_API.getSteamUserData(id))
 	} else {
 		return
 	}

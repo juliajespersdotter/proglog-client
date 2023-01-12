@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Profile from '../components/Profile'
 import SideBar from '../components/SideBar'
-import User_API from '../services/User_API'
+import PLDB_API from '../services/PLDB_API'
 import { useAuthContext } from '../contexts/AuthContext'
 import useSteamData from '../hooks/useSteamData'
 import LoadingSpinner from '../components/LoadingSpinner'
@@ -15,7 +15,7 @@ const ProfilePage = () => {
 	useEffect(() => {
 		const getSteamData = async () => {
 			setLoading(true)
-			const res = await User_API.getSteamUserData(currentUser.steamId)
+			const res = await PLDB_API.getSteamUserData(currentUser.steamId)
 			setLoading(false)
 			setSteamData(res.data)
 		}

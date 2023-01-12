@@ -1,12 +1,12 @@
 import { useQuery } from 'react-query'
 import PLDB_API from '../services/PLDB_API'
 
-const useUserLists = id => {
+const useUser = id => {
 	return useQuery(
-		['userlists', { id }],
-		() => PLDB_API.getUserLists(id)
+		['user', { id }],
+		() => PLDB_API.getUser(id)
 		// { keepPreviousData: true }
 	)
 }
 
-export default useUserLists
+export default useUser

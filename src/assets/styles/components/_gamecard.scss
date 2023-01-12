@@ -139,10 +139,11 @@
 
 		.gameinfo--cover-img {
 			width: 30%;
-			border-left: 3px solid colors.$primary-blue;
-			border-bottom: 3px solid colors.$primary-blue;
 		}
 		img {
+			border-left: 3px solid colors.$primary-blue;
+			border-bottom: 3px solid colors.$primary-blue;
+			margin-bottom: 1rem;
 			max-width: 100%;
 			max-height: 100%;
 			display: block;
@@ -183,8 +184,17 @@
 		align-items: flex-start;
 		justify-content: flex-start;
 
+		.button--small {
+			padding: 1;
+		}
+
 		.button--plus {
-			color: colors.$primary-black !important;
+			cursor: default;
+			font-weight: bold;
+			color: colors.$primary-white !important;
+			background-color: colors.$primary-red;
+			// border-bottom: 2px solid colors.$primary-yellow;
+			// border-left: 2px solid colors.$primary-yellow;
 		}
 
 		p {

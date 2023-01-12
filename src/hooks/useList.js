@@ -1,10 +1,10 @@
 import { useQuery } from 'react-query'
-import User_API from '../services/User_API'
+import PLDB_API from '../services/PLDB_API'
 
 const useList = id => {
 	return useQuery(
 		['list', { id }],
-		() => User_API.getList(id)
+		() => PLDB_API.getList(id)
 		// { keepPreviousData: true }
 	)
 }

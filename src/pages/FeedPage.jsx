@@ -8,6 +8,7 @@ import SideProfileBar from '../components/SideProfileBar'
 import LoadingSpinner from '../components/LoadingSpinner'
 import useUserLists from '../hooks/useUserLists'
 import useComingSoon from '../hooks/useComingSoon'
+import SmallLoadingSpinner from '../components/SmallLoadingSpinner'
 
 const FeedPage = () => {
 	const { currentUser, loading } = useAuthContext()
@@ -37,6 +38,7 @@ const FeedPage = () => {
 										.map(filteredGame => (
 											<GameCard
 												key={filteredGame.id}
+												loading={isLoading}
 												data={filteredGame}
 												lists={lists}
 												user={currentUser}
@@ -56,6 +58,7 @@ const FeedPage = () => {
 										.map(filteredGame => (
 											<GameCard
 												key={filteredGame.id}
+												loading={isLoading}
 												data={filteredGame}
 												lists={lists}
 												user={currentUser}
@@ -77,6 +80,7 @@ const FeedPage = () => {
 										.map(filteredGame => (
 											<GameCard
 												key={filteredGame.id}
+												loading={isLoading}
 												data={filteredGame}
 												lists={lists}
 												user={currentUser}
@@ -96,6 +100,7 @@ const FeedPage = () => {
 										.map(filteredGame => (
 											<GameCard
 												key={filteredGame.id}
+												loading={isLoading}
 												data={filteredGame}
 												lists={lists}
 												user={currentUser}

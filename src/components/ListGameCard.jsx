@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { ImCross } from 'react-icons/im'
 import { Link } from 'react-router-dom'
-import User_API from '../services/User_API'
+import PLDB_API from '../services/PLDB_API'
 import { queryClient } from '../main'
 import SmallLoadingSpinner from './SmallLoadingSpinner'
 
@@ -13,7 +13,7 @@ const ListGameCard = ({ data, list, user }) => {
 
 	const deleteGame = async () => {
 		setLoading(true)
-		const res = await User_API.deleteGame(user.userId, list.id, data.id)
+		const res = await PLDB_API.deleteGame(user.userId, list.id, data.id)
 
 		if (res.status === 'success') {
 			queryClient.invalidateQueries('games-list')

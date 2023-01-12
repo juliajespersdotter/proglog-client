@@ -48,6 +48,14 @@ const getUserLists = userId => {
 	return get(`/user/lists/${userId}`, { withCredentials: true })
 }
 
+const getUser = userId => {
+	return get(`/user/${userId}`, { withCredentials: true })
+}
+
+const getReviews = gameId => {
+	return get(`/reviews/${gameId}`, { withCredentials: true })
+}
+
 const getList = listId => {
 	return get(`/user/lists/${listId}`, { withCredentials: true })
 }
@@ -113,6 +121,8 @@ const exports = {
 	logoutUser,
 	getSteamUserData,
 	getUserLists,
+	getUser,
+	getReviews,
 	getList,
 	getGamesInList,
 	addGameToList,

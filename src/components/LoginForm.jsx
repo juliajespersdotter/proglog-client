@@ -1,13 +1,13 @@
 import React from 'react'
 import { useAuthContext } from '../contexts/AuthContext'
 import { Navigate, useNavigate } from 'react-router-dom'
-import User_API from '../services/User_API'
+import PLDB_API from '../services/PLDB_API'
 
 const LoginForm = () => {
 	const { currentUser, setUser } = useAuthContext()
 	const navigate = useNavigate()
 	const fetchAuthUser = async () => {
-		const res = await User_API.authenticateUser()
+		const res = await PLDB_API.authenticateUser()
 
 		if (res.status === 'success') {
 			navigate('/')

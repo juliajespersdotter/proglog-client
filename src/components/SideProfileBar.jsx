@@ -2,7 +2,7 @@ import React from 'react'
 import StickyBox from 'react-sticky-box'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuthContext } from '../contexts/AuthContext'
-import User_API from '../services/User_API'
+import PLDB_API from '../services/PLDB_API'
 // import { Navigate } from 'react-router-dom'
 
 const SideProfileBar = () => {
@@ -10,7 +10,7 @@ const SideProfileBar = () => {
 	const navigate = useNavigate()
 
 	const logoutUser = async () => {
-		const res = await User_API.logoutUser()
+		const res = await PLDB_API.logoutUser()
 
 		if (res.status === 'success') {
 			navigate('/login')

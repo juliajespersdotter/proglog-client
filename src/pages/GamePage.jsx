@@ -4,14 +4,22 @@ import SideProfileBar from '../components/SideProfileBar'
 import { useParams } from 'react-router-dom'
 import useGamesWithIds from '../hooks/useGamesWithIds'
 import LoadingSpinner from '../components/LoadingSpinner'
-import { BiArrowToTop } from 'react-icons/bi'
 import moment from 'moment'
+import DropdownMenu from '../components/DropdownMenu'
+import { useAuthContext } from '../contexts/AuthContext'
+import useUserLists from '../hooks/useUserLists'
+import useReviews from '../hooks/useReviews'
+import GameCard from '../components/GameCard'
+import Review from '../components/Review'
+import ReviewForm from '../components/ReviewForm'
 
 const GamePage = () => {
+	const { currentUser } = useAuthContext()
 	const { gameId } = useParams()
-	console.log(gameId)
 	const { data: game, isLoading } = useGamesWithIds(gameId)
-	console.log(game)
+	const { data: lists } = useUserLists(currentUser.userId)
+	const { data: reviews } = useReviews(gameId)
+	console.log(reviews)
 
 	return (
 		<div id='container' className='main-content--container'>
@@ -23,23 +31,24 @@ const GamePage = () => {
 						{game &&
 							game.data.map(gameInfo => (
 								<>
-									<div className='gameinfo--header'>
-										{/* {gameInfo.artworks &&
-									gameInfo.artworks.map(art => (
-										<div className='gameinfo--artworks-img'>
-											<img
-												src={`https://images.igdb.com/igdb/image/upload/t_1080p/${art.image_id}.jpg`}
-												alt=''
-											/>
-										</div>
-									))} */}
+									<div
+										key={gameInfo.id}
+										className='gameinfo--header'
+									>
 										{gameInfo.cover && (
-											<div className='gameinfo--cover-img'>
-												<img
-													src={`https://images.igdb.com/igdb/image/upload/t_1080p/${gameInfo.cover.image_id}.jpg`}
-													alt=''
-												/>
-											</div>
+											<>
+												<div className='gameinfo--cover-img'>
+													<img
+														src={`https://images.igdb.com/igdb/image/upload/t_1080p/${gameInfo.cover.image_id}.jpg`}
+														alt=''
+													/>
+													<DropdownMenu
+														lists={lists}
+														game={game}
+														user={currentUser}
+													/>
+												</div>
+											</>
 										)}
 
 										<div className='gameinfo--data'>
@@ -53,16 +62,8 @@ const GamePage = () => {
 											</p>
 											<p>{gameInfo.summary}</p>
 										</div>
-
-										<div>
-											{/* {isLoading && <LoadingSpinner />}
-					{lists &&
-						lists.data.map(list => (
-							<ListCard key={list.list_id} list={list} />
-						))} */}
-											{/* <h2>Game Info</h2> */}
-										</div>
 									</div>
+
 									<div className='gameinfo--tags'>
 										<div className='col'>
 											<p className='header--divider'>
@@ -72,7 +73,7 @@ const GamePage = () => {
 												{gameInfo.genres ? (
 													gameInfo.genres.map(
 														genre => (
-															<a className='button--plus row'>
+															<a className=' button--plus row'>
 																{genre.name}
 															</a>
 														)
@@ -128,6 +129,37 @@ const GamePage = () => {
 												</div>
 											</div>
 										</div>
+									</div>
+									{gameInfo.similar_games && (
+										<div className='game-feed'>
+											<p className='header--divider'>
+												Similar Games
+											</p>
+											{gameInfo.similar_games &&
+												gameInfo.similar_games
+													.slice(0, 6)
+													.map(game => (
+														<GameCard
+															loading={isLoading}
+															data={game}
+															lists={lists}
+															user={currentUser}
+														/>
+													))}
+										</div>
+									)}
+									<div className='reviews'>
+										<p className='header--divider'>
+											Reviews
+										</p>
+										<ReviewForm />
+										{reviews ? (
+											reviews.data.map(review => (
+												<Review data={review} />
+											))
+										) : (
+											<p>No reviews yet</p>
+										)}
 									</div>
 								</>
 							))}

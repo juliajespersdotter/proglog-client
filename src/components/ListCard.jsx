@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ImCross } from 'react-icons/im'
 import SmallLoadingSpinner from './SmallLoadingSpinner'
-import User_API from '../services/User_API'
+import PLDB_API from '../services/PLDB_API'
 import { queryClient } from '../main'
 import { useAuthContext } from '../contexts/AuthContext'
 
@@ -12,7 +12,7 @@ const ListCard = ({ list }) => {
 	const deleteList = async () => {
 		setLoading(true)
 		if (list.deletable) {
-			const res = await User_API.deleteList(currentUser.userId, list.id)
+			const res = await PLDB_API.deleteList(currentUser.userId, list.id)
 			console.log(res)
 
 			if (res.status === 'success') {

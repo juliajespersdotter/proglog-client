@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import PLDB_API from '../services/PLDB_API'
 import { queryClient } from '../main'
 
-const ListForm = ({ user }) => {
+const ReviewForm = ({ user }) => {
 	const {
 		register,
 		handleSubmit,
@@ -16,52 +16,52 @@ const ListForm = ({ user }) => {
 	const onSubmit = async data => {
 		console.log(data)
 		if (data) {
-			const res = await PLDB_API.addList(user.userId, data)
+			const res = await PLDB_API.addReview(user.userId, data)
 			reset()
 			if ((res.status = 'success')) {
-				queryClient.invalidateQueries('userlists')
+				queryClient.invalidateQueries('reviews')
 			}
 		}
 	}
 	return (
 		<form
 			onSubmit={handleSubmit(onSubmit)}
-			id='add-list-form'
+			id='add-review-form'
 			className='form--post'
 			action='submit'
 		>
 			<input
 				required
-				{...register('name')}
-				className='inputbox input--small'
-				placeholder='NAME_'
+				{...register('title')}
+				className='inputbox input--large'
+				placeholder='TITLE_'
 				type='text'
-				maxLength={30}
+				maxLength={45}
 			/>
 			<textarea
 				required
-				{...register('description')}
+				{...register('content')}
 				maxLength={45}
-				className='inputbox input--small'
-				placeholder='DESCRIPTION_'
+				className='inputbox input--large'
+				placeholder='WRITE YOUR REVIEW_'
 				type='text'
 			/>
 			<div className='submit--container'>
 				<div className='checkbox--container'>
 					{' '}
 					<input
-						{...register('private')}
+						{...register('hide')}
 						type='checkbox'
 						className='checkbox-box'
 					/>
-					<label>Private</label>
+					<label>Hide due to spoilers</label>
 				</div>
 				<button type='submit' className='button button--small'>
-					Add <BiPlus />
+					Submit <BiPlus />
 				</button>
 			</div>
 		</form>
 	)
 }
 
-export default ListForm
+export default ReviewForm

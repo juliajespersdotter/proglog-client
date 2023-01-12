@@ -8,9 +8,9 @@ import LoginSuccess from './pages/LoginSuccess'
 import PrivateRoute from './components/PrivateRoute/privateRoute'
 import LibraryPage from './pages/LibraryPage'
 import ProfilePage from './pages/ProfilePage'
-import SideBar from './components/SideBar'
 import ListPage from './pages/ListPage'
 import GamePage from './pages/GamePage'
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
 	return (

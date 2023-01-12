@@ -1,0 +1,24 @@
+// reviews
+@use '../variables/colors';
+@use '../general/typography';
+@use '../variables/responsive';
+
+.review--container {
+	margin-top: 2rem;
+	width: 90%;
+	border: 3px solid colors.$primary-yellow;
+	margin: 0 auto;
+	padding: 1rem 2rem;
+
+	.review--title {
+		display: flex;
+		gap: 1rem;
+
+		img {
+			width: 10%;
+		}
+	}
+	p {
+		@include typography.small-text();
+	}
+}
