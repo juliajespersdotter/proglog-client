@@ -19,7 +19,6 @@ const GamePage = () => {
 	const { data: game, isLoading } = useGamesWithIds(gameId)
 	const { data: lists } = useUserLists(currentUser.userId)
 	const { data: reviews } = useReviews(gameId)
-	console.log(reviews)
 
 	return (
 		<div id='container' className='main-content--container'>
@@ -152,7 +151,10 @@ const GamePage = () => {
 										<p className='header--divider'>
 											Reviews
 										</p>
-										<ReviewForm />
+										<ReviewForm
+											user={currentUser}
+											gameId={gameInfo.id}
+										/>
 										{reviews ? (
 											reviews.data.map(review => (
 												<Review data={review} />

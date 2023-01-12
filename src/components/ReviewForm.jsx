@@ -4,19 +4,20 @@ import { useForm } from 'react-hook-form'
 import PLDB_API from '../services/PLDB_API'
 import { queryClient } from '../main'
 
-const ReviewForm = ({ user }) => {
+const ReviewForm = ({ user, gameId }) => {
 	const {
 		register,
 		handleSubmit,
-		watch,
 		reset,
 		formState: { errors },
 	} = useForm()
 
-	const onSubmit = async data => {
-		console.log(data)
-		if (data) {
-			const res = await PLDB_API.addReview(user.userId, data)
+	const onSubmit = async formData => {
+		console.log(formData)
+		if (formData) {
+			const userId = user.userId
+			const data = { ...formData, userId }
+			const res = await PLDB_API.addReview(gameId, data)
 			reset()
 			if ((res.status = 'success')) {
 				queryClient.invalidateQueries('reviews')

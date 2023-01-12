@@ -85,6 +85,15 @@ const addGameToList = async (userId, gameId, listId) => {
 	return res.data
 }
 
+const addReview = async (gameId, data) => {
+	const res = await axios
+		.post(`/reviews/${gameId}`, { data }, { withCredentials: true })
+		.catch(err => {
+			console.log('Error getting data', err)
+		})
+	return res.data
+}
+
 const addList = async (userId, data) => {
 	const res = await axios
 		.post(`/user/lists/${userId}`, { data }, { withCredentials: true })
@@ -126,6 +135,7 @@ const exports = {
 	getList,
 	getGamesInList,
 	addGameToList,
+	addReview,
 	addList,
 	deleteList,
 	deleteGame,
