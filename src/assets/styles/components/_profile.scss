@@ -3,18 +3,21 @@
 @use '../general/typography';
 @use '../variables/responsive';
 
+.dashed-border {
+	border: 4px dashed colors.$primary-blue;
+	background-color: colors.$secondary-blue;
+	width: 80%;
+	padding: 1rem;
+}
+
 .profile--container {
 	position: relative;
 	z-index: 1;
 	display: flex;
 	flex-direction: column;
-	border: 4px dashed colors.$primary-blue;
-	background-color: colors.$secondary-blue;
 	height: 90%;
-	width: 80%;
 	margin: 0 auto;
 	margin-top: 5rem;
-	padding: 1rem;
 
 	.profile--image {
 		position: absolute;
@@ -45,5 +48,12 @@
 		margin-top: 15rem;
 		text-align: left;
 		padding-left: 2rem;
+	}
+
+	.profile--list {
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: flex-end;
+		gap: 2rem;
 	}
 }

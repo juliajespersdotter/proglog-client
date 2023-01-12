@@ -18,7 +18,7 @@ const Profile = ({ user, steamUser }) => {
 	}, [steamUser])
 
 	return (
-		<div className='profile--container'>
+		<div className='profile--container dashed-border'>
 			<div className='profile--image'>
 				<img src={user.avatar} alt='' />
 				<div className='profile--info'>
@@ -37,7 +37,7 @@ const Profile = ({ user, steamUser }) => {
 					<h4 className='heading--red'>Most played:</h4>
 					{mostPlayedGames &&
 						mostPlayedGames.slice(0, 5).map(game => (
-							<div key={game.appid} className='game-card'>
+							<div key={game.appid} className='profile--list'>
 								<p>{game.name}</p>
 								<div className='steam--icon'>
 									<img

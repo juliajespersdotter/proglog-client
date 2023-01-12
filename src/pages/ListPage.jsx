@@ -4,8 +4,10 @@ import { useParams } from 'react-router-dom'
 import useGamesList from '../hooks/useGamesList'
 import LoadingSpinner from '../components/LoadingSpinner'
 import ListGameCard from '../components/ListGameCard'
+import { useAuthContext } from '../contexts/AuthContext'
 
 const ListPage = () => {
+	const { currentUser } = useAuthContext()
 	const { id } = useParams()
 	const { data, isLoading } = useGamesList(id)
 
@@ -19,7 +21,12 @@ const ListPage = () => {
 					{data &&
 						data.games &&
 						data.games.map(game => (
-							<ListGameCard key={game.id} data={game} />
+							<ListGameCard
+								key={game.id}
+								data={game}
+								list={data.list}
+								user={currentUser}
+							/>
 						))}
 					{data && data.status === 'error' && <p>No games in list</p>}
 				</div>
