@@ -3,6 +3,12 @@
 @use '../general/typography';
 @use '../variables/responsive';
 
+.date {
+	@include typography.description-text();
+	color: colors.$primary-grey;
+	font-size: 0.6rem;
+}
+
 .review--container {
 	margin: 2rem 0rem;
 	width: 100%;
@@ -25,12 +31,6 @@
 			align-items: center;
 			justify-content: space-around;
 			width: 30%;
-		}
-
-		.date {
-			@include typography.description-text();
-			color: colors.$primary-grey;
-			font-size: 0.6rem;
 		}
 
 		.review--stars {
@@ -73,12 +73,11 @@
 			justify-self: flex-end;
 			padding: 0;
 		}
-
-		img {
-			display: block;
-			max-width: 100%;
-			max-height: 100%;
-		}
+	}
+	img {
+		display: block;
+		max-width: 100%;
+		max-height: 100%;
 	}
 
 	.review--content {
@@ -114,7 +113,7 @@
 			width: 100%;
 		}
 
-		margin-bottom: 2rem;
+		// margin-bottom: 2rem;
 		width: 100%;
 	}
 }

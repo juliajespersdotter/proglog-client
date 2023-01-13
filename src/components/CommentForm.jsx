@@ -30,7 +30,7 @@ const CommentForm = ({ review, user }) => {
 		<form
 			onSubmit={handleSubmit(onSubmit)}
 			id='add-comment-form'
-			className='form--post'
+			className='form--post comment--form'
 			action='submit'
 		>
 			<input
@@ -40,15 +40,15 @@ const CommentForm = ({ review, user }) => {
 				className='inputbox input--large'
 				placeholder='WRITE A COMMENT_'
 				type='text'
-				maxLength={45}
+				maxLength={255}
 			/>
-			{toggle && (
+			{/* {toggle && (
 				<div className='submit--container'>
 					<button type='submit' className='button button--small'>
 						Comment <BiPlus />
 					</button>
 				</div>
-			)}
+			)} */}
 		</form>
 	)
 }

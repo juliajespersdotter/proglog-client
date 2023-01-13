@@ -1,0 +1,87 @@
+// comments
+@use '../variables/colors';
+@use '../general/typography';
+@use '../variables/responsive';
+
+.comments--container {
+	a {
+		@include typography.description-text();
+		color: colors.$primary-grey;
+		margin-top: 1rem;
+	}
+}
+
+.comment--form {
+	flex-direction: row;
+	justify-content: center;
+
+	input {
+		margin: 0;
+		width: 80%;
+	}
+
+	.submit--container {
+		width: 10%;
+
+		button {
+			margin: 0;
+		}
+	}
+}
+
+.comments {
+	margin: 0;
+	padding: 0;
+	margin-top: 1rem;
+
+	// background-color: colors.$primary-black;
+}
+
+.comment--container {
+	width: 100%;
+	border-bottom: 0.1px solid colors.$primary-black;
+	background-color: colors.$secondary-blue;
+
+	.comment--content {
+		width: 100%;
+		@include typography.description-text();
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-start;
+		gap: 1rem;
+
+		p {
+			margin: 0;
+		}
+
+		.comment--text {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-content: flex-start;
+			gap: 0.5rem;
+
+			.comment-row {
+				display: flex;
+				// align-self: flex-start;
+				gap: 0.5rem;
+			}
+
+			.date {
+				margin: 0;
+				padding: 0;
+			}
+		}
+
+		.comment--avatar {
+			width: 5%;
+			align-self: flex-start;
+			border: 0.1px solid colors.$primary-yellow;
+		}
+
+		.comment--username {
+			font-weight: bold;
+			color: colors.$primary-red;
+		}
+	}
+}

@@ -9,6 +9,7 @@ import PLDB_API from '../services/PLDB_API'
 import moment from 'moment'
 import CommentForm from './CommentForm'
 import useComments from '../hooks/useComments'
+import Comment from './Comment'
 
 const Review = ({ user, data }) => {
 	// const { currentUser } = useAuthContext()
@@ -98,19 +99,26 @@ const Review = ({ user, data }) => {
 						</div>
 					)}
 					{comments && (
-						<div>
+						<div className='comments--container'>
+							<CommentForm review={data} user={user} />
 							<a
 								onClick={() => {
 									setShowComments(!showComments)
 								}}
 							>
-								Show comments ({comments.data.length})
+								show comments{' '}
+								<span>({comments.data.length})</span>
 							</a>
-							<CommentForm review={data} user={user} />
-							{showComments &&
-								comments.data.map(comment => (
-									<p key={comment.id}>{comment.content}</p>
-								))}
+							{showComments && (
+								<div className='comments'>
+									{comments.data.map(comment => (
+										<Comment
+											data={comment}
+											key={comment.id}
+										/>
+									))}
+								</div>
+							)}
 						</div>
 					)}
 				</>
