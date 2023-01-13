@@ -7,12 +7,17 @@ import { queryClient } from '../main'
 import SmallLoadingSpinner from './SmallLoadingSpinner'
 import PLDB_API from '../services/PLDB_API'
 import moment from 'moment'
+import CommentForm from './CommentForm'
+import useComments from '../hooks/useComments'
 
 const Review = ({ user, data }) => {
 	// const { currentUser } = useAuthContext()
 	const [loading, setLoading] = useState()
 	const { data: author, isLoading } = useUser(data.user_id)
-	const [toggle, setToggle] = useState()
+	const { data: comments } = useComments(data.id)
+	console.log(comments)
+	const [toggle, setToggle] = useState(false)
+	const [showComments, setShowComments] = useState(false)
 
 	const deleteReview = async () => {
 		setLoading(true)
@@ -42,7 +47,9 @@ const Review = ({ user, data }) => {
 							<span>rated it</span>
 							<div className='review--stars'>
 								{[...Array(data.rating)].map((item, index) => (
-									<span className='star'>&#9733;</span>
+									<span key={index} className='star'>
+										&#9733;
+									</span>
 								))}
 							</div>
 						</div>
@@ -88,6 +95,22 @@ const Review = ({ user, data }) => {
 						<div className='review--content'>
 							<h4>{data.title}</h4>
 							<p>{data.content}</p>
+						</div>
+					)}
+					{comments && (
+						<div>
+							<a
+								onClick={() => {
+									setShowComments(!showComments)
+								}}
+							>
+								Show comments ({comments.data.length})
+							</a>
+							<CommentForm review={data} user={user} />
+							{showComments &&
+								comments.data.map(comment => (
+									<p key={comment.id}>{comment.content}</p>
+								))}
 						</div>
 					)}
 				</>

@@ -44,7 +44,7 @@ const GamePage = () => {
 													/>
 													<DropdownMenu
 														lists={lists}
-														game={game}
+														game={gameInfo}
 														user={currentUser}
 													/>
 												</div>

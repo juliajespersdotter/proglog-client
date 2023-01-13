@@ -14,7 +14,7 @@ const get = async (endpoint, options) => {
 		console.log('Error getting data', err)
 	})
 	if (res) {
-		// console.log(res.data)
+		console.log(res.data)
 		return res.data
 	} else {
 		return { status: 'error' }
@@ -46,6 +46,10 @@ const getSteamUserData = steamId => {
 
 const getUserLists = userId => {
 	return get(`/user/lists/${userId}`, { withCredentials: true })
+}
+
+const getComments = reviewId => {
+	return get(`/reviews/comments/${reviewId}`, { withCredentials: true })
 }
 
 const getUser = userId => {
@@ -103,6 +107,19 @@ const addList = async (userId, data) => {
 	return res.data
 }
 
+const postComment = async (reviewId, data) => {
+	const res = await axios
+		.post(
+			`/reviews/comments/${reviewId}`,
+			{ data },
+			{ withCredentials: true }
+		)
+		.catch(err => {
+			console.log('Error getting data', err)
+		})
+	return res.data
+}
+
 const deleteList = async (userId, listId) => {
 	console.log(userId, listId)
 	const res = await axios
@@ -142,6 +159,7 @@ const exports = {
 	logoutUser,
 	getSteamUserData,
 	getUserLists,
+	getComments,
 	getUser,
 	getReviews,
 	getList,
@@ -149,6 +167,7 @@ const exports = {
 	addGameToList,
 	addReview,
 	addList,
+	postComment,
 	deleteList,
 	deleteGame,
 	deleteReview,
