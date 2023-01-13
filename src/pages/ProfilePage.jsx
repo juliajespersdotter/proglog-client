@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import Profile from '../components/Profile'
-import SideBar from '../components/SideBar'
+import Profile from '../components/User/Profile'
+import SideBar from '../components/Navigation/SideBar'
 import PLDB_API from '../services/PLDB_API'
 import { useAuthContext } from '../contexts/AuthContext'
 import useSteamData from '../hooks/useSteamData'
-import LoadingSpinner from '../components/LoadingSpinner'
+import LoadingSpinner from '../components/Loading/LoadingSpinner'
 
 const ProfilePage = () => {
 	const { currentUser } = useAuthContext()

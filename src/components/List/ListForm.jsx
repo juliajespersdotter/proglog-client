@@ -1,8 +1,8 @@
 import React from 'react'
 import { BiPlus } from 'react-icons/bi'
 import { useForm } from 'react-hook-form'
-import PLDB_API from '../services/PLDB_API'
-import { queryClient } from '../main'
+import PLDB_API from '../../services/PLDB_API'
+import { queryClient } from '../../main'
 
 const ListForm = ({ user }) => {
 	const {

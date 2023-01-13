@@ -1,7 +1,7 @@
 import React from 'react'
-import { useAuthContext } from '../contexts/AuthContext'
+import { useAuthContext } from '../../contexts/AuthContext'
 import { Navigate, useNavigate } from 'react-router-dom'
-import PLDB_API from '../services/PLDB_API'
+import PLDB_API from '../../services/PLDB_API'
 
 const LoginForm = () => {
 	const { currentUser, setUser } = useAuthContext()

@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ImCross } from 'react-icons/im'
-import SmallLoadingSpinner from './SmallLoadingSpinner'
-import PLDB_API from '../services/PLDB_API'
-import { queryClient } from '../main'
-import { useAuthContext } from '../contexts/AuthContext'
+import SmallLoadingSpinner from '../Loading/SmallLoadingSpinner'
+import PLDB_API from '../../services/PLDB_API'
+import { queryClient } from '../../main'
+import { useAuthContext } from '../../contexts/AuthContext'
 
 const ListCard = ({ list }) => {
 	const [loading, setLoading] = useState()

@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import FeedPage from './pages/FeedPage'
 import NotFound from './components/NotFound'
-import Navigation from './components/Navigation'
+import Navigation from './components/Navigation/Navigation'
 import './assets/styles/globals.scss'
 import LandingPage from './pages/LandingPage'
 import LoginSuccess from './pages/LoginSuccess'

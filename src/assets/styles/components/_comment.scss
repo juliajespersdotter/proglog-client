@@ -8,6 +8,7 @@
 		@include typography.description-text();
 		color: colors.$primary-grey;
 		margin-top: 1rem;
+		padding: 0.1rem;
 	}
 }
 
@@ -16,7 +17,7 @@
 	justify-content: center;
 
 	input {
-		margin: 0;
+		margin-bottom: 0.3rem;
 		width: 80%;
 	}
 

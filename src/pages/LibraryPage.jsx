@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import ListCard from '../components/ListCard'
-import SideBar from '../components/SideBar'
-import SideProfileBar from '../components/SideProfileBar'
+import ListCard from '../components/List/ListCard'
+import SideBar from '../components/Navigation/SideBar'
+import SideProfileBar from '../components/User/SideProfileBar'
 import { useAuthContext } from '../contexts/AuthContext'
 import useUserLists from '../hooks/useUserLists'
-import LoadingSpinner from '../components/LoadingSpinner'
-import ListForm from '../components/ListForm'
+import LoadingSpinner from '../components/Loading/LoadingSpinner'
+import ListForm from '../components/List/ListForm'
 
 const LibraryPage = () => {
 	const { currentUser } = useAuthContext()

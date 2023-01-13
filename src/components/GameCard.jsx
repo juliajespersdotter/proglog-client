@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import DropdownMenu from './DropdownMenu'
-import SmallLoadingSpinner from './SmallLoadingSpinner'
+import SmallLoadingSpinner from './Loading/SmallLoadingSpinner'
 
 //https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/dfgkfivjrhcksyymh9vw.jpg
 

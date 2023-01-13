@@ -154,6 +154,18 @@ const deleteReview = async (reviewId, userId) => {
 	return res.data
 }
 
+const deleteComment = async (commentId, userId) => {
+	console.log(commentId, userId)
+	const res = await axios
+		.delete(`/reviews/comments/${userId}/${commentId}`, {
+			withCredentials: true,
+		})
+		.catch(err => {
+			console.log('Error getting data')
+		})
+	return res.data
+}
+
 const exports = {
 	authenticateUser,
 	logoutUser,
@@ -171,6 +183,7 @@ const exports = {
 	deleteList,
 	deleteGame,
 	deleteReview,
+	deleteComment,
 }
 
 export default exports

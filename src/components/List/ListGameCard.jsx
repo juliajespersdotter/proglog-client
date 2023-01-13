@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { ImCross } from 'react-icons/im'
 import { Link } from 'react-router-dom'
-import PLDB_API from '../services/PLDB_API'
-import { queryClient } from '../main'
-import SmallLoadingSpinner from './SmallLoadingSpinner'
+import PLDB_API from '../../services/PLDB_API'
+import { queryClient } from '../../main'
+import SmallLoadingSpinner from '../Loading/SmallLoadingSpinner'
 
 //https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/dfgkfivjrhcksyymh9vw.jpg
 

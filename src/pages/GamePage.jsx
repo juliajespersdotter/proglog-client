@@ -1,17 +1,17 @@
 import { useState } from 'react'
-import SideBar from '../components/SideBar'
-import SideProfileBar from '../components/SideProfileBar'
+import SideBar from '../components/Navigation/SideBar'
+import SideProfileBar from '../components/User/SideProfileBar'
 import { useParams } from 'react-router-dom'
 import useGamesWithIds from '../hooks/useGamesWithIds'
-import LoadingSpinner from '../components/LoadingSpinner'
+import LoadingSpinner from '../components/Loading/LoadingSpinner'
 import moment from 'moment'
 import DropdownMenu from '../components/DropdownMenu'
 import { useAuthContext } from '../contexts/AuthContext'
 import useUserLists from '../hooks/useUserLists'
 import useReviews from '../hooks/useReviews'
 import GameCard from '../components/GameCard'
-import Review from '../components/Review'
-import ReviewForm from '../components/ReviewForm'
+import Review from '../components/Review/Review'
+import ReviewForm from '../components/Review/ReviewForm'
 
 const GamePage = () => {
 	const { currentUser } = useAuthContext()

@@ -3,7 +3,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import { BiPlus } from 'react-icons/bi'
 import PLDB_API from '../services/PLDB_API'
 import { queryClient } from '../main'
-import SmallLoadingSpinner from './SmallLoadingSpinner'
+import SmallLoadingSpinner from './Loading/SmallLoadingSpinner'
 
 const DropdownMenu = ({ lists, game, user }) => {
 	const [gameAdded, setGameAdded] = useState()

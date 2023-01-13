@@ -1,9 +1,9 @@
-import SideBar from '../components/SideBar'
-import SideProfileBar from '../components/SideProfileBar'
+import SideBar from '../components/Navigation/SideBar'
+import SideProfileBar from '../components/User/SideProfileBar'
 import { useParams } from 'react-router-dom'
 import useGamesList from '../hooks/useGamesList'
-import LoadingSpinner from '../components/LoadingSpinner'
-import ListGameCard from '../components/ListGameCard'
+import LoadingSpinner from '../components/Loading/LoadingSpinner'
+import ListGameCard from '../components/List/ListGameCard'
 import { useAuthContext } from '../contexts/AuthContext'
 
 const ListPage = () => {

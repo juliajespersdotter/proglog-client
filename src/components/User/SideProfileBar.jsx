@@ -1,8 +1,8 @@
 import React from 'react'
 import StickyBox from 'react-sticky-box'
 import { Link, useNavigate } from 'react-router-dom'
-import { useAuthContext } from '../contexts/AuthContext'
-import PLDB_API from '../services/PLDB_API'
+import { useAuthContext } from '../../contexts/AuthContext'
+import PLDB_API from '../../services/PLDB_API'
 // import { Navigate } from 'react-router-dom'
 
 const SideProfileBar = () => {

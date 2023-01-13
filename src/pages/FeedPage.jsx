@@ -3,12 +3,12 @@ import { useQuery } from 'react-query'
 import GameCard from '../components/GameCard'
 import IGDB_API from '../services/IGDB_API'
 import { useAuthContext } from '../contexts/AuthContext'
-import SideBar from '../components/SideBar'
-import SideProfileBar from '../components/SideProfileBar'
-import LoadingSpinner from '../components/LoadingSpinner'
+import SideBar from '../components/Navigation/SideBar'
+import SideProfileBar from '../components/User/SideProfileBar'
+import LoadingSpinner from '../components/Loading/LoadingSpinner'
 import useUserLists from '../hooks/useUserLists'
 import useComingSoon from '../hooks/useComingSoon'
-import SmallLoadingSpinner from '../components/SmallLoadingSpinner'
+import SmallLoadingSpinner from '../components/Loading/SmallLoadingSpinner'
 
 const FeedPage = () => {
 	const { currentUser, loading } = useAuthContext()
