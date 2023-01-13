@@ -50,26 +50,24 @@ const DropdownMenu = ({ lists, game, user }) => {
 								>
 									{list.list_name}
 									{/* {gameAdded && <p>Added!</p>} */}
-									{loading && listId === list.id && (
+									{/* {loading && listId === list.id && (
 										<SmallLoadingSpinner />
-									)}
+									)} */}
 								</a>
 							) : (
-								<>
-									<a
-										key={list.id}
-										data-key={list.id}
-										onClick={addToList}
-										href='#'
-										className='dropdown--link'
-									>
-										{list.list_name}
-										{/* {gameAdded && <p>Added!</p>} */}
-										{loading && listId === list.id && (
+								<a
+									key={list.id}
+									data-key={list.id}
+									onClick={addToList}
+									href='#'
+									className='dropdown--link'
+								>
+									{list.list_name}
+									{/* {gameAdded && <p>Added!</p>} */}
+									{/* {loading && listId === list.id && (
 											<SmallLoadingSpinner />
-										)}
-									</a>
-								</>
+										)} */}
+								</a>
 							)
 						)}
 				</div>

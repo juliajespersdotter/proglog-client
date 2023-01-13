@@ -2,6 +2,21 @@
 @use '../variables/colors';
 @use '../general/typography';
 
+button {
+	background-color: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.on {
+	color: colors.$primary-red;
+}
+
+.off {
+	color: colors.$primary-white;
+}
+
 .button {
 	font-family: typography.$font-headings;
 	font-weight: 700;

@@ -4,21 +4,117 @@
 @use '../variables/responsive';
 
 .review--container {
-	margin-top: 2rem;
-	width: 90%;
-	border: 3px solid colors.$primary-yellow;
+	margin: 2rem 0rem;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	border-left: 3px solid colors.$primary-yellow;
+	background-color: colors.$secondary-blue;
 	margin: 0 auto;
 	padding: 1rem 2rem;
 
 	.review--title {
 		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
 		gap: 1rem;
 
+		.date-cross {
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+			width: 30%;
+		}
+
+		.date {
+			@include typography.description-text();
+			color: colors.$primary-grey;
+			font-size: 0.6rem;
+		}
+
+		.review--stars {
+			margin-left: 0.5rem;
+		}
+
+		.star {
+			color: colors.$primary-yellow;
+		}
+
+		.review--avatar {
+			width: 15%;
+			margin-right: 1rem;
+			border: 2px solid colors.$primary-red;
+		}
+
+		.review--rating {
+			@include typography.description-text();
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			display: flex;
+			gap: 0.2rem;
+
+			.author-link,
+			span {
+				font-family: typography.$font-headings;
+			}
+
+			.author-link {
+				color: colors.$primary-blue;
+
+				&:hover {
+					color: colors.$primary-red;
+				}
+			}
+		}
+
+		.cross--container {
+			justify-self: flex-end;
+			padding: 0;
+		}
+
 		img {
-			width: 10%;
+			display: block;
+			max-width: 100%;
+			max-height: 100%;
 		}
 	}
-	p {
-		@include typography.small-text();
+
+	.review--content {
+		h4 {
+			text-transform: capitalize;
+			margin: 0;
+			margin-top: 1rem;
+		}
+		p {
+			// text-transform: capitalize;
+			margin-top: 0.5rem;
+			@include typography.description-text();
+
+			&:first-letter {
+				text-transform: capitalize;
+			}
+		}
+	}
+}
+
+.reviews {
+	display: flex;
+	flex-direction: column;
+	margin-top: 2rem;
+	gap: 1rem;
+
+	.button--plus {
+		width: 10rem;
+	}
+	form {
+		.input--large,
+		textarea {
+			width: 100%;
+		}
+
+		margin-bottom: 2rem;
+		width: 100%;
 	}
 }

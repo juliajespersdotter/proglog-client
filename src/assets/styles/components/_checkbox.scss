@@ -2,10 +2,6 @@
 @use '../variables/colors';
 @use '../general/typography';
 
-.checkbox-box {
-	box-sizing: border-box;
-}
-
 .checkbox--container {
 	display: flex;
 	align-items: center;

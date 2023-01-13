@@ -125,7 +125,7 @@
 }
 
 .gameinfo--container {
-	width: 100%;
+	width: 90%;
 	margin: 0 auto;
 	margin-top: 2rem;
 
@@ -155,16 +155,14 @@
 			display: flex;
 			justify-content: center;
 			flex-direction: column;
-
-			.gameinfo--date {
-				margin: 0;
-				padding: 0;
-				@include typography.description-text();
-				color: colors.$primary-yellow;
-			}
 		}
 	}
-
+	.gameinfo--date {
+		margin: 0;
+		padding: 0;
+		@include typography.description-text();
+		color: colors.$primary-yellow;
+	}
 	.gameinfo--tags {
 		display: flex;
 		flex-direction: row;

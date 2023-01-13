@@ -6,7 +6,6 @@
 .dashed-border {
 	border: 4px dashed colors.$primary-blue;
 	background-color: colors.$secondary-blue;
-	width: 80%;
 	padding: 1rem;
 }
 
@@ -16,6 +15,7 @@
 	display: flex;
 	flex-direction: column;
 	height: 90%;
+	width: 80%;
 	margin: 0 auto;
 	margin-top: 5rem;
 
@@ -52,6 +52,7 @@
 
 	.profile--list {
 		display: flex;
+		align-items: center;
 		flex-direction: row-reverse;
 		justify-content: flex-end;
 		gap: 2rem;
