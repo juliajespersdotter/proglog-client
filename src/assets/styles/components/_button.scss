@@ -75,6 +75,7 @@ button {
 	background-image: url('../images/buttons/button-red.png');
 	background-repeat: no-repeat;
 	background-position: center;
+	background-size: contain;
 	color: colors.$primary-white;
 
 	&:hover {

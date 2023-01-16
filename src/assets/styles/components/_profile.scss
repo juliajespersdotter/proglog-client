@@ -57,4 +57,10 @@
 		justify-content: flex-end;
 		gap: 2rem;
 	}
+
+	.reviews {
+		.comment--form {
+			display: none;
+		}
+	}
 }

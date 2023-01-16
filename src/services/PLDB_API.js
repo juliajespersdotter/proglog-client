@@ -44,6 +44,10 @@ const getSteamUserData = steamId => {
 	return get(`/api/steam/${steamId}`, { withCredentials: true })
 }
 
+const getProfile = userId => {
+	return get(`/user/profile/${userId}`, { withCredentials: true })
+}
+
 const getUserLists = userId => {
 	return get(`/user/lists/${userId}`, { withCredentials: true })
 }
@@ -169,6 +173,7 @@ const deleteComment = async (commentId, userId) => {
 const exports = {
 	authenticateUser,
 	logoutUser,
+	getProfile,
 	getSteamUserData,
 	getUserLists,
 	getComments,

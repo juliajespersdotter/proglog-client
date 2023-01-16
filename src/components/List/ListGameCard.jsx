@@ -46,12 +46,14 @@ const ListGameCard = ({ data, list, user }) => {
 				<p>Date Completed:</p>
 				{/* <p>{data.summary}</p> */}
 			</div>
-			<div className='cross--container'>
-				<span onClick={deleteGame} className='cross'>
-					{!loading && <ImCross />}
-					{loading && <SmallLoadingSpinner />}
-				</span>
-			</div>
+			{user.userId == list.user_id && (
+				<div className='cross--container'>
+					<span onClick={deleteGame} className='cross'>
+						{!loading && <ImCross />}
+						{loading && <SmallLoadingSpinner />}
+					</span>
+				</div>
+			)}
 		</div>
 	)
 }

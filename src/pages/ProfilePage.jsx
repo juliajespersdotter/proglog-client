@@ -1,36 +1,34 @@
 import { useEffect, useState } from 'react'
 import Profile from '../components/User/Profile'
 import SideBar from '../components/Navigation/SideBar'
-import PLDB_API from '../services/PLDB_API'
 import { useAuthContext } from '../contexts/AuthContext'
-import useSteamData from '../hooks/useSteamData'
+import { useParams } from 'react-router'
 import LoadingSpinner from '../components/Loading/LoadingSpinner'
+import useProfile from '../hooks/useProfile'
 
 const ProfilePage = () => {
+	const { id } = useParams()
+	const { data: profile, isLoading } = useProfile(id)
 	const { currentUser } = useAuthContext()
-	const [loading, setLoading] = useState(false)
-	const [steamData, setSteamData] = useState(null)
-	// const { data: steamData, isLoading } = useSteamData()
 
-	useEffect(() => {
-		const getSteamData = async () => {
-			setLoading(true)
-			const res = await PLDB_API.getSteamUserData(currentUser.steamId)
-			setLoading(false)
-			setSteamData(res.data)
-		}
-		if (currentUser.steamId) {
-			getSteamData()
-		}
-	}, [])
+	// console.log(id)
+	// console.log(profile)
+	// const { data: reviews, isLoading } = useReviews(currentUser.userId)
+	// const { data: lists } = useUserLists(currentUser.userId)
+	// console.log(currentUser)
+	// const { data: steamData, isLoading } = useSteamData()
 
 	return (
 		<div id='container' className='main-content--container'>
 			<SideBar />
 			<div className='main-content'>
-				{loading && <LoadingSpinner />}
-				{!loading && (
-					<Profile user={currentUser} steamUser={steamData} />
+				{isLoading && <LoadingSpinner />}
+				{profile && (
+					<Profile
+						user={profile.user}
+						// steamUser={steamData}
+						profile={profile}
+					/>
 				)}
 			</div>
 			{/* <SideProfileBar /> */}

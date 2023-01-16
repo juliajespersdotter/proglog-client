@@ -53,7 +53,7 @@ const Review = ({ user, data }) => {
 							</div>
 							<Link
 								className='author-link'
-								to={`/user/${author.data.userId}`}
+								to={`/profile/${author.data.userId}`}
 							>
 								{author.data.username}
 							</Link>

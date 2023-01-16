@@ -31,7 +31,7 @@ const ListCard = ({ list }) => {
 				<p>{list.description}</p>
 			</div>
 			<div className='cross--container'>
-				{list.deletable && (
+				{list.deletable && currentUser.userId == list.user_id && (
 					<span onClick={deleteList} className='cross'>
 						{!loading && <ImCross />}
 						{loading && <SmallLoadingSpinner />}
