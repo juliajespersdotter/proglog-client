@@ -19,9 +19,8 @@ const GameCard = ({ data, loading, lists, user }) => {
 	}, [])
 	return (
 		<div className='game-card'>
-			{loading ? (
-				<SmallLoadingSpinner />
-			) : (
+			{loading && <SmallLoadingSpinner />}
+			{!loading && (
 				<>
 					<div className='game-card--image'>
 						<Link to={`/game/${data.id}`}>

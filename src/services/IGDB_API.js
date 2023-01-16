@@ -9,12 +9,22 @@ axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL
  * @returns Promise
  */
 const get = async (endpoint, options) => {
-	const res = await axios.get(endpoint, options)
-	console.log(res.data)
-	return res.data
+	const res = await axios.get(endpoint, options).catch(err => {
+		console.log('Error getting data', err)
+	})
+	if (res) {
+		console.log(res.data)
+		return res.data
+	} else {
+		return { status: 'error' }
+	}
 }
 
 // Access the backend to get game data
+
+const search = async query => {
+	return get(`/api/search/${query}`)
+}
 
 /**
  *
@@ -58,6 +68,7 @@ const getGamesWithIds = async gameIds => {
 }
 
 const exports = {
+	search,
 	getGames,
 	getGamesWithIds,
 	getComingSoon,

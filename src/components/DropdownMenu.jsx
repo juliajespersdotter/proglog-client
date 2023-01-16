@@ -46,7 +46,6 @@ const DropdownMenu = ({ lists, game, user }) => {
 									key={list.id}
 									data-key={list.id}
 									onClick={addToList}
-									href='#'
 								>
 									{list.list_name}
 									{/* {gameAdded && <p>Added!</p>} */}
@@ -59,7 +58,6 @@ const DropdownMenu = ({ lists, game, user }) => {
 									key={list.id}
 									data-key={list.id}
 									onClick={addToList}
-									href='#'
 									className='dropdown--link'
 								>
 									{list.list_name}

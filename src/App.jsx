@@ -10,6 +10,7 @@ import LibraryPage from './pages/LibraryPage'
 import ProfilePage from './pages/ProfilePage'
 import ListPage from './pages/ListPage'
 import GamePage from './pages/GamePage'
+import SearchPage from './pages/SearchPage'
 // import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
@@ -68,6 +69,17 @@ function App() {
 							<PrivateRoute>
 								<Navigation />
 								<GamePage />
+							</PrivateRoute>
+						</>
+					}
+				/>
+				<Route
+					path='/search/:query'
+					element={
+						<>
+							<PrivateRoute>
+								<Navigation />
+								<SearchPage />
 							</PrivateRoute>
 						</>
 					}
