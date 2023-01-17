@@ -9,17 +9,27 @@ const Pagination = ({
 	return (
 		<div className='pagination d-flex justify-content-between align-items-center mt-3'>
 			<div className='previous-page'>
-				<button disabled={!hasPreviousPage} onClick={onPreviousPage}>
+				<button
+					className='button button--plus'
+					disabled={!hasPreviousPage}
+					onClick={onPreviousPage}
+				>
 					Previous Page
 				</button>
 			</div>
 
 			<div className='current-page'>
-				{page}/{numPages}
+				<p>
+					{page}/{numPages}
+				</p>
 			</div>
 
 			<div className='next-page'>
-				<button disabled={!hasNextPage} onClick={onNextPage}>
+				<button
+					className='button button--plus'
+					disabled={!hasNextPage}
+					onClick={onNextPage}
+				>
 					Next Page
 				</button>
 			</div>

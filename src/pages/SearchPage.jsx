@@ -14,12 +14,10 @@ const SearchPage = () => {
 	const page = searchParams.get('page')
 		? Number(searchParams.get('page'))
 		: null
-	console.log(page)
 	const { query } = useParams()
 	const { currentUser } = useAuthContext()
 	const { data: result, isLoading } = useSearch(query, page)
 	const { data: lists } = useUserLists(currentUser.userId)
-	// console.log(Math.ceil(result.count / 20))
 
 	useEffect(() => {
 		// scroll to top on page load
@@ -49,7 +47,7 @@ const SearchPage = () => {
 
 						<div>
 							<div className='game-feed'>
-								{result.data.slice(0, 20).map(game => (
+								{result.data.map(game => (
 									<GameCard
 										key={game.id}
 										loading={isLoading}

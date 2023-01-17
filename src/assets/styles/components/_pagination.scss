@@ -1,0 +1,28 @@
+// pagination component
+@use '../variables/colors';
+@use '../general/typography';
+@use '../variables/responsive';
+
+.pagination {
+	@include typography.small-text();
+
+	button {
+		@include typography.description-text();
+		color: colors.$primary-black;
+
+		&:disabled {
+			cursor: default;
+			background-color: colors.$primary-grey;
+		}
+	}
+
+	.current-page {
+		font-weight: bold;
+	}
+
+	color: colors.$primary-yellow;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 3rem;
+}
