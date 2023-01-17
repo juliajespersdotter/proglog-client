@@ -22,8 +22,10 @@ const get = async (endpoint, options) => {
 
 // Access the backend to get game data
 
-const search = async query => {
-	return get(`/api/search/${query}`)
+const search = async (query, page) => {
+	page = page * 2 * 10
+	console.log(page)
+	return get(`/api/search/${query}/${page}`)
 }
 
 /**
