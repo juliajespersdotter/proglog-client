@@ -12,7 +12,6 @@ import SmallLoadingSpinner from '../components/Loading/SmallLoadingSpinner'
 
 const FeedPage = ({ currentUser }) => {
 	// const { currentUser, loading } = useAuthContext()
-	const { data: lists } = useUserLists(currentUser.userId)
 	const { data: games, isLoading } = useComingSoon()
 	return (
 		<div id='container' className='main-content--container'>
@@ -37,7 +36,6 @@ const FeedPage = ({ currentUser }) => {
 												key={filteredGame.id}
 												loading={isLoading}
 												data={filteredGame}
-												lists={lists}
 												user={currentUser}
 											/>
 										))}
@@ -57,7 +55,6 @@ const FeedPage = ({ currentUser }) => {
 												key={filteredGame.id}
 												loading={isLoading}
 												data={filteredGame}
-												lists={lists}
 												user={currentUser}
 											/>
 										))}
@@ -79,7 +76,6 @@ const FeedPage = ({ currentUser }) => {
 												key={filteredGame.id}
 												loading={isLoading}
 												data={filteredGame}
-												lists={lists}
 												user={currentUser}
 											/>
 										))}
@@ -99,7 +95,6 @@ const FeedPage = ({ currentUser }) => {
 												key={filteredGame.id}
 												loading={isLoading}
 												data={filteredGame}
-												lists={lists}
 												user={currentUser}
 											/>
 										))}

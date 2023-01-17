@@ -101,7 +101,7 @@ function App() {
 					}
 				/>
 				<Route
-					path='/genre/:id'
+					path='/genres/:genre/:id'
 					element={
 						<>
 							<PrivateRoute>

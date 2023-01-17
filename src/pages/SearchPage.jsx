@@ -16,7 +16,6 @@ const SearchPage = ({ currentUser }) => {
 		: null
 	const { query } = useParams()
 	const { data: result, isLoading } = useSearch(query, page)
-	const { data: lists } = useUserLists(currentUser.userId)
 
 	useEffect(() => {
 		// scroll to top on page load
@@ -51,7 +50,6 @@ const SearchPage = ({ currentUser }) => {
 										key={game.id}
 										loading={isLoading}
 										data={game}
-										lists={lists}
 										user={currentUser}
 									/>
 								))}

@@ -12,21 +12,19 @@ const BrowsePage = ({ currentUser }) => {
 		<div id='container' className='main-content--container'>
 			<SideBar />
 			<div className='main-content browse'>
+				<h2>Browse Genres</h2>
 				{isLoading && <LoadingSpinner />}
 				{genres && genres.data && !isLoading && (
 					<>
-						<h2>Browse Genres</h2>
-
 						<div className='genre-links'>
 							{genres.data.map(genre => (
-								<div className='genre--link'>
-									<a
-										key={genre.id}
+								<div key={genre.id} className='genre--link'>
+									<Link
 										className='button button--plus'
-										href={`/genre/${genre.id}`}
+										to={`/genres/${genre.slug}/${genre.id}`}
 									>
 										{genre.name}
-									</a>
+									</Link>
 								</div>
 							))}
 						</div>

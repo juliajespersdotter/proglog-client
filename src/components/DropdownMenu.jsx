@@ -4,12 +4,14 @@ import { BiPlus } from 'react-icons/bi'
 import PLDB_API from '../services/PLDB_API'
 import { queryClient } from '../main'
 import SmallLoadingSpinner from './Loading/SmallLoadingSpinner'
+import useUserLists from '../hooks/useUserLists'
 
-const DropdownMenu = ({ lists, game, user }) => {
+const DropdownMenu = ({ game, user }) => {
 	const [gameAdded, setGameAdded] = useState()
 	const [toggle, setToggle] = useState()
 	const [loading, setLoading] = useState(false)
 	const [listId, setListId] = useState(null)
+	const { data: lists, isLoading } = useUserLists(user.userId)
 
 	const addToList = async e => {
 		setLoading(true)
@@ -39,7 +41,9 @@ const DropdownMenu = ({ lists, game, user }) => {
 			</button>
 			{toggle && (
 				<div className='dropdown-content'>
+					{isLoading && <SmallLoadingSpinner />}
 					{lists &&
+						!isLoading &&
 						lists.data.map(list =>
 							!list.deletable ? (
 								<a

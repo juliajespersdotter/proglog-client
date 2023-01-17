@@ -44,10 +44,12 @@ const getGenres = () => {
 
 /**
  *
- * @returns games from IGDB
+ * @returns games by genre from IGDB
  */
-const getGames = () => {
-	return get(`/api/games`)
+const getGamesByGenre = (id, page) => {
+	page = page * 2 * 10
+	console.log(page)
+	return get(`/api/genres/${id}/${page}`)
 }
 
 /**
@@ -85,7 +87,7 @@ const getGamesWithIds = async gameIds => {
 const exports = {
 	search,
 	getGenres,
-	getGames,
+	getGamesByGenre,
 	getGamesWithIds,
 	getComingSoon,
 }

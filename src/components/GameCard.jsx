@@ -5,10 +5,12 @@ import SmallLoadingSpinner from './Loading/SmallLoadingSpinner'
 
 //https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/dfgkfivjrhcksyymh9vw.jpg
 
-const GameCard = ({ data, loading, lists, user }) => {
+const GameCard = ({ data, user }) => {
 	const [coverImg, setCoverImg] = useState('')
+	const [loading, setLoading] = useState(false)
 
 	useEffect(() => {
+		setLoading(true)
 		if (data.cover) {
 			setCoverImg(data.cover)
 		} else if (data.screenshots) {
@@ -16,6 +18,7 @@ const GameCard = ({ data, loading, lists, user }) => {
 		} else if (data.artworks) {
 			setCoverImg(data.artworks[0])
 		}
+		setLoading(false)
 	}, [])
 	return (
 		<div className='game-card'>
@@ -33,7 +36,7 @@ const GameCard = ({ data, loading, lists, user }) => {
 							{!coverImg && <p>{data.name}</p>}
 						</Link>
 					</div>
-					<DropdownMenu lists={lists} user={user} game={data} />
+					<DropdownMenu user={user} game={data} />
 				</>
 			)}
 		</div>

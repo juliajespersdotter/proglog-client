@@ -18,7 +18,6 @@ const GamePage = ({ currentUser }) => {
 	const { gameId } = useParams()
 	const [toggle, setToggle] = useState(false)
 	const { data: game, isLoading } = useGamesWithIds(gameId)
-	const { data: lists } = useUserLists(currentUser.userId)
 	const { data: reviews } = useReviews(gameId)
 
 	return (
@@ -43,7 +42,6 @@ const GamePage = ({ currentUser }) => {
 														alt=''
 													/>
 													<DropdownMenu
-														lists={lists}
 														game={gameInfo}
 														user={currentUser}
 													/>
@@ -151,7 +149,6 @@ const GamePage = ({ currentUser }) => {
 														key={i}
 														loading={isLoading}
 														data={game}
-														lists={lists}
 														user={currentUser}
 													/>
 												))}
