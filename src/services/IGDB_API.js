@@ -22,6 +22,12 @@ const get = async (endpoint, options) => {
 
 // Access the backend to get game data
 
+/**
+ *
+ * @param {search} query
+ * @param {the offset of which the data should be fetched} page
+ * @returns result of query
+ */
 const search = async (query, page) => {
 	page = page * 2 * 10
 	console.log(page)
@@ -29,8 +35,16 @@ const search = async (query, page) => {
 }
 
 /**
+ * Get all genres
+ * @returns all genres from IGDB
+ */
+const getGenres = () => {
+	return get(`/api/genres`)
+}
+
+/**
  *
- * @returns 20 games from DB
+ * @returns games from IGDB
  */
 const getGames = () => {
 	return get(`/api/games`)
@@ -50,7 +64,6 @@ const getComingSoon = async () => {
  * @returns Specific game's info
  */
 const getGamesWithIds = async gameIds => {
-	const games = gameIds.toString()
 	const res = await axios
 		.post(
 			`/api/games`,
@@ -71,6 +84,7 @@ const getGamesWithIds = async gameIds => {
 
 const exports = {
 	search,
+	getGenres,
 	getGames,
 	getGamesWithIds,
 	getComingSoon,

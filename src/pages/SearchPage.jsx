@@ -9,13 +9,12 @@ import useUserLists from '../hooks/useUserLists'
 import LoadingSpinner from '../components/Loading/LoadingSpinner'
 import Pagination from '../components/Navigation/Pagination'
 
-const SearchPage = () => {
+const SearchPage = ({ currentUser }) => {
 	const [searchParams, setSearchParams] = useSearchParams({ page: 0 })
 	const page = searchParams.get('page')
 		? Number(searchParams.get('page'))
 		: null
 	const { query } = useParams()
-	const { currentUser } = useAuthContext()
 	const { data: result, isLoading } = useSearch(query, page)
 	const { data: lists } = useUserLists(currentUser.userId)
 

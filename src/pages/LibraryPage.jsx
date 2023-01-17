@@ -7,8 +7,8 @@ import useUserLists from '../hooks/useUserLists'
 import LoadingSpinner from '../components/Loading/LoadingSpinner'
 import ListForm from '../components/List/ListForm'
 
-const LibraryPage = () => {
-	const { currentUser } = useAuthContext()
+const LibraryPage = ({ currentUser }) => {
+	// const { currentUser } = useAuthContext()
 	const [toggle, setToggle] = useState(false)
 	const { data: lists, isLoading } = useUserLists(currentUser.userId)
 

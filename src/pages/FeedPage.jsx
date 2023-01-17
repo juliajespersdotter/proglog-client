@@ -10,18 +10,15 @@ import useUserLists from '../hooks/useUserLists'
 import useComingSoon from '../hooks/useComingSoon'
 import SmallLoadingSpinner from '../components/Loading/SmallLoadingSpinner'
 
-const FeedPage = () => {
-	const { currentUser, loading } = useAuthContext()
+const FeedPage = ({ currentUser }) => {
+	// const { currentUser, loading } = useAuthContext()
 	const { data: lists } = useUserLists(currentUser.userId)
 	const { data: games, isLoading } = useComingSoon()
 	return (
 		<div id='container' className='main-content--container'>
 			<SideBar />
 			<div className='main-content'>
-				{loading && <LoadingSpinner />}
-				{!loading && currentUser && (
-					<h3>Welcome, {currentUser.username}</h3>
-				)}
+				<h3>Welcome, {currentUser.username}</h3>
 				<h4>Upcoming Games</h4>
 				{isLoading && <LoadingSpinner />}
 				{!isLoading && (

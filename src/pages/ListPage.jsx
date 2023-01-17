@@ -6,8 +6,8 @@ import LoadingSpinner from '../components/Loading/LoadingSpinner'
 import ListGameCard from '../components/List/ListGameCard'
 import { useAuthContext } from '../contexts/AuthContext'
 
-const ListPage = () => {
-	const { currentUser } = useAuthContext()
+const ListPage = ({ currentUser }) => {
+	// const { currentUser } = useAuthContext()
 	const { id } = useParams()
 	const { data, isLoading } = useGamesList(id)
 

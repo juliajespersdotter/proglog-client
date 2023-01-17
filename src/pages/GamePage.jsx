@@ -13,8 +13,8 @@ import GameCard from '../components/GameCard'
 import Review from '../components/Review/Review'
 import ReviewForm from '../components/Review/ReviewForm'
 
-const GamePage = () => {
-	const { currentUser } = useAuthContext()
+const GamePage = ({ currentUser }) => {
+	// const { currentUser } = useAuthContext()
 	const { gameId } = useParams()
 	const [toggle, setToggle] = useState(false)
 	const { data: game, isLoading } = useGamesWithIds(gameId)

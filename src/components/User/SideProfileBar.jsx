@@ -23,12 +23,17 @@ const SideProfileBar = () => {
 				<div className='avatar'>
 					<img className='img--avatar' src={currentUser.avatar} />
 				</div>
-				<h3>{currentUser.username}</h3>
-				{/* <button className='button button--primary'>NEWS</button>
+				<div className='space-between'>
+					<h3>{currentUser.username}</h3>
+					{/* <button className='button button--primary'>NEWS</button>
 					<button className='button button--primary'>BROWSE</button> */}
-				<a className='button--tertiery' onClick={() => logoutUser()}>
-					Logout
-				</a>
+					<a
+						className='button button--plus'
+						onClick={() => logoutUser()}
+					>
+						Logout
+					</a>
+				</div>
 			</div>
 		</StickyBox>
 	)

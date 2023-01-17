@@ -1,0 +1,28 @@
+@use '../variables/colors';
+@use '../general/typography';
+@use '../variables/responsive';
+
+.browse {
+	.genre-links {
+		margin-top: 3rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 4rem;
+		flex-wrap: wrap;
+
+		.button--plus {
+			padding: 1rem;
+			background-color: colors.$primary-black;
+			border-left: 2px solid colors.$primary-white;
+			border-bottom: 2px solid colors.$primary-white;
+			color: colors.$primary-white;
+
+			&:hover {
+				background-color: colors.$primary-red;
+				border-left: 2px solid colors.$primary-yellow;
+				border-bottom: 2px solid colors.$primary-yellow;
+			}
+		}
+	}
+}

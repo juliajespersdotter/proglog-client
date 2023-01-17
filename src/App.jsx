@@ -11,9 +11,14 @@ import ProfilePage from './pages/ProfilePage'
 import ListPage from './pages/ListPage'
 import GamePage from './pages/GamePage'
 import SearchPage from './pages/SearchPage'
+import BrowsePage from './pages/BrowsePage'
 // import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import { useAuthContext } from './contexts/AuthContext'
+import GenrePage from './pages/GenrePage'
 
 function App() {
+	const { currentUser } = useAuthContext()
+
 	return (
 		<div id='App'>
 			<Routes>
@@ -23,7 +28,7 @@ function App() {
 						<>
 							<PrivateRoute>
 								<Navigation />
-								<FeedPage />
+								<FeedPage currentUser={currentUser} />
 							</PrivateRoute>
 						</>
 					}
@@ -34,7 +39,7 @@ function App() {
 						<>
 							<PrivateRoute>
 								<Navigation />
-								<ListPage />
+								<ListPage currentUser={currentUser} />
 							</PrivateRoute>
 						</>
 					}
@@ -46,7 +51,7 @@ function App() {
 						<>
 							<PrivateRoute>
 								<Navigation />
-								<ProfilePage />
+								<ProfilePage currentUser={currentUser} />
 							</PrivateRoute>
 						</>
 					}
@@ -57,7 +62,7 @@ function App() {
 						<>
 							<PrivateRoute>
 								<Navigation />
-								<LibraryPage />
+								<LibraryPage currentUser={currentUser} />
 							</PrivateRoute>
 						</>
 					}
@@ -68,7 +73,7 @@ function App() {
 						<>
 							<PrivateRoute>
 								<Navigation />
-								<GamePage />
+								<GamePage currentUser={currentUser} />
 							</PrivateRoute>
 						</>
 					}
@@ -79,7 +84,29 @@ function App() {
 						<>
 							<PrivateRoute>
 								<Navigation />
-								<SearchPage />
+								<SearchPage currentUser={currentUser} />
+							</PrivateRoute>
+						</>
+					}
+				/>
+				<Route
+					path='/browse'
+					element={
+						<>
+							<PrivateRoute>
+								<Navigation />
+								<BrowsePage currentUser={currentUser} />
+							</PrivateRoute>
+						</>
+					}
+				/>
+				<Route
+					path='/genre/:id'
+					element={
+						<>
+							<PrivateRoute>
+								<Navigation />
+								<GenrePage currentUser={currentUser} />
 							</PrivateRoute>
 						</>
 					}
