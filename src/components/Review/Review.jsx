@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import useUser from '../../hooks/useUser'
 import LoadingSpinner from '../Loading/LoadingSpinner'
 import { ImCross } from 'react-icons/im'
-import { queryClient } from '../../main'
+import { useQueryClient } from 'react-query'
 import SmallLoadingSpinner from '../Loading/SmallLoadingSpinner'
 import PLDB_API from '../../services/PLDB_API'
 import moment from 'moment'
@@ -12,30 +12,38 @@ import useComments from '../../hooks/useComments'
 import Comment from '../Comment/Comment'
 
 const Review = ({ user, data }) => {
+	const queryClient = useQueryClient()
 	const [loading, setLoading] = useState()
 	const { data: author, isLoading } = useUser(data.user_id)
 	const { data: comments } = useComments(data.id)
 	const [toggle, setToggle] = useState(false)
+	const [review, setReview] = useState('')
+	const [comment, setComment] = useState('')
 	const [showComments, setShowComments] = useState(false)
 
 	const deleteReview = async () => {
 		setLoading(true)
 		const res = await PLDB_API.deleteReview(data.id, user.userId)
+		console.log(res)
 
 		if (res.status === 'success') {
+			setReview(res.data)
 			queryClient.invalidateQueries('reviews')
+			// queryClient.invalidateQueries('comments')
+			setLoading(false)
 		}
 	}
 
 	const postComment = async formData => {
-		console.log(formData)
 		if (formData) {
 			const authorId = data.user_id
 			const creatorId = user.userId
 			const comment = { ...formData, authorId, creatorId }
 			const res = await PLDB_API.postComment(data.id, comment)
+			console.log(res)
 			// reset()
 			if ((res.status = 'success')) {
+				setComment(res.data)
 				queryClient.invalidateQueries('comments')
 			}
 		}

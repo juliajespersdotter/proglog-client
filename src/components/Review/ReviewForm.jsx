@@ -2,10 +2,12 @@ import { useState } from 'react'
 import { BiPlus } from 'react-icons/bi'
 import { useForm } from 'react-hook-form'
 import PLDB_API from '../../services/PLDB_API'
-import { queryClient } from '../../main'
+import { useQueryClient } from 'react-query'
 
 const ReviewForm = ({ user, gameId }) => {
+	const queryClient = useQueryClient()
 	const [rating, setRating] = useState(0)
+	const [review, setReview] = useState('')
 	const [hover, setHover] = useState(0)
 	const [error, setError] = useState()
 	const {
@@ -16,8 +18,6 @@ const ReviewForm = ({ user, gameId }) => {
 	} = useForm()
 
 	const onSubmit = async formData => {
-		console.log(formData)
-		console.log(rating)
 		if (!rating) {
 			setError('Please rate the game')
 			return
@@ -27,7 +27,8 @@ const ReviewForm = ({ user, gameId }) => {
 			const data = { ...formData, userId, rating }
 			const res = await PLDB_API.addReview(gameId, data)
 			reset()
-			if ((res.status = 'success')) {
+			if (res.status === 'success') {
+				setReview(res.data)
 				queryClient.invalidateQueries('reviews')
 			}
 		}

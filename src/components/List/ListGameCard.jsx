@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react'
 import { ImCross } from 'react-icons/im'
 import { Link } from 'react-router-dom'
 import PLDB_API from '../../services/PLDB_API'
-import { queryClient } from '../../main'
+import { useQueryClient } from 'react-query'
 import SmallLoadingSpinner from '../Loading/SmallLoadingSpinner'
 
 //https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/dfgkfivjrhcksyymh9vw.jpg
 
 const ListGameCard = ({ data, list, user }) => {
+	const queryClient = useQueryClient()
 	const [loading, setLoading] = useState()
 	const [coverImg, setCoverImg] = useState('')
 

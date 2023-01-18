@@ -1,8 +1,5 @@
 import { useState } from 'react'
-import { BiPlus } from 'react-icons/bi'
 import { useForm } from 'react-hook-form'
-import PLDB_API from '../../services/PLDB_API'
-import { queryClient } from '../../main'
 
 const CommentForm = ({ onSubmit, review, user }) => {
 	const [toggle, setToggle] = useState()

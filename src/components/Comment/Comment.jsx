@@ -4,9 +4,10 @@ import SmallLoadingSpinner from '../Loading/SmallLoadingSpinner'
 import moment from 'moment'
 import { ImCross } from 'react-icons/im'
 import PLDB_API from '../../services/PLDB_API'
-import { queryClient } from '../../main'
+import { useQueryClient } from 'react-query'
 
 const Comment = ({ data, user }) => {
+	const queryClient = useQueryClient()
 	const [loading, setLoading] = useState(false)
 	const { data: creator, isLoading } = useUser(data.created_by)
 	console.log(creator)

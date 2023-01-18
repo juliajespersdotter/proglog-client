@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom'
 import { ImCross } from 'react-icons/im'
 import SmallLoadingSpinner from '../Loading/SmallLoadingSpinner'
 import PLDB_API from '../../services/PLDB_API'
-import { queryClient } from '../../main'
+import { useQueryClient } from 'react-query'
 import { useAuthContext } from '../../contexts/AuthContext'
 
 const ListCard = ({ list }) => {
+	const queryClient = useQueryClient()
 	const [loading, setLoading] = useState()
 	const { currentUser } = useAuthContext()
+
 	const deleteList = async () => {
 		setLoading(true)
 		if (list.deletable) {
@@ -17,6 +19,7 @@ const ListCard = ({ list }) => {
 
 			if (res.status === 'success') {
 				queryClient.invalidateQueries('userlists')
+				setLoading(false)
 			}
 		}
 	}

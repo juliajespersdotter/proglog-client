@@ -6,15 +6,12 @@ import useGamesWithIds from '../hooks/useGamesWithIds'
 import LoadingSpinner from '../components/Loading/LoadingSpinner'
 import moment from 'moment'
 import DropdownMenu from '../components/DropdownMenu'
-import { useAuthContext } from '../contexts/AuthContext'
-import useUserLists from '../hooks/useUserLists'
 import useReviews from '../hooks/useReviews'
 import GameCard from '../components/GameCard'
 import Review from '../components/Review/Review'
 import ReviewForm from '../components/Review/ReviewForm'
 
 const GamePage = ({ currentUser }) => {
-	// const { currentUser } = useAuthContext()
 	const { gameId } = useParams()
 	const [toggle, setToggle] = useState(false)
 	const { data: game, isLoading } = useGamesWithIds(gameId)
@@ -143,7 +140,7 @@ const GamePage = ({ currentUser }) => {
 												Similar Games
 											</p>
 											{gameInfo.similar_games
-												.slice(0, 6)
+												.slice(0, 5)
 												.map((game, i) => (
 													<GameCard
 														key={i}

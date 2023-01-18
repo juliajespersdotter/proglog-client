@@ -2,9 +2,10 @@ import React from 'react'
 import { BiPlus } from 'react-icons/bi'
 import { useForm } from 'react-hook-form'
 import PLDB_API from '../../services/PLDB_API'
-import { queryClient } from '../../main'
+import { useQueryClient } from 'react-query'
 
 const ListForm = ({ user }) => {
+	const queryClient = useQueryClient()
 	const {
 		register,
 		handleSubmit,
@@ -18,7 +19,7 @@ const ListForm = ({ user }) => {
 		if (data) {
 			const res = await PLDB_API.addList(user.userId, data)
 			reset()
-			if ((res.status = 'success')) {
+			if (res.status === 'success') {
 				queryClient.invalidateQueries('userlists')
 			}
 		}

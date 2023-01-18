@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import Dropdown from 'react-bootstrap/Dropdown'
 import { BiPlus } from 'react-icons/bi'
 import PLDB_API from '../services/PLDB_API'
-import { queryClient } from '../main'
+import { useQueryClient } from 'react-query'
 import SmallLoadingSpinner from './Loading/SmallLoadingSpinner'
 import useUserLists from '../hooks/useUserLists'
 
 const DropdownMenu = ({ game, user }) => {
+	const queryClient = useQueryClient()
 	const [gameAdded, setGameAdded] = useState()
 	const [toggle, setToggle] = useState()
 	const [loading, setLoading] = useState(false)

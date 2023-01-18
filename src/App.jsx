@@ -12,7 +12,6 @@ import ListPage from './pages/ListPage'
 import GamePage from './pages/GamePage'
 import SearchPage from './pages/SearchPage'
 import BrowsePage from './pages/BrowsePage'
-// import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { useAuthContext } from './contexts/AuthContext'
 import GenrePage from './pages/GenrePage'
 

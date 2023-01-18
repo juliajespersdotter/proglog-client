@@ -11,6 +11,7 @@ export const queryClient = new QueryClient({
 			refetchOnWindowFocus: false,
 			staleTime: 1000 * 60 * 2, // 2 minutes
 			cacheTime: 1000 * 60 * 60 * 4, // 4 hours
+			cancelRefetch: true,
 		},
 	},
 })
