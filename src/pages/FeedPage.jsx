@@ -22,7 +22,8 @@ const FeedPage = ({ currentUser }) => {
 										`Welcome, ${currentUser.username}_`,
 									],
 									autoStart: true,
-									loop: true,
+									loop: false,
+									pauseFor: 100000000,
 								}}
 							/>
 						</div>

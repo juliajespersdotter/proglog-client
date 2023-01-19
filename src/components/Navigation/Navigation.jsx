@@ -13,7 +13,7 @@ const Navigation = () => {
 				</Link>
 			</h4>
 			<SearchBar />
-			<ul id='nav-links'>
+			{/* <ul id='nav-links'>
 				<li>
 					<FiUsers />
 				</li>
@@ -26,7 +26,7 @@ const Navigation = () => {
 				<li>
 					<BiCog />
 				</li>
-			</ul>
+			</ul> */}
 		</nav>
 	)
 }

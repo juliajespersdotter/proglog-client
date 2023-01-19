@@ -36,7 +36,10 @@
 	}
 
 	form {
-		width: 50%;
+		@media (min-width: responsive.$screen-medium) {
+			width: 50%;
+		}
+		width: 60%;
 		display: flex;
 		justify-content: center;
 		align-items: center;

@@ -15,6 +15,12 @@ const SideBar = () => {
 				<Link to='/'>
 					<button className='button button--primary'>UPCOMING</button>
 				</Link>
+				<Link to='/activity'>
+					<button className='button button--primary'>ACTIVITY</button>
+				</Link>
+				<Link to='/users'>
+					<button className='button button--primary'>USERS</button>
+				</Link>
 			</div>
 		</StickyBox>
 	)

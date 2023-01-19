@@ -4,9 +4,12 @@
 @use '../variables/responsive';
 
 .date {
+	@media (min-width: responsive.$screen-large) {
+		font-size: 0.6rem;
+	}
 	@include typography.description-text();
 	color: colors.$primary-grey;
-	font-size: 0.6rem;
+	font-size: 0.5rem;
 }
 
 .review--container {
@@ -20,21 +23,35 @@
 	padding: 1rem 2rem;
 
 	.review--title {
+		@media (min-width: responsive.$screen-large) {
+			flex-direction: row;
+		}
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		flex-direction: column;
+
 		width: 100%;
 		gap: 1rem;
 
 		.date-cross {
+			@media (min-width: responsive.$screen-large) {
+				width: 30%;
+				align-items: center;
+				justify-content: space-around;
+			}
 			display: flex;
 			align-items: center;
-			justify-content: space-around;
-			width: 30%;
+			justify-content: space-between;
+			width: 100%;
 		}
 
 		.review--stars {
-			margin-left: 0.5rem;
+			@media (min-width: responsive.$screen-large) {
+				margin-left: 0.5rem;
+			}
+
+			margin-left: 0rem;
 		}
 
 		.star {
@@ -42,18 +59,25 @@
 		}
 
 		.review--avatar {
-			width: 15%;
+			@media (min-width: responsive.$screen-large) {
+				width: 15%;
+			}
 			margin-right: 1rem;
+			width: 20%;
 			border: 2px solid colors.$primary-red;
 		}
 
 		.review--rating {
+			@media (min-width: responsive.$screen-large) {
+				width: 60%;
+			}
 			@include typography.description-text();
 			display: flex;
 			align-items: center;
 			justify-content: flex-start;
 			display: flex;
 			gap: 0.2rem;
+			width: 100%;
 
 			.author-link,
 			span {
@@ -81,7 +105,13 @@
 	}
 
 	.review--content {
+		@media (min-width: responsive.$screen-medium) {
+			h4 {
+				font-size: 1.5rem;
+			}
+		}
 		h4 {
+			font-size: 1rem;
 			text-transform: capitalize;
 			margin: 0;
 			margin-top: 1rem;

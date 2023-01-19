@@ -13,12 +13,14 @@
 	width: 100%;
 	margin: 0 auto;
 
-	// @media (min-width: responsive.$screen-large) {
-	// 	width: 100%;
-	// }
-
 	.game-card {
-		width: 15%;
+		@media (min-width: responsive.$screen-large) {
+			width: 15%;
+		}
+		@media (min-width: responsive.$screen-medium) {
+			width: 30%;
+		}
+		width: 50%;
 		padding: 0;
 		gap: 1rem;
 		margin-bottom: 3rem;
@@ -29,9 +31,6 @@
 
 		.game-card--image {
 			width: 100%;
-			// height: auto;
-
-			// display: flex;
 			display: block;
 			justify-content: center;
 			align-items: center;
@@ -107,37 +106,43 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		// text-align: center;
-		// height: 13rem;
 		width: 10%;
 
 		img {
 			width: 100%;
-			// margin: 1rem 2rem 1rem 2rem;
-			// border: 2px solid colors.$primary-grey;
 			max-height: 100%;
 			max-width: 100%;
-			// display: block;
-			// width: 100%;
 		}
 	}
 }
 
 .gameinfo--container {
-	width: 90%;
+	@media (min-width: responsive.$screen-medium) {
+		width: 90%;
+	}
+	width: 100%;
 	margin: 0 auto;
 	margin-top: 2rem;
 
 	.gameinfo--header {
+		@media (min-width: responsive.$screen-medium) {
+			flex-direction: row;
+		}
 		width: 100%;
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
 		gap: 2rem;
 
 		.gameinfo--cover-img {
-			width: 30%;
+			@media (min-width: responsive.$screen-large) {
+				width: 30%;
+			}
+			@media (min-width: responsive.$screen-medium) {
+				width: 40%;
+			}
+			width: 70%;
 		}
 		img {
 			border-left: 3px solid colors.$primary-blue;
@@ -149,8 +154,14 @@
 		}
 
 		.gameinfo--data {
-			padding: 1rem;
-			width: 70%;
+			@media (min-width: responsive.$screen-large) {
+				width: 70%;
+			}
+			@media (min-width: responsive.$screen-medium) {
+				width: 60%;
+			}
+			padding: 0.5rem;
+			width: 100%;
 			display: flex;
 			justify-content: center;
 			flex-direction: column;
@@ -163,9 +174,12 @@
 		color: colors.$primary-yellow;
 	}
 	.gameinfo--tags {
+		@media (min-width: responsive.$screen-large) {
+			justify-content: space-between;
+		}
 		display: flex;
 		flex-direction: row;
-		justify-content: space-between;
+		justify-content: center;
 		width: 100%;
 		gap: 1rem;
 		margin-top: 3rem;
@@ -175,8 +189,11 @@
 	}
 
 	.col {
+		@media (min-width: responsive.$screen-large) {
+			width: 30%;
+		}
 		padding: 1rem 0rem;
-		width: 30%;
+		width: 100%;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
@@ -198,8 +215,12 @@
 		}
 
 		.row {
-			@include typography.small-text();
+			@media (min-width: responsive.$screen-large) {
+				@include typography.small-text();
+			}
+			font-size: 0.7rem;
 			display: flex;
+			align-items: center;
 			flex-wrap: wrap;
 			gap: 0.5rem;
 		}

@@ -1,11 +1,17 @@
 // Search page
+@use '../variables/colors';
+@use '../general/typography';
+@use '../variables/responsive';
 
 .search-page {
 	.game-feed {
 		padding-top: 0rem;
 	}
 	.game-card {
-		width: 15%;
+		@media (min-width: responsive.$screen-large) {
+			width: 15%;
+		}
+		width: 50%;
 		margin: 1rem;
 	}
 }

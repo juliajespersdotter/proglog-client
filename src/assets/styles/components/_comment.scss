@@ -44,10 +44,13 @@
 	background-color: colors.$secondary-blue;
 
 	.comment--content {
+		@media (min-width: responsive.$screen-medium) {
+			justify-content: flex-start;
+		}
 		width: 100%;
 		@include typography.description-text();
 		display: flex;
-		justify-content: flex-start;
+		justify-content: space-between;
 		align-items: flex-start;
 		gap: 1rem;
 
@@ -55,7 +58,24 @@
 			margin: 0;
 		}
 
+		.cross--container,
+		.cross {
+			@media (min-width: responsive.$screen-medium) {
+				font-size: 1rem;
+			}
+			font-size: 0.5rem;
+			padding: 0.5rem;
+			padding-top: 0.2rem;
+		}
+
 		.comment--text {
+			@media (min-width: responsive.$screen-medium) {
+				padding-top: 0.3rem;
+				width: 70%;
+			}
+			@media (min-width: responsive.$screen-large) {
+				padding-top: 0;
+			}
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
@@ -75,7 +95,10 @@
 		}
 
 		.comment--avatar {
-			width: 5%;
+			@media (min-width: responsive.$screen-large) {
+				width: 10%;
+			}
+			width: 15%;
 			align-self: flex-start;
 			border: 0.1px solid colors.$primary-yellow;
 		}
