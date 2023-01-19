@@ -20,10 +20,36 @@ const SideProfileBar = () => {
 		<StickyBox offsetTop={20} offsetBottom={20}>
 			<div className='sidebar sidebar--profile'>
 				<div className='avatar'>
-					<img className='img--avatar' src={currentUser.avatar} />
+					{currentUser.avatar ? (
+						<img
+							className='img--avatar'
+							onError={e =>
+								(e.target.onerror = null)(
+									(e.target.src =
+										'./images/default--avatar.png')
+								)
+							}
+							src={currentUser.avatar}
+						/>
+					) : (
+						<img
+							className='img--avatar'
+							src='./images/default--avatar.png'
+						/>
+					)}
 				</div>
 				<div className='space-between'>
 					<h3>{currentUser.username}</h3>
+					<Link to={`/profile/${currentUser.userId}`}>
+						<button className='button button--primary'>
+							PROFILE
+						</button>
+					</Link>
+					<Link to={'/library'}>
+						<button className='button button--primary'>
+							MY GAMES
+						</button>
+					</Link>
 					{/* <button className='button button--primary'>NEWS</button>
 					<button className='button button--primary'>BROWSE</button> */}
 					<a

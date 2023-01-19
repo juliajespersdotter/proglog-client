@@ -29,7 +29,8 @@
     "react-sticky-box": "^1.0.2",
     "react-table": "^7.8.0",
     "sass": "^1.57.1",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

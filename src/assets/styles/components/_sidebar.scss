@@ -30,13 +30,24 @@
 
 .img--avatar {
 	display: block;
-	// min-height: 100%;
-	// max-width: 100%;
+	min-height: 100%;
+	max-width: 100%;
 }
 
 .avatar {
 	display: flex;
 	justify-content: center;
-	width: 100%;
+	width: 90%;
 	height: auto;
+}
+
+.space-between {
+	h3 {
+		text-align: center;
+	}
+	gap: 1rem;
+	justify-content: flex-start;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 }

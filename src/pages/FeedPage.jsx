@@ -1,14 +1,10 @@
 import React from 'react'
-import { useQuery } from 'react-query'
 import GameCard from '../components/GameCard'
-import IGDB_API from '../services/IGDB_API'
-import { useAuthContext } from '../contexts/AuthContext'
 import SideBar from '../components/Navigation/SideBar'
 import SideProfileBar from '../components/User/SideProfileBar'
 import LoadingSpinner from '../components/Loading/LoadingSpinner'
-import useUserLists from '../hooks/useUserLists'
 import useComingSoon from '../hooks/useComingSoon'
-import SmallLoadingSpinner from '../components/Loading/SmallLoadingSpinner'
+import Typewriter from 'typewriter-effect'
 
 const FeedPage = ({ currentUser }) => {
 	// const { currentUser, loading } = useAuthContext()
@@ -17,7 +13,28 @@ const FeedPage = ({ currentUser }) => {
 		<div id='container' className='main-content--container'>
 			<SideBar />
 			<div className='main-content'>
-				<h3>Welcome, {currentUser.username}</h3>
+				<div className='hero'>
+					<div className='hero-text'>
+						<div className='inputbox input--small'>
+							<Typewriter
+								options={{
+									strings: [
+										`Welcome, ${currentUser.username}_`,
+									],
+									autoStart: true,
+									loop: true,
+								}}
+							/>
+						</div>
+						{/* Welcome,{' '}
+						<span className='heading--red'>
+							{currentUser.username}
+						</span> */}
+					</div>
+				</div>
+
+				{/* <img className='hero--image' src='./images/hero.png' /> */}
+
 				<h4>Upcoming Games</h4>
 				{isLoading && <LoadingSpinner />}
 				{!isLoading && (

@@ -8,14 +8,11 @@ import moment from 'moment'
 import DropdownMenu from '../components/DropdownMenu'
 import useReviews from '../hooks/useReviews'
 import GameCard from '../components/GameCard'
-import Review from '../components/Review/Review'
-import ReviewForm from '../components/Review/ReviewForm'
+import ReviewSection from '../components/Review/ReviewSection'
 
 const GamePage = ({ currentUser }) => {
 	const { gameId } = useParams()
-	const [toggle, setToggle] = useState(false)
 	const { data: game, isLoading } = useGamesWithIds(gameId)
-	const { data: reviews } = useReviews(gameId)
 
 	return (
 		<div id='container' className='main-content--container'>
@@ -151,35 +148,10 @@ const GamePage = ({ currentUser }) => {
 												))}
 										</div>
 									)}
-									<div className='reviews'>
-										<p className='header--divider'>
-											Reviews
-										</p>
-										<button
-											className='button button--plus'
-											onClick={() => setToggle(!toggle)}
-										>
-											write a review
-										</button>
-										{toggle && (
-											<ReviewForm
-												user={currentUser}
-												gameId={gameInfo.id}
-											/>
-										)}
-
-										{reviews && reviews.data ? (
-											reviews.data.map(review => (
-												<Review
-													key={review.id}
-													user={currentUser}
-													data={review}
-												/>
-											))
-										) : (
-											<p>No reviews yet</p>
-										)}
-									</div>
+									<ReviewSection
+										currentUser={currentUser}
+										gameId={gameInfo.id}
+									/>
 								</div>
 							))}
 					</div>

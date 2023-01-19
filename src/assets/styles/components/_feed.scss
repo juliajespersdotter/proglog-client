@@ -12,6 +12,38 @@
 	flex-wrap: nowrap;
 	// height: 100vh;
 
+	.hero {
+		height: 40vh;
+		position: relative;
+		background-image: url('./images/hero.png');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		margin-bottom: 5rem;
+		margin-top: 2rem;
+
+		.hero-text {
+			position: absolute;
+			top: 50%;
+			right: 25%;
+			transform: translate(28%, -50%);
+			// background-color: colors.$primary-black;
+			padding: 3rem;
+
+			.inputbox,
+			.input--small {
+				width: 20rem;
+				padding: 1rem;
+				font-size: 1.2rem;
+				line-height: 1.5;
+				// background-color: #032628;
+				border: none;
+				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+					0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			}
+		}
+	}
+
 	.main-content {
 		@media (min-width: responsive.$screen-large) {
 			width: 85%;

@@ -10,6 +10,7 @@ const ListPage = ({ currentUser }) => {
 	// const { currentUser } = useAuthContext()
 	const { id } = useParams()
 	const { data, isLoading } = useGamesList(id)
+	// console.log(data)
 
 	return (
 		<div id='container' className='main-content--container'>
@@ -19,6 +20,7 @@ const ListPage = ({ currentUser }) => {
 				{isLoading && <LoadingSpinner />}
 				<div>
 					{data &&
+						!isLoading &&
 						data.games &&
 						data.games.map(game => (
 							<ListGameCard
@@ -26,6 +28,11 @@ const ListPage = ({ currentUser }) => {
 								data={game}
 								list={data.list}
 								user={currentUser}
+								stats={() =>
+									data.list_game.game_id === game.id
+										? data.list_game
+										: ''
+								}
 							/>
 						))}
 					{data && data.status === 'error' && <p>No games in list</p>}

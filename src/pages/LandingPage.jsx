@@ -7,6 +7,12 @@ const LandingPage = () => {
 			<div className='landing-image'>
 				<img src='' alt='' />
 			</div>
+			<div className='login--title'>
+				<h1>
+					<span className='heading--red'>PROG</span>LOG
+				</h1>
+				<h4>THE LOGGING TOOL FOR ORGANIZED GAMERS</h4>
+			</div>
 			<LoginForm />
 		</div>
 	)

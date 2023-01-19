@@ -1,3 +1,7 @@
+// button
+@use '../variables/colors';
+@use '../general/typography';
+
 .login {
 	display: flex;
 	flex-direction: column;
@@ -19,5 +23,11 @@
 		flex-direction: column;
 		align-items: flex-end;
 		gap: 1rem;
+	}
+}
+
+.login--title {
+	h1 {
+		color: colors.$primary-yellow;
 	}
 }

@@ -17,8 +17,6 @@ const Review = ({ user, data }) => {
 	const { data: author, isLoading } = useUser(data.user_id)
 	const { data: comments } = useComments(data.id)
 	const [toggle, setToggle] = useState(false)
-	const [review, setReview] = useState('')
-	const [comment, setComment] = useState('')
 	const [showComments, setShowComments] = useState(false)
 
 	const deleteReview = async () => {
@@ -27,10 +25,9 @@ const Review = ({ user, data }) => {
 		console.log(res)
 
 		if (res.status === 'success') {
-			setReview(res.data)
-			queryClient.invalidateQueries('reviews')
-			// queryClient.invalidateQueries('comments')
-			setLoading(false)
+			queryClient.invalidateQueries({ queryKey: ['reviews'] })
+			queryClient.invalidateQueries('comments')
+			queryClient.invalidateQueries('gameswithids')
 		}
 	}
 
@@ -43,8 +40,7 @@ const Review = ({ user, data }) => {
 			console.log(res)
 			// reset()
 			if ((res.status = 'success')) {
-				setComment(res.data)
-				queryClient.invalidateQueries('comments')
+				queryClient.invalidateQueries()
 			}
 		}
 	}

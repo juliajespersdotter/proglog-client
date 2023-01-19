@@ -7,10 +7,11 @@ import SmallLoadingSpinner from '../Loading/SmallLoadingSpinner'
 
 //https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/dfgkfivjrhcksyymh9vw.jpg
 
-const ListGameCard = ({ data, list, user }) => {
+const ListGameCard = ({ data, list, user, stats }) => {
 	const queryClient = useQueryClient()
 	const [loading, setLoading] = useState()
 	const [coverImg, setCoverImg] = useState('')
+	console.log(stats)
 
 	const deleteGame = async () => {
 		setLoading(true)
@@ -43,7 +44,7 @@ const ListGameCard = ({ data, list, user }) => {
 				<Link to={`/game/${data.id}`}>
 					<h4 className='button--tertiery'>{data.name}</h4>
 				</Link>
-				<p>Date Added:</p>
+				<p>Date Added: {data.date_added}</p>
 				<p>Date Completed:</p>
 				{/* <p>{data.summary}</p> */}
 			</div>
