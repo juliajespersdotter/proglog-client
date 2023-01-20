@@ -150,7 +150,7 @@ const GamePage = ({ currentUser }) => {
 									)}
 									<ReviewSection
 										currentUser={currentUser}
-										gameId={gameInfo.id}
+										game={gameInfo}
 									/>
 								</div>
 							))}

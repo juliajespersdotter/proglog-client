@@ -34,8 +34,6 @@
 	margin: 0;
 	padding: 0;
 	margin-top: 1rem;
-
-	// background-color: colors.$primary-black;
 }
 
 .comment--container {
@@ -44,9 +42,6 @@
 	background-color: colors.$secondary-blue;
 
 	.comment--content {
-		@media (min-width: responsive.$screen-medium) {
-			justify-content: flex-start;
-		}
 		width: 100%;
 		@include typography.description-text();
 		display: flex;
@@ -54,21 +49,32 @@
 		align-items: flex-start;
 		gap: 1rem;
 
+		@media (min-width: responsive.$screen-medium) {
+			justify-content: flex-start;
+		}
+
 		p {
 			margin: 0;
 		}
 
 		.cross--container,
 		.cross {
-			@media (min-width: responsive.$screen-medium) {
-				font-size: 1rem;
-			}
 			font-size: 0.5rem;
 			padding: 0.5rem;
 			padding-top: 0.2rem;
+
+			@media (min-width: responsive.$screen-medium) {
+				font-size: 1rem;
+			}
 		}
 
 		.comment--text {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-content: flex-start;
+			gap: 0.5rem;
+
 			@media (min-width: responsive.$screen-medium) {
 				padding-top: 0.3rem;
 				width: 70%;
@@ -76,15 +82,9 @@
 			@media (min-width: responsive.$screen-large) {
 				padding-top: 0;
 			}
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			align-content: flex-start;
-			gap: 0.5rem;
 
 			.comment-row {
 				display: flex;
-				// align-self: flex-start;
 				gap: 0.5rem;
 			}
 
@@ -95,12 +95,17 @@
 		}
 
 		.comment--avatar {
-			@media (min-width: responsive.$screen-large) {
-				width: 10%;
-			}
 			width: 15%;
 			align-self: flex-start;
 			border: 0.1px solid colors.$primary-yellow;
+
+			@media (min-width: responsive.$screen-large) {
+				width: 10%;
+			}
+
+			@media (min-width: responsive.$screen-xxlarge) {
+				width: 5%;
+			}
 		}
 
 		.comment--username {

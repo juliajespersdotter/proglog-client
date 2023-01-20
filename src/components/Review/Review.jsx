@@ -18,6 +18,7 @@ const Review = ({ user, data }) => {
 	const { data: comments } = useComments(data.id)
 	const [toggle, setToggle] = useState(false)
 	const [showComments, setShowComments] = useState(false)
+	console.log(user)
 
 	const deleteReview = async () => {
 		setLoading(true)
@@ -61,7 +62,12 @@ const Review = ({ user, data }) => {
 							>
 								{author.data.username}
 							</Link>
-							<span>rated it</span>
+							<span>
+								rated{' '}
+								<Link to={`/game/${data.game_id}`}>
+									{data.game_name}
+								</Link>
+							</span>
 							<div className='review--stars'>
 								{[...Array(data.rating)].map((item, index) => (
 									<span key={index} className='star'>

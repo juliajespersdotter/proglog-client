@@ -20,22 +20,19 @@
 	justify-self: flex-start;
 	align-items: center;
 
-	@media (min-width: responsive.$screen-large) {
+	h4 {
+		a {
+			font-family: typography.$font-headings;
+			font-weight: bold;
+		}
 	}
 
-	#nav-links {
-		width: 20%;
-		gap: 2rem;
-		justify-content: center;
-		list-style-type: none;
-		display: flex;
-
-		li:hover {
-			color: colors.$primary-blue;
-		}
-
-		@media (min-width: responsive.$screen-large) {
-			width: 15%;
+	@media (min-width: responsive.$screen-large) {
+		h4 {
+			font-size: 1.5rem;
+			padding: 0;
+			margin: 1.2rem;
+			margin-left: 0;
 		}
 	}
 

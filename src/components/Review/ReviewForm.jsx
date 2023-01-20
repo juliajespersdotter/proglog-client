@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import PLDB_API from '../../services/PLDB_API'
 import { useQueryClient } from 'react-query'
 
-const ReviewForm = ({ user, gameId }) => {
+const ReviewForm = ({ user, game }) => {
 	const queryClient = useQueryClient()
 	const [rating, setRating] = useState(0)
 	const [hover, setHover] = useState(0)
@@ -23,15 +23,15 @@ const ReviewForm = ({ user, gameId }) => {
 		}
 		if (formData) {
 			const userId = user.userId
-			const data = { ...formData, userId, rating }
-			const res = await PLDB_API.addReview(gameId, data)
+			const data = { ...formData, userId, rating, game }
+			const res = await PLDB_API.addReview(game.id, data)
 			console.log(res)
 			reset()
 			if (res.status === 'success') {
 				queryClient.invalidateQueries(['reviews'])
 				queryClient.invalidateQueries({ queryKey: ['reviews'] })
 				queryClient.invalidateQueries('gameswithids')
-				queryClient.invalidateQueries(['reviews', gameId])
+				queryClient.invalidateQueries(['reviews', game.id])
 			}
 		}
 	}

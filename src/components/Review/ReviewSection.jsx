@@ -6,10 +6,10 @@ import LoadingSpinner from '../Loading/LoadingSpinner'
 import { useMutation } from 'react-query'
 import PLDB_API from '../../services/PLDB_API'
 
-const ReviewSection = ({ currentUser, gameId }) => {
+const ReviewSection = ({ currentUser, game }) => {
 	const [toggle, setToggle] = useState(false)
 	const [refetchReviews, setRefetchReviews] = useState('')
-	const { data: reviews, isLoading, isError, error } = useReviews(gameId)
+	const { data: reviews, isLoading, isError, error } = useReviews(game.id)
 	console.log('reviews', reviews)
 
 	useEffect(() => {
@@ -26,7 +26,7 @@ const ReviewSection = ({ currentUser, gameId }) => {
 			>
 				write a review
 			</button>
-			{toggle && <ReviewForm user={currentUser} gameId={gameId} />}
+			{toggle && <ReviewForm user={currentUser} game={game} />}
 
 			{reviews && reviews.data ? (
 				reviews.data.map(review => (
