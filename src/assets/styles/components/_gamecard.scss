@@ -17,9 +17,9 @@
 		@media (min-width: responsive.$screen-large) {
 			width: 15%;
 		}
-		@media (min-width: responsive.$screen-medium) {
-			width: 30%;
-		}
+		// @media (min-width: responsive.$screen-medium) {
+		// 	width: 30%;
+		// }
 		width: 50%;
 		padding: 0;
 		gap: 1rem;

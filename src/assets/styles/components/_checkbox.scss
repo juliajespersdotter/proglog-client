@@ -1,6 +1,7 @@
 // checkbox
 @use '../variables/colors';
 @use '../general/typography';
+@use '../variables/responsive';
 
 .checkbox--container {
 	display: flex;
@@ -8,12 +9,12 @@
 }
 
 .checkbox--container label {
-	@include typography.small-text();
 	font-family: typography.$font-headings;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
 	color: colors.$primary-white;
+	font-size: 1rem;
 
 	&::before {
 		content: '';
@@ -26,6 +27,10 @@
 	&:hover::before,
 	.checkbox--container input[type='checkbox']:hover + label::before {
 		border: 0.125rem solid colors.$primary-yellow;
+	}
+
+	@media (min-width: responsive.$screen-medium) {
+		@include typography.small-text();
 	}
 }
 

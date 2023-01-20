@@ -1,12 +1,12 @@
-import React from 'react'
+import { useState } from 'react'
 import StickyBox from 'react-sticky-box'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useAuthContext } from '../../contexts/AuthContext'
+import { slide as Menu } from 'react-burger-menu'
 import PLDB_API from '../../services/PLDB_API'
 
-const SideProfileBar = () => {
-	const { currentUser, loading } = useAuthContext()
-	const navigate = useNavigate()
+const HamburgerMenu = () => {
+	const { currentUser } = useAuthContext()
 
 	const logoutUser = async () => {
 		const res = await PLDB_API.logoutUser()
@@ -17,8 +17,8 @@ const SideProfileBar = () => {
 	}
 
 	return (
-		<StickyBox offsetTop={20} offsetBottom={20}>
-			<div className='sidebar-desktop sidebar-profile'>
+		<StickyBox offsetTop={10} offsetBottom={20}>
+			<Menu itemListClassName={'sidebar-mobile'}>
 				<div className='avatar'>
 					{currentUser.avatar ? (
 						<img
@@ -50,18 +50,33 @@ const SideProfileBar = () => {
 							MY GAMES
 						</button>
 					</Link>
-					{/* <button className='button button--primary'>NEWS</button>
-					<button className='button button--primary'>BROWSE</button> */}
+					<Link to='/browse'>
+						<button className='button button--primary'>
+							BROWSE
+						</button>
+					</Link>
+					<Link to='/'>
+						<button className='button button--primary'>
+							UPCOMING
+						</button>
+					</Link>
+					<Link to='/activity'>
+						<button className='button button--primary'>
+							ACTIVITY
+						</button>
+					</Link>
 					<a
 						className='button button--plus'
 						onClick={() => logoutUser()}
 					>
 						Logout
 					</a>
+					{/* <button className='button button--primary'>NEWS</button>
+					<button className='button button--primary'>BROWSE</button> */}
 				</div>
-			</div>
+			</Menu>
 		</StickyBox>
 	)
 }
 
-export default SideProfileBar
+export default HamburgerMenu

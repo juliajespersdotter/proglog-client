@@ -13,20 +13,6 @@ const Navigation = () => {
 				</Link>
 			</h4>
 			<SearchBar />
-			{/* <ul id='nav-links'>
-				<li>
-					<FiUsers />
-				</li>
-				<li>
-					<BiMessageRounded />
-				</li>
-				<li>
-					<BiBell />
-				</li>
-				<li>
-					<BiCog />
-				</li>
-			</ul> */}
 		</nav>
 	)
 }

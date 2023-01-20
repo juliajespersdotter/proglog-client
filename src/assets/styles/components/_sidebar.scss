@@ -3,29 +3,129 @@
 @use '../general/typography';
 @use '../variables/responsive';
 
-.sidebar {
-	@media (min-width: responsive.$screen-large) {
+@media (min-width: responsive.$screen-large) {
+	.sidebar-mobile {
+		display: none;
+	}
+
+	.sidebar-desktop {
 		width: 15rem;
 		display: flex;
+		position: sticky;
+		position: -webkit-sticky;
+		top: 0;
+		// z-index: 5;
+		margin-top: 4rem;
+		flex-wrap: wrap;
+		gap: 2rem;
+		background-color: colors.$primary-black;
+		padding-top: 4rem;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+		border: 2px solid colors.$primary-blue;
+		height: 100vh;
 	}
-	position: -webkit-sticky;
+
+	.sidebar--profile {
+		display: flex;
+	}
+
+	.bm-menu-wrap {
+		display: none;
+	}
+}
+
+/* Position and sizing of burger button */
+@media (max-width: responsive.$screen-large) {
+	.sidebar-desktop {
+		display: none;
+	}
+
+	.sidebar--profile {
+		display: none;
+	}
+
+	.bm-burger-button {
+		position: fixed;
+		width: 36px;
+		height: 30px;
+		left: 22px;
+		top: 20px;
+		margin-top: 5rem;
+	}
+
+	/* Color/shape of burger icon bars */
+	.bm-burger-bars {
+		background: colors.$primary-red;
+	}
+
+	/* Color/shape of burger icon bars on hover*/
+	.bm-burger-bars-hover {
+		background: colors.$primary-white;
+	}
+
+	/* Position and sizing of clickable cross button */
+	.bm-cross-button {
+		position: absolute;
+		z-index: 99;
+		// top: 20px;
+		margin-top: 6rem;
+		height: 24px;
+		width: 24px;
+	}
+
+	/* Color/shape of close button cross */
+	.bm-cross {
+		background: colors.$primary-red;
+	}
+
+	/*
+	Sidebar wrapper styles
+	*/
+	.bm-menu-wrap {
+		position: fixed;
+		height: 100%;
+	}
+
+	/* General sidebar styles */
+	.bm-item-list {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+		background-color: colors.$primary-black;
+	}
+
+	.bm-item {
+		display: flex !important;
+	}
+
+	.bm-morph-shape {
+		fill: #373a47;
+	}
+}
+
+.sidebar-mobile {
 	position: sticky;
+	position: -webkit-sticky;
 	top: 0;
-	z-index: 5;
+	display: flex;
 	margin-top: 4rem;
 	flex-wrap: wrap;
 	gap: 2rem;
-	// padding: 2rem;
+	padding: 2rem;
+	background-color: colors.$primary-black;
 	padding-top: 4rem;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	border: 2px solid colors.$primary-blue;
-	height: 100vh;
-	width: 100%;
-	display: none;
+	height: 100%;
 }
 
 .sidebar--profile {
+	display: none;
 	align-items: center;
 }
 
@@ -47,7 +147,7 @@
 		text-align: center;
 	}
 	gap: 1rem;
-	justify-content: flex-start;
+	justify-content: center;
 	display: flex;
 	align-items: center;
 	flex-direction: column;

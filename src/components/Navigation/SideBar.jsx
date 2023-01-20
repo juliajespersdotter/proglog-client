@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react'
 import StickyBox from 'react-sticky-box'
 import { Link } from 'react-router-dom'
 import { useAuthContext } from '../../contexts/AuthContext'
@@ -8,7 +8,7 @@ const SideBar = () => {
 
 	return (
 		<StickyBox offsetTop={10} offsetBottom={20}>
-			<div className='sidebar'>
+			<div className='sidebar-desktop'>
 				<Link to='/browse'>
 					<button className='button button--primary'>BROWSE</button>
 				</Link>
@@ -17,9 +17,6 @@ const SideBar = () => {
 				</Link>
 				<Link to='/activity'>
 					<button className='button button--primary'>ACTIVITY</button>
-				</Link>
-				<Link to='/users'>
-					<button className='button button--primary'>USERS</button>
 				</Link>
 			</div>
 		</StickyBox>

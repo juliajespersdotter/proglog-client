@@ -5,6 +5,7 @@ import SideProfileBar from '../components/User/SideProfileBar'
 import LoadingSpinner from '../components/Loading/LoadingSpinner'
 import useComingSoon from '../hooks/useComingSoon'
 import Typewriter from 'typewriter-effect'
+import HamburgerMenu from '../components/Navigation/HamburgerMenu'
 
 const FeedPage = ({ currentUser }) => {
 	// const { currentUser, loading } = useAuthContext()
@@ -12,6 +13,7 @@ const FeedPage = ({ currentUser }) => {
 	return (
 		<div id='container' className='main-content--container'>
 			<SideBar />
+			<HamburgerMenu />
 			<div className='main-content'>
 				<div className='hero'>
 					<div className='hero-text'>
@@ -27,15 +29,8 @@ const FeedPage = ({ currentUser }) => {
 								}}
 							/>
 						</div>
-						{/* Welcome,{' '}
-						<span className='heading--red'>
-							{currentUser.username}
-						</span> */}
 					</div>
 				</div>
-
-				{/* <img className='hero--image' src='./images/hero.png' /> */}
-
 				<h4>Upcoming Games</h4>
 				{isLoading && <LoadingSpinner />}
 				{!isLoading && (

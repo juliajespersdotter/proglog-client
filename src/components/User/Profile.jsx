@@ -8,6 +8,8 @@ import LoadingSpinner from '../Loading/LoadingSpinner'
 const Profile = ({ user, profile }) => {
 	const [mostPlayedGames, setMostPlayedGames] = useState()
 	const [loading, setLoading] = useState(false)
+	const [toggle, setToggle] = useState(false)
+	const [show, setShow] = useState(false)
 	const [steamData, setSteamData] = useState(null)
 
 	useEffect(() => {
@@ -50,31 +52,46 @@ const Profile = ({ user, profile }) => {
 
 				{profile && !loading && (
 					<div>
-						<h4>
+						<button
+							onClick={() => setShow(!show)}
+							className='button button--wide'
+						>
 							Lists:{' '}
 							<span className='heading--red'>
 								{profile.lists.length}
 							</span>
-						</h4>
-						{profile.lists.map(list => (
-							<p key={list.id}>
-								<Link
-									to={`/list/${list.id}`}
-									className='heading--red'
-								>
-									{list.list_name}
-								</Link>
-							</p>
-						))}
-						<h4>
+						</button>
+						{show && (
+							<ul>
+								{profile.lists.map(list => (
+									<li key={list.id}>
+										<Link
+											to={`/list/${list.id}`}
+											className=''
+										>
+											{list.list_name}
+										</Link>
+									</li>
+								))}
+							</ul>
+						)}
+						<button
+							className='button button--wide'
+							onClick={() => setToggle(!toggle)}
+						>
 							Reviews:{' '}
 							<span className='heading--red'>
 								{profile.reviews.length}
 							</span>
-						</h4>
-						{/* {profile.reviews.map(review => (
-							<Review user={profile.user} data={review} />
-						))} */}
+						</button>
+						{toggle &&
+							profile.reviews.map(review => (
+								<Review
+									key={review.id}
+									user={profile.user}
+									data={review}
+								/>
+							))}
 					</div>
 				)}
 				{steamData && !loading && (
