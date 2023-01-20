@@ -53,8 +53,10 @@ const LoginForm = () => {
 
 	return (
 		<div className='login'>
-			<h3>LOGIN</h3>
-			<form id='login-form' action='submit'>
+			<div className='login-image'>
+				<img src='./images/login.png' />
+			</div>
+			{/* <form id='login-form' action='submit'>
 				<input
 					className='inputbox input--small'
 					type='text'
@@ -65,9 +67,13 @@ const LoginForm = () => {
 					type='text'
 					placeholder='PASSWORD_'
 				/>
-			</form>
-			<a onClick={redirectToGoogle} className='button button--google'></a>
-			<a onClick={redirectToSteam} className='button button--steam'></a>
+			</form> */}
+			<button onClick={redirectToGoogle} className='button button--wide'>
+				LOGIN WITH GOOGLE
+			</button>
+			<button onClick={redirectToSteam} className='button button--wide'>
+				LOGIN WITH STEAM
+			</button>
 		</div>
 	)
 }

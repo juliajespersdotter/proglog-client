@@ -25,10 +25,16 @@
 
 		@media (min-width: responsive.$screen-medium) {
 			height: 40vh;
+			background-size: contain;
 		}
 
-		@media (min-width: responsive.$screen-large) {
-			height: 20vh;
+		@media (min-width: responsive.$screen-xlarge) {
+			height: 40vh;
+			background-size: cover;
+		}
+
+		@media (min-width: responsive.$screen-xxlarge) {
+			height: 50vh;
 			background-size: cover;
 		}
 

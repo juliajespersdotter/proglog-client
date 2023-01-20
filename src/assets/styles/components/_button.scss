@@ -65,6 +65,14 @@ button {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+
+	&:hover {
+		color: colors.$primary-red;
+	}
+
+	&:active {
+		color: colors.$primary-grey;
+	}
 }
 
 .button--primary {
@@ -84,12 +92,6 @@ button {
 		background-image: url('../images/buttons/button-grey.png');
 		color: colors.$primary-black;
 	}
-
-	// &:focus {
-	// 	background-color: colors.$primary-100;
-	// 	border: dashed 2px colors.$black;
-	// 	stroke-dasharray: 10;
-	// }
 }
 
 .button--secondary {

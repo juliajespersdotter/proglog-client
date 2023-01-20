@@ -3,7 +3,7 @@ import SkewLoader from 'react-spinners/SkewLoader'
 
 const LoadingSpinner = () => {
 	return (
-		<div className='loading-spinner'>
+		<div className='loading-spinner large-spinner'>
 			<SkewLoader size={30} color='#ff003c' />
 		</div>
 	)

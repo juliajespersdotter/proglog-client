@@ -14,12 +14,6 @@
 	margin: 0 auto;
 
 	.game-card {
-		@media (min-width: responsive.$screen-large) {
-			width: 15%;
-		}
-		// @media (min-width: responsive.$screen-medium) {
-		// 	width: 30%;
-		// }
 		width: 50%;
 		padding: 0;
 		gap: 1rem;
@@ -28,6 +22,10 @@
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
+
+		@media (min-width: responsive.$screen-large) {
+			width: 15%;
+		}
 
 		.game-card--image {
 			width: 100%;
@@ -50,9 +48,6 @@
 }
 
 .game-card-table {
-	@media (min-width: responsive.$screen-large) {
-		// width: 25%;
-	}
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -93,11 +88,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		// flex-wrap: nowrap;
 		h4 {
-			// width: 100%;
-			// padding-bottom: 1.5;
-			// margin-bottom: 1.5rem;
 			font-family: typography.$font-headings;
 		}
 	}
@@ -117,17 +108,15 @@
 }
 
 .gameinfo--container {
-	@media (min-width: responsive.$screen-medium) {
-		width: 90%;
-	}
 	width: 100%;
 	margin: 0 auto;
 	margin-top: 2rem;
 
+	@media (min-width: responsive.$screen-medium) {
+		width: 90%;
+	}
+
 	.gameinfo--header {
-		@media (min-width: responsive.$screen-medium) {
-			flex-direction: row;
-		}
 		width: 100%;
 		display: flex;
 		flex-direction: column;
@@ -135,14 +124,24 @@
 		align-items: center;
 		gap: 2rem;
 
+		@media (min-width: responsive.$screen-medium) {
+			flex-direction: row;
+		}
+
 		.gameinfo--cover-img {
-			@media (min-width: responsive.$screen-large) {
-				width: 30%;
-			}
+			width: 70%;
+
 			@media (min-width: responsive.$screen-medium) {
 				width: 40%;
 			}
-			width: 70%;
+
+			@media (min-width: responsive.$screen-large) {
+				width: 30%;
+			}
+
+			@media (min-width: responsive.$screen-xlarge) {
+				width: 20%;
+			}
 		}
 		img {
 			border-left: 3px solid colors.$primary-blue;
@@ -154,17 +153,23 @@
 		}
 
 		.gameinfo--data {
-			@media (min-width: responsive.$screen-large) {
-				width: 70%;
-			}
-			@media (min-width: responsive.$screen-medium) {
-				width: 60%;
-			}
 			padding: 0.5rem;
 			width: 100%;
 			display: flex;
 			justify-content: center;
 			flex-direction: column;
+
+			@media (min-width: responsive.$screen-medium) {
+				width: 60%;
+			}
+
+			@media (min-width: responsive.$screen-large) {
+				width: 70%;
+			}
+
+			@media (min-width: responsive.$screen-xlarge) {
+				width: 80%;
+			}
 		}
 	}
 	.gameinfo--date {
@@ -174,30 +179,32 @@
 		color: colors.$primary-yellow;
 	}
 	.gameinfo--tags {
-		@media (min-width: responsive.$screen-large) {
-			justify-content: space-between;
-		}
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
 		width: 100%;
 		gap: 1rem;
 		margin-top: 3rem;
+
+		@media (min-width: responsive.$screen-large) {
+			justify-content: space-between;
+		}
 	}
 	.header--divider {
 		width: 100%;
 	}
 
 	.col {
-		@media (min-width: responsive.$screen-large) {
-			width: 30%;
-		}
 		padding: 1rem 0rem;
 		width: 100%;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
 		justify-content: flex-start;
+
+		@media (min-width: responsive.$screen-large) {
+			width: 30%;
+		}
 
 		.button--small {
 			padding: 1;
@@ -215,14 +222,15 @@
 		}
 
 		.row {
-			@media (min-width: responsive.$screen-large) {
-				@include typography.small-text();
-			}
 			font-size: 0.7rem;
 			display: flex;
 			align-items: center;
 			flex-wrap: wrap;
 			gap: 0.5rem;
+
+			@media (min-width: responsive.$screen-large) {
+				@include typography.small-text();
+			}
 		}
 	}
 }
