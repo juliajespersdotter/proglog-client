@@ -76,6 +76,7 @@ const ReviewForm = ({ user, game }) => {
 				required
 				{...register('content')}
 				rows={10}
+				maxLength={65535}
 				className='inputbox input--large'
 				placeholder='WRITE YOUR REVIEW_'
 				type='text'

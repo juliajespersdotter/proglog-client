@@ -14,11 +14,11 @@ import Comment from '../Comment/Comment'
 const Review = ({ user, data }) => {
 	const queryClient = useQueryClient()
 	const [loading, setLoading] = useState()
+	const [showReview, setShowReview] = useState(false)
 	const { data: author, isLoading } = useUser(data.user_id)
 	const { data: comments } = useComments(data.id)
 	const [toggle, setToggle] = useState(false)
 	const [showComments, setShowComments] = useState(false)
-	console.log(user)
 
 	const deleteReview = async () => {
 		setLoading(true)
@@ -100,7 +100,24 @@ const Review = ({ user, data }) => {
 							{toggle && (
 								<div className='review--content'>
 									<h4>{data.title}</h4>
-									<p>{data.content}</p>
+									<p>
+										{showReview
+											? data.content
+											: `${data.content.substring(
+													0,
+													100
+											  )}`}
+										<Link
+											className='heading--red'
+											onClick={() =>
+												setShowReview(!showReview)
+											}
+										>
+											{showReview
+												? '... less'
+												: '... more'}
+										</Link>
+									</p>
 
 									<a onClick={() => setToggle(!toggle)}>
 										Hide review
@@ -117,7 +134,17 @@ const Review = ({ user, data }) => {
 					) : (
 						<div className='review--content'>
 							<h4>{data.title}</h4>
-							<p>{data.content}</p>
+							<p>
+								{showReview
+									? data.content
+									: `${data.content.substring(0, 100)}`}
+								<Link
+									className='heading--red'
+									onClick={() => setShowReview(!showReview)}
+								>
+									{showReview ? '... less' : '... more'}
+								</Link>
+							</p>
 						</div>
 					)}
 					<div className='comments--container'>
@@ -135,7 +162,6 @@ const Review = ({ user, data }) => {
 								{!showComments
 									? `show comments (${comments.data.length})`
 									: 'hide comments'}
-								{/* <span>({comments.data.length})</span> */}
 							</a>
 						)}
 						{showComments && (
