@@ -1,77 +1,48 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { BiPlus } from 'react-icons/bi'
-import PLDB_API from '../services/PLDB_API'
-import { useQueryClient } from 'react-query'
 import SmallLoadingSpinner from './Loading/SmallLoadingSpinner'
 import useUserLists from '../hooks/useUserLists'
+import DropdownItem from './DropdownItem'
 
 const DropdownMenu = ({ game, user }) => {
-	const queryClient = useQueryClient()
-	const [gameAdded, setGameAdded] = useState()
-	const [toggle, setToggle] = useState()
-	const [loading, setLoading] = useState(false)
-	const [listId, setListId] = useState(null)
+	const [isOpen, setIsOpen] = useState(false)
 	const { data: lists, isLoading } = useUserLists(user.userId)
+	const ref = useRef(null)
 
-	const addToList = async e => {
-		setLoading(true)
-		const listId = e.target.getAttribute('data-key')
-		setListId(listId)
-		const gameId = game.id
-		const userId = user.userId
-
-		const res = await PLDB_API.addGameToList(userId, gameId, listId)
-		if (res.status === 'success') {
-			queryClient.invalidateQueries('games-list')
-			setGameAdded(true)
-			setLoading(false)
+	const handleClickOutside = event => {
+		if (ref.current && !ref.current.contains(event.target)) {
+			setIsOpen(false)
 		}
-		// console.log(res.data)
-		// on click, add a loading spinner to show it is being added
-		// find list and add list_id + game_id to games_userlists table if user === currentUser
 	}
 
+	useEffect(() => {
+		document.addEventListener('mousedown', handleClickOutside)
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside)
+		}
+	})
+
 	return (
-		<div className='dropdown'>
+		<div ref={ref} className='dropdown'>
 			<button
 				className='button button--small'
-				onClick={() => setToggle(!toggle)}
+				onClick={() => setIsOpen(!isOpen)}
 			>
 				Add <BiPlus />
 			</button>
-			{toggle && (
+			{isOpen && (
 				<div className='dropdown-content'>
 					{isLoading && <SmallLoadingSpinner />}
 					{lists &&
 						!isLoading &&
-						lists.data.map(list =>
-							!list.deletable ? (
-								<a
-									key={list.id}
-									data-key={list.id}
-									onClick={addToList}
-								>
-									{list.list_name}
-									{/* {gameAdded && <p>Added!</p>} */}
-									{/* {loading && listId === list.id && (
-										<SmallLoadingSpinner />
-									)} */}
-								</a>
-							) : (
-								<a
-									key={list.id}
-									data-key={list.id}
-									onClick={addToList}
-									className='dropdown--link'
-								>
-									{list.list_name}
-									{/* {gameAdded && <p>Added!</p>} */}
-									{/* {loading && listId === list.id && (
-											<SmallLoadingSpinner />
-										)} */}
-								</a>
-							)
-						)}
+						lists.data.map(list => (
+							<DropdownItem
+								key={list.id}
+								list={list}
+								game={game}
+								user={user}
+							/>
+						))}
 				</div>
 			)}
 		</div>

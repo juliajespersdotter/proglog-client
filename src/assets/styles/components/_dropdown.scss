@@ -12,6 +12,10 @@
 	justify-content: space-between;
 	align-items: center;
 	z-index: 999;
+
+	.loading-spinner {
+		margin-left: 1rem;
+	}
 }
 
 // .dropdown-button:active::after .dropdown-content {
