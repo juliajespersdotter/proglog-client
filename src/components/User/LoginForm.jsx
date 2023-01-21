@@ -16,7 +16,9 @@ const LoginForm = () => {
 	}
 
 	const redirectToGoogle = async () => {
-		const googleLoginURL = 'http://localhost:3000/auth/google'
+		const googleLoginURL = `${
+			import.meta.env.VITE_API_BASE_URL
+		}/auth/google`
 		const newWindow = window.open(
 			googleLoginURL,
 			'blank',
@@ -34,7 +36,7 @@ const LoginForm = () => {
 	}
 
 	const redirectToSteam = async () => {
-		const steamLoginUrl = 'http://localhost:3000/auth/steam'
+		const steamLoginUrl = `${import.meta.env.VITE_API_BASE_URL}/auth/steam`
 		const newWindow = window.open(
 			steamLoginUrl,
 			'blank',
