@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import DropdownMenu from './DropdownMenu'
 import SmallLoadingSpinner from './Loading/SmallLoadingSpinner'
 
-//https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/dfgkfivjrhcksyymh9vw.jpg
-
 const GameCard = ({ data, user }) => {
 	const [coverImg, setCoverImg] = useState('')
 	const [loading, setLoading] = useState(false)

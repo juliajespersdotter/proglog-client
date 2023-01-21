@@ -1,10 +1,10 @@
 import React from 'react'
 import { useAuthContext } from '../../contexts/AuthContext'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import PLDB_API from '../../services/PLDB_API'
 
 const LoginForm = () => {
-	const { currentUser, setUser } = useAuthContext()
+	const { setUser } = useAuthContext()
 	const navigate = useNavigate()
 	const fetchAuthUser = async () => {
 		const res = await PLDB_API.authenticateUser()
@@ -58,18 +58,6 @@ const LoginForm = () => {
 			<div className='login-image'>
 				<img src='./images/login.png' />
 			</div>
-			{/* <form id='login-form' action='submit'>
-				<input
-					className='inputbox input--small'
-					type='text'
-					placeholder='USERNAME_'
-				/>
-				<input
-					className='inputbox input--small'
-					type='text'
-					placeholder='PASSWORD_'
-				/>
-			</form> */}
 			<button onClick={redirectToGoogle} className='button button--wide'>
 				LOGIN WITH GOOGLE
 			</button>
