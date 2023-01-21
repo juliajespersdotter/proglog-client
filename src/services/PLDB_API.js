@@ -11,10 +11,9 @@ axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL
  */
 const get = async (endpoint, options) => {
 	const res = await axios.get(endpoint, options).catch(err => {
-		console.log('Error getting data', err)
+		return { status: 'error', err }
 	})
 	if (res) {
-		console.log(res.data)
 		return res.data
 	} else {
 		return { status: 'error' }
@@ -34,7 +33,7 @@ const logoutUser = async () => {
 	const res = await axios
 		.delete(`/user/logout`, { withCredentials: true })
 		.catch(err => {
-			console.log('Error getting data', err)
+			return { status: 'error', err }
 		})
 	return res.data
 	// return get(`/auth/logout`, { withCredentials: true })
@@ -71,16 +70,17 @@ const getList = listId => {
 const getGamesInList = async listId => {
 	const res = await get(`/user/games/${listId}`, { withCredentials: true })
 	if (res.status === 'success') {
-		const igdbRes = await IGDB_API.getGamesWithIds(res.data.idArray)
+		const igdbRes = await IGDB_API.getGamesWithIds(res.data)
 		const list = res.list
-		const list_game = res.games
-		const igdbData = igdbRes.data
-		const obj = { list, list_game }
-		// let games = {..igdbRes,}
+		let list_game = res.games
+		let igdbData = igdbRes.data
 
-		const games = { ...igdbData, ...res.data.list, ...res.data.games }
-		console.log(games)
-		return games
+		let mergedArray = igdbData.map(item => {
+			let match = list_game.find(item3 => item3.game_id === item.id)
+			console.log(match)
+			return Object.assign({}, item, match)
+		})
+		return { games: mergedArray, list }
 	} else {
 		return res
 	}
@@ -94,7 +94,7 @@ const addGameToList = async (userId, gameId, listId) => {
 			{ withCredentials: true }
 		)
 		.catch(err => {
-			console.log('Error getting data', err)
+			return { status: 'error', err }
 		})
 	return res.data
 }
@@ -103,7 +103,7 @@ const addReview = async (gameId, data) => {
 	const res = await axios
 		.post(`/reviews/${gameId}`, { data }, { withCredentials: true })
 		.catch(err => {
-			console.log('Error getting data', err)
+			return { status: 'error', err }
 		})
 	return res.data
 }
@@ -112,7 +112,7 @@ const addList = async (userId, data) => {
 	const res = await axios
 		.post(`/user/lists/${userId}`, { data }, { withCredentials: true })
 		.catch(err => {
-			console.log('Error getting data', err)
+			return { status: 'error', err }
 		})
 	return res.data
 }
@@ -125,7 +125,7 @@ const postComment = async (reviewId, data) => {
 			{ withCredentials: true }
 		)
 		.catch(err => {
-			console.log('Error getting data', err)
+			return { status: 'error', err }
 		})
 	return res.data
 }
@@ -135,7 +135,7 @@ const deleteList = async (userId, listId) => {
 	const res = await axios
 		.delete(`/user/lists/${userId}/${listId}`, { withCredentials: true })
 		.catch(err => {
-			console.log('Error getting data')
+			return { status: 'error', err }
 		})
 	return res.data
 }
@@ -147,7 +147,7 @@ const deleteGame = async (userId, listId, gameId) => {
 			withCredentials: true,
 		})
 		.catch(err => {
-			console.log('Error getting data')
+			return { status: 'error', err }
 		})
 	return res.data
 }
@@ -159,7 +159,7 @@ const deleteReview = async (reviewId, userId) => {
 			withCredentials: true,
 		})
 		.catch(err => {
-			console.log('Error getting data')
+			return { status: 'error', err }
 		})
 	return res.data
 }
@@ -171,7 +171,7 @@ const deleteComment = async (commentId, userId) => {
 			withCredentials: true,
 		})
 		.catch(err => {
-			console.log('Error getting data')
+			return { status: 'error', err }
 		})
 	return res.data
 }
