@@ -6,8 +6,10 @@ import PLDB_API from '../../services/PLDB_API'
 const LoginForm = () => {
 	const { setUser } = useAuthContext()
 	const navigate = useNavigate()
+
 	const fetchAuthUser = async () => {
 		const res = await PLDB_API.authenticateUser()
+		console.log(res)
 
 		if (res.status === 'success') {
 			navigate('/')
