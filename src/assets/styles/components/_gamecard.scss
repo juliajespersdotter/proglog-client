@@ -23,6 +23,10 @@
 		justify-content: space-between;
 		align-items: center;
 
+		@media (min-width: responsive.$screen-medium) {
+			width: 30%;
+		}
+
 		@media (min-width: responsive.$screen-large) {
 			width: 15%;
 		}
@@ -96,12 +100,33 @@
 	}
 
 	.game-card-table--title {
-		width: 90%;
+		width: 70%;
 		justify-content: flex-start;
 		padding: 0;
 		margin: 0;
 		flex-direction: column;
 		align-items: flex-start;
+
+		@media (min-width: responsive.$screen-medium) {
+			width: 80%;
+		}
+		@media (min-width: responsive.$screen-large) {
+			width: 90%;
+		}
+
+		.date {
+			@include typography.description-text();
+
+			@media (min-width: responsive.$screen-medium) {
+				@include typography.description-text();
+			}
+		}
+
+		.button--tertiery {
+			padding: 0;
+			margin: 0;
+			margin-top: 1rem;
+		}
 
 		h4 {
 			font-family: typography.$font-headings;
@@ -112,7 +137,18 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 10%;
+		height: 100%;
+		width: 30%;
+
+		@media (min-width: responsive.$screen-medium) {
+			width: 20%;
+		}
+		@media (min-width: responsive.$screen-xlarge) {
+			width: 15%;
+		}
+		@media (min-width: responsive.$screen-xxlarge) {
+			width: 10%;
+		}
 
 		img {
 			width: 100%;
@@ -123,11 +159,15 @@
 }
 
 .gameinfo--container {
-	width: 100%;
+	width: 70%;
 	margin: 0 auto;
 	margin-top: 2rem;
 
 	@media (min-width: responsive.$screen-medium) {
+		width: 80%;
+	}
+
+	@media (min-width: responsive.$screen-large) {
 		width: 90%;
 	}
 

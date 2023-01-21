@@ -5,6 +5,7 @@ import { useAuthContext } from '../contexts/AuthContext'
 import { useParams } from 'react-router'
 import LoadingSpinner from '../components/Loading/LoadingSpinner'
 import useProfile from '../hooks/useProfile'
+import HamburgerMenu from '../components/Navigation/HamburgerMenu'
 
 const ProfilePage = () => {
 	const { id } = useParams()
@@ -13,6 +14,7 @@ const ProfilePage = () => {
 	return (
 		<div id='container' className='main-content--container'>
 			<SideBar />
+			<HamburgerMenu />
 			<div className='main-content'>
 				{isLoading && <LoadingSpinner />}
 				{profile && <Profile user={profile.user} profile={profile} />}

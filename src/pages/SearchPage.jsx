@@ -3,11 +3,10 @@ import SideBar from '../components/Navigation/SideBar'
 import SideProfileBar from '../components/User/SideProfileBar'
 import { useSearchParams, useParams, useNavigate } from 'react-router-dom'
 import useSearch from '../hooks/useSearch'
-import { useAuthContext } from '../contexts/AuthContext'
 import GameCard from '../components/GameCard'
-import useUserLists from '../hooks/useUserLists'
 import LoadingSpinner from '../components/Loading/LoadingSpinner'
 import Pagination from '../components/Navigation/Pagination'
+import HamburgerMenu from '../components/Navigation/HamburgerMenu'
 
 const SearchPage = ({ currentUser }) => {
 	const [searchParams, setSearchParams] = useSearchParams({ page: 0 })
@@ -24,7 +23,7 @@ const SearchPage = ({ currentUser }) => {
 	return (
 		<div id='container' className='search-page main-content--container'>
 			<SideBar />
-
+			<HamburgerMenu />
 			<div className='main-content'>
 				{isLoading && <LoadingSpinner />}
 				{!result ||

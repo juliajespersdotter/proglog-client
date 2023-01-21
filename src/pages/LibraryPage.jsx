@@ -6,6 +6,7 @@ import { useAuthContext } from '../contexts/AuthContext'
 import useUserLists from '../hooks/useUserLists'
 import LoadingSpinner from '../components/Loading/LoadingSpinner'
 import ListForm from '../components/List/ListForm'
+import HamburgerMenu from '../components/Navigation/HamburgerMenu'
 
 const LibraryPage = ({ currentUser }) => {
 	const [toggle, setToggle] = useState(false)
@@ -14,6 +15,7 @@ const LibraryPage = ({ currentUser }) => {
 	return (
 		<div id='container' className='main-content--container'>
 			<SideBar />
+			<HamburgerMenu />
 			<div className='main-content'>
 				<div className='heading--container'>
 					<h3>My Games</h3>

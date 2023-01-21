@@ -6,6 +6,7 @@ import SideProfileBar from '../components/User/SideProfileBar'
 import useGamesByGenre from '../hooks/useGamesByGenre'
 import GameCard from '../components/GameCard'
 import Pagination from '../components/Navigation/Pagination'
+import HamburgerMenu from '../components/Navigation/HamburgerMenu'
 
 const GenrePage = ({ currentUser }) => {
 	const { id } = useParams()
@@ -21,6 +22,7 @@ const GenrePage = ({ currentUser }) => {
 	return (
 		<div id='container' className='main-content--container'>
 			<SideBar />
+			<HamburgerMenu />
 			<div className='main-content genres'>
 				<h2 className='heading--red'>
 					{genre.toUpperCase().replaceAll('-', ' ')}

@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import useGamesList from '../hooks/useGamesList'
 import LoadingSpinner from '../components/Loading/LoadingSpinner'
 import ListSorter from '../components/List/ListSorter'
+import HamburgerMenu from '../components/Navigation/HamburgerMenu'
 
 const ListPage = ({ currentUser }) => {
 	const { id } = useParams()
@@ -13,6 +14,7 @@ const ListPage = ({ currentUser }) => {
 	return (
 		<div id='container' className='main-content--container'>
 			<SideBar />
+			<HamburgerMenu />
 			<div className='main-content'>
 				{data && data.list && <h3>{data.list.list_name}</h3>}
 				{isLoading && <LoadingSpinner />}

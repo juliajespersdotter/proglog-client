@@ -9,6 +9,7 @@ import DropdownMenu from '../components/DropdownMenu'
 import useReviews from '../hooks/useReviews'
 import GameCard from '../components/GameCard'
 import ReviewSection from '../components/Review/ReviewSection'
+import HamburgerMenu from '../components/Navigation/HamburgerMenu'
 
 const GamePage = ({ currentUser }) => {
 	const { gameId } = useParams()
@@ -17,6 +18,7 @@ const GamePage = ({ currentUser }) => {
 	return (
 		<div id='container' className='main-content--container'>
 			<SideBar />
+			<HamburgerMenu />
 			<div className='main-content'>
 				{isLoading && <LoadingSpinner />}
 				{!isLoading && (

@@ -100,24 +100,28 @@ const Review = ({ user, data }) => {
 							{toggle && (
 								<div className='review--content'>
 									<h4>{data.title}</h4>
-									<p>
-										{showReview
-											? data.content
-											: `${data.content.substring(
-													0,
-													100
-											  )}`}
-										<Link
-											className='heading--red'
-											onClick={() =>
-												setShowReview(!showReview)
-											}
-										>
+									{data.content.length() > 100 ? (
+										<p>
 											{showReview
-												? '... less'
-												: '... more'}
-										</Link>
-									</p>
+												? data.content
+												: `${data.content.substring(
+														0,
+														100
+												  )}`}
+											<Link
+												className='heading--red'
+												onClick={() =>
+													setShowReview(!showReview)
+												}
+											>
+												{showReview
+													? '... less'
+													: '... more'}
+											</Link>
+										</p>
+									) : (
+										<p>{data.content}</p>
+									)}
 
 									<a onClick={() => setToggle(!toggle)}>
 										Hide review
@@ -134,17 +138,23 @@ const Review = ({ user, data }) => {
 					) : (
 						<div className='review--content'>
 							<h4>{data.title}</h4>
-							<p>
-								{showReview
-									? data.content
-									: `${data.content.substring(0, 100)}`}
-								<Link
-									className='heading--red'
-									onClick={() => setShowReview(!showReview)}
-								>
-									{showReview ? '... less' : '... more'}
-								</Link>
-							</p>
+							{data.content.length > 100 ? (
+								<p>
+									{showReview
+										? data.content
+										: `${data.content.substring(0, 100)}`}
+									<Link
+										className='heading--red'
+										onClick={() =>
+											setShowReview(!showReview)
+										}
+									>
+										{showReview ? '... less' : '... more'}
+									</Link>
+								</p>
+							) : (
+								<p>{data.content}</p>
+							)}
 						</div>
 					)}
 					<div className='comments--container'>
