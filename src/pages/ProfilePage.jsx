@@ -7,7 +7,7 @@ import LoadingSpinner from '../components/Loading/LoadingSpinner'
 import useProfile from '../hooks/useProfile'
 import HamburgerMenu from '../components/Navigation/HamburgerMenu'
 
-const ProfilePage = () => {
+const ProfilePage = ({ currentUser }) => {
 	const { id } = useParams()
 	const { data: profile, isLoading } = useProfile(id)
 
@@ -17,7 +17,13 @@ const ProfilePage = () => {
 			<HamburgerMenu />
 			<div className='main-content'>
 				{isLoading && <LoadingSpinner />}
-				{profile && <Profile user={profile.user} profile={profile} />}
+				{profile && (
+					<Profile
+						user={profile.user}
+						profile={profile}
+						loggedInUser={currentUser}
+					/>
+				)}
 			</div>
 		</div>
 	)

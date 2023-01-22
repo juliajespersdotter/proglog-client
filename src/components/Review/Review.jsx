@@ -23,7 +23,6 @@ const Review = ({ user, data }) => {
 	const deleteReview = async () => {
 		setLoading(true)
 		const res = await PLDB_API.deleteReview(data.id, user.userId)
-		console.log(res)
 
 		if (res.status === 'success') {
 			queryClient.invalidateQueries({ queryKey: ['reviews'] })
@@ -38,8 +37,6 @@ const Review = ({ user, data }) => {
 			const creatorId = user.userId
 			const comment = { ...formData, authorId, creatorId }
 			const res = await PLDB_API.postComment(data.id, comment)
-			console.log(res)
-			// reset()
 			if ((res.status = 'success')) {
 				queryClient.invalidateQueries()
 			}

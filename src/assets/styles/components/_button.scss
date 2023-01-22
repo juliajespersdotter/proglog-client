@@ -114,21 +114,6 @@ button {
 		background-image: url('../images/buttons/button-grey.png');
 		color: colors.$primary-black;
 	}
-
-	// &:hover {
-	// 	background-color: colors.$primary-50;
-	// }
-
-	// &:active {
-	// 	border: none;
-	// 	background-color: colors.$primary-300;
-	// }
-
-	// &:focus {
-	// 	background-color: none;
-	// 	border: dashed 2px colors.$primary-200;
-	// 	stroke-dasharray: 10;
-	// }
 }
 
 .button--tertiery {
@@ -141,7 +126,6 @@ button {
 	}
 
 	&:focus {
-		// border: dashed 2px colors.$white;
 		stroke-dasharray: 10;
 	}
 }

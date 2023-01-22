@@ -15,7 +15,6 @@ const ListCard = ({ list }) => {
 		setLoading(true)
 		if (list.deletable) {
 			const res = await PLDB_API.deleteList(currentUser.userId, list.id)
-			console.log(res)
 
 			if (res.status === 'success') {
 				queryClient.invalidateQueries('userlists')

@@ -1,7 +1,7 @@
 import React from 'react'
 import SideBar from '../components/Navigation/SideBar'
 import SideProfileBar from '../components/User/SideProfileBar'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import useGamesList from '../hooks/useGamesList'
 import LoadingSpinner from '../components/Loading/LoadingSpinner'
 import ListSorter from '../components/List/ListSorter'
@@ -20,14 +20,21 @@ const ListPage = ({ currentUser }) => {
 				{isLoading && <LoadingSpinner />}
 
 				<div>
-					{!isLoading && (
+					{!isLoading && data && data.games && (
 						<ListSorter
 							list={data.games}
 							data={data}
 							user={currentUser}
 						/>
 					)}
-					{data && data.status === 'error' && <p>No games in list</p>}
+					{!isLoading && data && data.status === 'error' && (
+						<div className='error'>
+							<h2>No games in list</h2>
+							<Link to='/browse' className='button button--plus'>
+								Explore Genres
+							</Link>
+						</div>
+					)}
 				</div>
 			</div>
 			<SideProfileBar />

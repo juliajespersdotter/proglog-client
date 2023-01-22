@@ -10,10 +10,9 @@ axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL
  */
 const get = async (endpoint, options) => {
 	const res = await axios.get(endpoint, options).catch(err => {
-		console.log('Error getting data', err)
+		return { status: 'error', err }
 	})
 	if (res) {
-		console.log(res.data)
 		return res.data
 	} else {
 		return { status: 'error' }
@@ -30,7 +29,6 @@ const get = async (endpoint, options) => {
  */
 const search = async (query, page) => {
 	page = page * 2 * 10
-	console.log(page)
 	return get(`/api/search/${query}/${page}`)
 }
 
@@ -48,7 +46,6 @@ const getGenres = () => {
  */
 const getGamesByGenre = (id, page) => {
 	page = page * 2 * 10
-	console.log(page)
 	return get(`/api/genres/${id}/${page}`)
 }
 
@@ -75,10 +72,8 @@ const getGamesWithIds = async gameIds => {
 			}
 		)
 		.catch(err => {
-			console.log('Error getting data', err)
 			return false
 		})
-	// console.log(res.data)
 	if (res) {
 		return res.data
 	}

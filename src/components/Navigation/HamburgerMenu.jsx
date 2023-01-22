@@ -8,6 +8,10 @@ import PLDB_API from '../../services/PLDB_API'
 const HamburgerMenu = () => {
 	const { currentUser } = useAuthContext()
 
+	const handleImageError = event => {
+		event.target.src = './images/default--avatar.png'
+	}
+
 	const logoutUser = async () => {
 		const res = await PLDB_API.logoutUser()
 
@@ -20,21 +24,11 @@ const HamburgerMenu = () => {
 		<StickyBox offsetTop={10} offsetBottom={20}>
 			<Menu itemListClassName={'sidebar-mobile'}>
 				<div className='avatar'>
-					{currentUser.avatar ? (
+					{currentUser.avatar && (
 						<img
 							className='img--avatar'
-							onError={e =>
-								(e.target.onerror = null)(
-									(e.target.src =
-										'./images/default--avatar.png')
-								)
-							}
 							src={currentUser.avatar}
-						/>
-					) : (
-						<img
-							className='img--avatar'
-							src='./images/default--avatar.png'
+							onError={handleImageError}
 						/>
 					)}
 				</div>

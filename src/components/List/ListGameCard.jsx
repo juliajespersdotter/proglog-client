@@ -18,7 +18,6 @@ const ListGameCard = ({ data, list, user }) => {
 	const [coverImg, setCoverImg] = useState('')
 
 	useEffect(() => {
-		// console.log(rating)
 		if (rating > 0) {
 			rateGame(rating)
 		}
@@ -44,10 +43,7 @@ const ListGameCard = ({ data, list, user }) => {
 				favorited: false,
 			})
 			if (res.status === 'success') {
-				console.log(res.data)
-
 				queryClient.invalidateQueries('games-list')
-				// console.log('favorited!')
 				setTimeout(() => {
 					setStarLoading(false)
 				}, 1500)
@@ -57,10 +53,7 @@ const ListGameCard = ({ data, list, user }) => {
 				favorited: true,
 			})
 			if (res.status === 'success') {
-				console.log(res.data)
-
 				queryClient.invalidateQueries('games-list')
-				// console.log('favorited!')
 				setTimeout(() => {
 					setStarLoading(false)
 				}, 1500)
@@ -73,8 +66,6 @@ const ListGameCard = ({ data, list, user }) => {
 			rating: rating,
 		})
 		if (res.status === 'success') {
-			console.log(res.data)
-			console.log('rated', rating)
 			queryClient.invalidateQueries('games-list')
 		}
 	}
@@ -102,10 +93,10 @@ const ListGameCard = ({ data, list, user }) => {
 					<Link to={`/game/${data.game_id}`}>
 						<h4 className='button--tertiery'>{data.name}</h4>
 					</Link>
-					{data.favorited && (
+					{user.userId == list.user_id && data.favorited ? (
 						<button
 							onClick={favoriteGame}
-							className='favorited star-favorite'
+							className='favorited hover star-favorite'
 						>
 							{starLoading ? (
 								<SmallLoadingSpinner />
@@ -113,6 +104,10 @@ const ListGameCard = ({ data, list, user }) => {
 								<span>&#9733;</span>
 							)}
 						</button>
+					) : data.favorited ? (
+						<span className='favorited star-favorite'>&#9733;</span>
+					) : (
+						''
 					)}
 					{user.userId == list.user_id && !data.favorited && (
 						<button
@@ -168,11 +163,13 @@ const ListGameCard = ({ data, list, user }) => {
 					</div>
 				</div>
 			) : (
-				[...Array(data.rating)].map((item, index) => (
-					<span key={index} className='star'>
-						&#9733;
-					</span>
-				))
+				<div className='rated-stars'>
+					{[...Array(data.rating)].map((item, index) => (
+						<span key={index} className='star'>
+							&#9733;
+						</span>
+					))}
+				</div>
 			)}
 		</div>
 	)

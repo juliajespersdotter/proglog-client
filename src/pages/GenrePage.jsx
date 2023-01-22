@@ -16,8 +16,6 @@ const GenrePage = ({ currentUser }) => {
 		? Number(searchParams.get('page'))
 		: null
 	const { data: games, isLoading } = useGamesByGenre(id, page)
-	console.log(games)
-	//
 
 	return (
 		<div id='container' className='main-content--container'>

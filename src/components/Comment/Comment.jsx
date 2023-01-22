@@ -10,7 +10,6 @@ const Comment = ({ data, user }) => {
 	const queryClient = useQueryClient()
 	const [loading, setLoading] = useState(false)
 	const { data: creator, isLoading } = useUser(data.created_by)
-	console.log(creator)
 
 	const deleteComment = async () => {
 		setLoading(true)

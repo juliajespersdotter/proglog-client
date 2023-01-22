@@ -13,7 +13,6 @@ const SearchBar = () => {
 	} = useForm()
 
 	const onSubmit = async formData => {
-		console.log(formData)
 		const query = formData.query
 		if (query) {
 			navigate({

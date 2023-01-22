@@ -10,10 +10,8 @@ const ReviewSection = ({ currentUser, game }) => {
 	const [toggle, setToggle] = useState(false)
 	const [refetchReviews, setRefetchReviews] = useState('')
 	const { data: reviews, isLoading, isError, error } = useReviews(game.id)
-	console.log('reviews', reviews)
 
 	useEffect(() => {
-		console.log('reviews')
 		setRefetchReviews(reviews)
 	}, [reviews])
 

@@ -5,12 +5,16 @@ import { Link } from 'react-router-dom'
 import SmallLoadingSpinner from '../Loading/SmallLoadingSpinner'
 import LoadingSpinner from '../Loading/LoadingSpinner'
 
-const Profile = ({ user, profile }) => {
+const Profile = ({ user, profile, loggedInUser }) => {
 	const [mostPlayedGames, setMostPlayedGames] = useState()
 	const [loading, setLoading] = useState(false)
 	const [toggle, setToggle] = useState(false)
 	const [show, setShow] = useState(false)
 	const [steamData, setSteamData] = useState(null)
+
+	const handleImageError = event => {
+		event.target.src = './images/default--avatar.png'
+	}
 
 	useEffect(() => {
 		const getSteamData = async () => {
@@ -41,7 +45,9 @@ const Profile = ({ user, profile }) => {
 	return (
 		<div className='profile--container dashed-border'>
 			<div className='profile--image'>
-				<img src={user.avatar} alt='' />
+				{user.avatar && (
+					<img src={user.avatar} onError={handleImageError} />
+				)}
 				<div className='profile--info'>
 					<h1>{user.username}</h1>
 				</div>
@@ -63,16 +69,29 @@ const Profile = ({ user, profile }) => {
 						</button>
 						{show && (
 							<ul>
-								{profile.lists.map(list => (
-									<li key={list.id}>
-										<Link
-											to={`/list/${list.id}`}
-											className=''
-										>
-											{list.list_name}
-										</Link>
-									</li>
-								))}
+								{user.id == loggedInUser.userId
+									? profile.lists.map(list => (
+											<li key={list.id}>
+												<Link
+													to={`/list/${list.id}`}
+													className=''
+												>
+													{list.list_name}
+												</Link>
+											</li>
+									  ))
+									: profile.lists
+											.filter(list => !list.private)
+											.map(list => (
+												<li key={list.id}>
+													<Link
+														to={`/list/${list.id}`}
+														className=''
+													>
+														{list.list_name}
+													</Link>
+												</li>
+											))}
 							</ul>
 						)}
 						<button

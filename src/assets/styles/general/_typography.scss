@@ -9,6 +9,12 @@ $font-text: 'Barlow', sans-serif;
 
 // headings
 
+.error {
+	color: colors.$primary-white;
+	text-align: center;
+	padding: 1rem;
+}
+
 h1,
 h2 {
 	font-family: $font-headings;

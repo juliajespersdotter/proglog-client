@@ -8,7 +8,6 @@ import HamburgerMenu from '../components/Navigation/HamburgerMenu'
 
 const BrowsePage = ({ currentUser }) => {
 	const { data: genres, isLoading } = useGenres()
-	console.log(genres)
 	return (
 		<div id='container' className='main-content--container'>
 			<SideBar />
@@ -16,7 +15,7 @@ const BrowsePage = ({ currentUser }) => {
 			<div className='main-content browse'>
 				<h2>Browse Genres</h2>
 				{isLoading && <LoadingSpinner />}
-				{genres && genres.data && !isLoading && (
+				{!isLoading && genres && genres.data && (
 					<>
 						<div className='genre-links'>
 							{genres.data.map(genre => (

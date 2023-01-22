@@ -73,7 +73,7 @@ const getGameInList = (gameId, listId) => {
 
 const getGamesInList = async listId => {
 	const res = await get(`/user/games/${listId}`, { withCredentials: true })
-	if (res.status === 'success') {
+	if (res && res.status === 'success') {
 		const igdbRes = await IGDB_API.getGamesWithIds(res.data)
 		const list = res.list
 		let list_game = res.games
@@ -85,7 +85,7 @@ const getGamesInList = async listId => {
 		})
 		return { games: mergedArray, list }
 	} else {
-		return res
+		return { status: 'error' }
 	}
 }
 

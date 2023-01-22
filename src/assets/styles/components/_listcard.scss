@@ -19,13 +19,12 @@
 }
 
 .star-favorite {
-	font-size: 1rem;
+	font-size: 1.2rem;
 	color: colors.$primary-white;
 	padding-top: 1rem;
 	padding-left: 0.7rem;
 
 	&:hover {
-		cursor: pointer;
 		color: colors.$primary-yellow;
 	}
 	&:active {
@@ -36,11 +35,26 @@
 	}
 }
 
-.favorited {
-	color: colors.$primary-yellow;
-
+.hover {
+	cursor: pointer;
 	&:hover {
 		color: colors.$primary-red;
+	}
+}
+
+.favorited {
+	cursor: default;
+	color: colors.$primary-yellow;
+}
+
+.rated-stars {
+	cursor: default;
+	padding: 1rem;
+	color: colors.$primary-red;
+	font-size: 1rem;
+
+	@media (min-width: responsive.$screen-medium) {
+		font-size: 1.3rem;
 	}
 }
 
@@ -50,14 +64,15 @@
 	align-items: flex-end;
 	gap: 1rem;
 
+	.button--plus {
+		font-size: 0.7rem;
+	}
+
 	.star-rating {
+		padding-top: 1rem;
 		display: flex;
 		width: 100%;
 		padding-right: 0.5rem;
-	}
-
-	.button--plus {
-		font-size: 0.7rem;
 	}
 }
 

@@ -25,7 +25,6 @@ const ReviewForm = ({ user, game }) => {
 			const userId = user.userId
 			const data = { ...formData, userId, rating, game }
 			const res = await PLDB_API.addReview(game.id, data)
-			console.log(res)
 			reset()
 			if (res.status === 'success') {
 				queryClient.invalidateQueries(['reviews'])
