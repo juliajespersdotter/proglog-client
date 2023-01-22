@@ -13,33 +13,20 @@ import Comment from '../Comment/Comment'
 
 const Review = ({ user, data }) => {
 	const queryClient = useQueryClient()
-	const [loading, setLoading] = useState()
+	const [loading, setLoading] = useState(false)
 	const [showReview, setShowReview] = useState(false)
 	const { data: author, isLoading } = useUser(data.user_id)
-	const { data: comments } = useComments(data.id)
+	const { data: comments, isLoading: commentsLoading } = useComments(data.id)
 	const [toggle, setToggle] = useState(false)
 	const [showComments, setShowComments] = useState(false)
 
 	const deleteReview = async () => {
 		setLoading(true)
 		const res = await PLDB_API.deleteReview(data.id, user.userId)
+		console.log(res)
 
-		if (res.status === 'success') {
-			queryClient.invalidateQueries({ queryKey: ['reviews'] })
-			queryClient.invalidateQueries('comments')
-			queryClient.invalidateQueries('gameswithids')
-		}
-	}
-
-	const postComment = async formData => {
-		if (formData) {
-			const authorId = data.user_id
-			const creatorId = user.userId
-			const comment = { ...formData, authorId, creatorId }
-			const res = await PLDB_API.postComment(data.id, comment)
-			if ((res.status = 'success')) {
-				queryClient.invalidateQueries()
-			}
+		if (res.status == 'success') {
+			queryClient.invalidateQueries('reviews')
 		}
 	}
 
@@ -154,11 +141,7 @@ const Review = ({ user, data }) => {
 						</div>
 					)}
 					<div className='comments--container'>
-						<CommentForm
-							onSubmit={postComment}
-							review={data}
-							user={user}
-						/>
+						<CommentForm review={data} user={user} />
 						{comments && comments.data && (
 							<a
 								onClick={() => {
@@ -170,17 +153,25 @@ const Review = ({ user, data }) => {
 									: 'hide comments'}
 							</a>
 						)}
-						{showComments && (
-							<div className='comments'>
-								{comments.data.map(comment => (
-									<Comment
-										data={comment}
-										user={user.userId}
-										key={comment.id}
-									/>
-								))}
-							</div>
-						)}
+						{commentsLoading && <SmallLoadingSpinner />}
+						{showComments &&
+							comments &&
+							comments.data &&
+							!commentsLoading && (
+								<div className='comments'>
+									{commentsLoading ? (
+										<LoadingSpinner />
+									) : (
+										comments.data.map(comment => (
+											<Comment
+												data={comment}
+												user={user.userId}
+												key={comment.id}
+											/>
+										))
+									)}
+								</div>
+							)}
 					</div>
 				</>
 			)}

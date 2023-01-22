@@ -13,6 +13,9 @@
 }
 
 .review--container {
+	.large-spinner {
+		margin-top: 1rem;
+	}
 	margin: 2rem 0rem;
 	width: 100%;
 	display: flex;
@@ -23,7 +26,7 @@
 	padding: 1rem 2rem;
 
 	@media (min-width: responsive.$screen-xxlarge) {
-		margin-top: 3rem;
+		margin-top: 2rem;
 		margin-bottom: 3rem;
 		width: 100%;
 	}

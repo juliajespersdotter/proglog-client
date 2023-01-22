@@ -3,11 +3,13 @@ import { BiPlus } from 'react-icons/bi'
 import { useForm } from 'react-hook-form'
 import PLDB_API from '../../services/PLDB_API'
 import { useQueryClient } from 'react-query'
+import SmallLoadingSpinner from '../Loading/SmallLoadingSpinner'
 
 const ReviewForm = ({ user, game }) => {
 	const queryClient = useQueryClient()
 	const [rating, setRating] = useState(0)
 	const [hover, setHover] = useState(0)
+	const [loading, setLoading] = useState(0)
 	const [error, setError] = useState()
 	const {
 		register,
@@ -22,15 +24,16 @@ const ReviewForm = ({ user, game }) => {
 			return
 		}
 		if (formData) {
+			setLoading(true)
 			const userId = user.userId
 			const data = { ...formData, userId, rating, game }
 			const res = await PLDB_API.addReview(game.id, data)
 			reset()
+			console.log(res)
+
 			if (res.status === 'success') {
-				queryClient.invalidateQueries(['reviews'])
-				queryClient.invalidateQueries({ queryKey: ['reviews'] })
-				queryClient.invalidateQueries('gameswithids')
-				queryClient.invalidateQueries(['reviews', game.id])
+				queryClient.invalidateQueries('reviews')
+				setLoading(false)
 			}
 		}
 	}
@@ -86,9 +89,13 @@ const ReviewForm = ({ user, game }) => {
 					<input {...register('hide')} type='checkbox' />
 					<label>Hide due to spoilers</label>
 				</div>
-				<button type='submit' className='button button--small'>
-					Submit <BiPlus />
-				</button>
+				{loading ? (
+					<SmallLoadingSpinner />
+				) : (
+					<button type='submit' className='button button--small'>
+						Submit <BiPlus />
+					</button>
+				)}
 			</div>
 		</form>
 	)
