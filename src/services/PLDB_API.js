@@ -81,7 +81,6 @@ const getGamesInList = async listId => {
 
 		let mergedArray = igdbData.map(item => {
 			let match = list_game.find(item3 => item3.game_id === item.id)
-			console.log(match)
 			return Object.assign({}, item, match)
 		})
 		return { games: mergedArray, list }
@@ -121,6 +120,19 @@ const addList = async (userId, data) => {
 	return res.data
 }
 
+const updateGame = async (gameId, listId, data) => {
+	const res = await axios
+		.post(
+			`/user/games/${listId}/${gameId}`,
+			{ data },
+			{ withCredentials: true }
+		)
+		.catch(err => {
+			return { status: 'error', err }
+		})
+	return res.data
+}
+
 const postComment = async (reviewId, data) => {
 	const res = await axios
 		.post(
@@ -135,7 +147,6 @@ const postComment = async (reviewId, data) => {
 }
 
 const deleteList = async (userId, listId) => {
-	console.log(userId, listId)
 	const res = await axios
 		.delete(`/user/lists/${userId}/${listId}`, { withCredentials: true })
 		.catch(err => {
@@ -145,7 +156,6 @@ const deleteList = async (userId, listId) => {
 }
 
 const deleteGame = async (userId, listId, gameId) => {
-	console.log(userId, listId, gameId)
 	const res = await axios
 		.delete(`/user/games/${userId}/${listId}/${gameId}`, {
 			withCredentials: true,
@@ -157,7 +167,6 @@ const deleteGame = async (userId, listId, gameId) => {
 }
 
 const deleteReview = async (reviewId, userId) => {
-	console.log(reviewId, userId)
 	const res = await axios
 		.delete(`/reviews/${userId}/${reviewId}`, {
 			withCredentials: true,
@@ -169,7 +178,6 @@ const deleteReview = async (reviewId, userId) => {
 }
 
 const deleteComment = async (commentId, userId) => {
-	console.log(commentId, userId)
 	const res = await axios
 		.delete(`/reviews/comments/${userId}/${commentId}`, {
 			withCredentials: true,
@@ -195,6 +203,7 @@ const exports = {
 	addGameToList,
 	addReview,
 	addList,
+	updateGame,
 	postComment,
 	deleteList,
 	deleteGame,

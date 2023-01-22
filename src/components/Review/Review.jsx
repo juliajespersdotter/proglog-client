@@ -131,7 +131,6 @@ const Review = ({ user, data }) => {
 							{!toggle && (
 								<a onClick={() => setToggle(!toggle)}>
 									Hidden due to spoilers{' '}
-									{/* <img src='./images/icons/arrow-right' /> */}
 								</a>
 							)}
 						</>

@@ -12,6 +12,55 @@
 	align-items: flex-start;
 	justify-content: space-between;
 }
+
+.title {
+	display: flex;
+	align-items: center;
+}
+
+.star-favorite {
+	font-size: 1rem;
+	color: colors.$primary-white;
+	padding-top: 1rem;
+	padding-left: 0.7rem;
+
+	&:hover {
+		cursor: pointer;
+		color: colors.$primary-yellow;
+	}
+	&:active {
+		color: colors.$primary-yellow;
+	}
+	&:after {
+		color: colors.$primary-yellow;
+	}
+}
+
+.favorited {
+	color: colors.$primary-yellow;
+
+	&:hover {
+		color: colors.$primary-red;
+	}
+}
+
+.user-actions {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 1rem;
+
+	.star-rating {
+		display: flex;
+		width: 100%;
+		padding-right: 0.5rem;
+	}
+
+	.button--plus {
+		font-size: 0.7rem;
+	}
+}
+
 .cross--container {
 	padding-top: 1rem;
 	display: flex;

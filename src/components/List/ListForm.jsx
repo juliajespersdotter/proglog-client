@@ -15,7 +15,6 @@ const ListForm = ({ user }) => {
 	} = useForm()
 
 	const onSubmit = async data => {
-		console.log(data)
 		if (data) {
 			const res = await PLDB_API.addList(user.userId, data)
 			reset()
