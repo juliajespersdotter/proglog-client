@@ -50,8 +50,6 @@ const SideProfileBar = () => {
 							MY GAMES
 						</button>
 					</Link>
-					{/* <button className='button button--primary'>NEWS</button>
-					<button className='button button--primary'>BROWSE</button> */}
 					<a
 						className='button button--plus'
 						onClick={() => logoutUser()}

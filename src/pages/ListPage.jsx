@@ -15,7 +15,7 @@ const ListPage = ({ currentUser }) => {
 		<div id='container' className='main-content--container'>
 			<SideBar />
 			<HamburgerMenu />
-			<div className='main-content'>
+			<div className='main-content listpage'>
 				{data && data.list && <h3>{data.list.list_name}</h3>}
 				{isLoading && <LoadingSpinner />}
 

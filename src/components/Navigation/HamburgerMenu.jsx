@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React from 'react'
 import StickyBox from 'react-sticky-box'
 import { Link } from 'react-router-dom'
 import { useAuthContext } from '../../contexts/AuthContext'
@@ -54,19 +54,12 @@ const HamburgerMenu = () => {
 							UPCOMING
 						</button>
 					</Link>
-					<Link to='/activity'>
-						<button className='button button--primary'>
-							ACTIVITY
-						</button>
-					</Link>
 					<a
 						className='button button--plus'
 						onClick={() => logoutUser()}
 					>
 						Logout
 					</a>
-					{/* <button className='button button--primary'>NEWS</button>
-					<button className='button button--primary'>BROWSE</button> */}
 				</div>
 			</Menu>
 		</StickyBox>

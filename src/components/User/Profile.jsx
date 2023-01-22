@@ -69,7 +69,7 @@ const Profile = ({ user, profile, loggedInUser }) => {
 						</button>
 						{show && (
 							<ul>
-								{user.id == loggedInUser.userId
+								{profile.userId == loggedInUser.userId
 									? profile.lists.map(list => (
 											<li key={list.id}>
 												<Link
@@ -143,17 +143,6 @@ const Profile = ({ user, profile, loggedInUser }) => {
 					</div>
 				)}
 			</div>
-
-			{/* <div className='reviews'>
-				<h2 className='heading--divider'>Reviews</h2>
-				{profile && profile.reviews ? (
-					profile.reviews.map(review => (
-						<Review key={review.id} user={user} data={review} />
-					))
-				) : (
-					<p>No reviews yet</p>
-				)}
-			</div> */}
 		</div>
 	)
 }

@@ -8,7 +8,6 @@ import Typewriter from 'typewriter-effect'
 import HamburgerMenu from '../components/Navigation/HamburgerMenu'
 
 const FeedPage = ({ currentUser }) => {
-	// const { currentUser, loading } = useAuthContext()
 	const { data: games, isLoading } = useComingSoon()
 	return (
 		<div id='container' className='main-content--container'>

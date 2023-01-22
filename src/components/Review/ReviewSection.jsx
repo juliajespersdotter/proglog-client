@@ -1,16 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Review from './Review'
 import ReviewForm from './ReviewForm'
 import useReviews from '../../hooks/useReviews'
 import LoadingSpinner from '../Loading/LoadingSpinner'
-import { useMutation } from 'react-query'
-import PLDB_API from '../../services/PLDB_API'
-import { useQuery } from 'react-query'
 
 const ReviewSection = ({ currentUser, game }) => {
 	const [toggle, setToggle] = useState(false)
 	const gameId = game.id
-	const { data: reviews, isLoading, isError, error } = useReviews(gameId)
+	const { data: reviews, isLoading, isError } = useReviews(gameId)
 	return (
 		<div className='reviews'>
 			<p className='header--divider'>Reviews</p>

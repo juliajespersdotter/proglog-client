@@ -16,10 +16,9 @@ const DropdownItem = ({ user, list, game }) => {
 	const addToList = async e => {
 		setLoading(true)
 		const listId = e.target.getAttribute('data-key')
-		const gameId = game.id
 		const userId = user.userId
 
-		const res = await PLDB_API.addGameToList(userId, gameId, listId)
+		const res = await PLDB_API.addGameToList(userId, game, listId)
 		if (res && res.status === 'success') {
 			queryClient.invalidateQueries('games-list')
 			setLoading(false)
@@ -36,8 +35,8 @@ const DropdownItem = ({ user, list, game }) => {
 
 	if (!isLoading && gamelist.isAdded) {
 		return (
-			<span className='game--success'>
-				<a href={`/list/${list.id}`}>{list.list_name}</a>
+			<span className='button--tertiery game--success'>
+				<Link to={`/list/${list.id}`}>{list.list_name}</Link>
 				<BsCheckLg />
 			</span>
 		)
@@ -46,8 +45,8 @@ const DropdownItem = ({ user, list, game }) => {
 	return (
 		<>
 			{success ? (
-				<span className='game--success'>
-					<a href={`/list/${list.id}`}>{list.list_name}</a>
+				<span className='button--tertiery game--success'>
+					<Link to={`/list/${list.id}`}>{list.list_name}</Link>
 					<BsCheckLg />
 				</span>
 			) : error ? (
@@ -55,9 +54,9 @@ const DropdownItem = ({ user, list, game }) => {
 			) : loading ? (
 				<SmallLoadingSpinner />
 			) : (
-				<a key={list.id} data-key={list.id} onClick={addToList}>
+				<Link key={list.id} data-key={list.id} onClick={addToList}>
 					{list.list_name}
-				</a>
+				</Link>
 			)}
 		</>
 	)

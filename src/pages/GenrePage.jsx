@@ -22,9 +22,7 @@ const GenrePage = ({ currentUser }) => {
 			<SideBar />
 			<HamburgerMenu />
 			<div className='main-content genres'>
-				<h2 className='heading--red'>
-					{genre.toUpperCase().replaceAll('-', ' ')}
-				</h2>
+				<h2>{genre.toUpperCase().replaceAll('-', ' ')}</h2>
 				{isLoading && <LoadingSpinner />}
 				{games && games.data && !isLoading && (
 					<div>

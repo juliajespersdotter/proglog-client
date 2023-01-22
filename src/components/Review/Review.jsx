@@ -10,8 +10,10 @@ import moment from 'moment'
 import CommentForm from '../Comment/CommentForm'
 import useComments from '../../hooks/useComments'
 import Comment from '../Comment/Comment'
+import { useAuthContext } from '../../contexts/AuthContext'
 
 const Review = ({ user, data }) => {
+	const { currentUser } = useAuthContext()
 	const queryClient = useQueryClient()
 	const [loading, setLoading] = useState(false)
 	const [showReview, setShowReview] = useState(false)
@@ -27,6 +29,7 @@ const Review = ({ user, data }) => {
 
 		if (res.status == 'success') {
 			queryClient.invalidateQueries('reviews')
+			queryClient.invalidateQueries('profile')
 		}
 	}
 
@@ -66,7 +69,7 @@ const Review = ({ user, data }) => {
 									'MMMM Do YYYY, h:mm:ss a'
 								)}
 							</p>
-							{user && user.userId == data.user_id && (
+							{user && currentUser.userId == data.user_id && (
 								<div className='cross--container'>
 									<span
 										onClick={deleteReview}

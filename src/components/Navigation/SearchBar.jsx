@@ -1,16 +1,11 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { useSearchParams, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const SearchBar = () => {
 	const navigate = useNavigate()
 
-	const {
-		register,
-		handleSubmit,
-		reset,
-		formState: { errors },
-	} = useForm()
+	const { register, handleSubmit, reset } = useForm()
 
 	const onSubmit = async formData => {
 		const query = formData.query

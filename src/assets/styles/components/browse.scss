@@ -2,6 +2,12 @@
 @use '../general/typography';
 @use '../variables/responsive';
 
+.genres {
+	h2 {
+		text-align: center;
+	}
+}
+
 .browse {
 	.genre-links {
 		margin-top: 3rem;

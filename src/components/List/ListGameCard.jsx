@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
 import { ImCross } from 'react-icons/im'
-import { FaRegStar } from 'react-icons/fa'
-import { BsStarFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import PLDB_API from '../../services/PLDB_API'
 import { useQueryClient } from 'react-query'
@@ -13,7 +11,6 @@ const ListGameCard = ({ data, list, user }) => {
 	const [loading, setLoading] = useState(false)
 	const [starLoading, setStarLoading] = useState(false)
 	const [rating, setRating] = useState(0)
-	const [favorited, setFavorited] = useState(0)
 	const [hover, setHover] = useState(0)
 	const [coverImg, setCoverImg] = useState('')
 

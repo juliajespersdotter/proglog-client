@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react'
+import React from 'react'
 import Profile from '../components/User/Profile'
 import SideBar from '../components/Navigation/SideBar'
-import { useAuthContext } from '../contexts/AuthContext'
 import { useParams } from 'react-router'
 import LoadingSpinner from '../components/Loading/LoadingSpinner'
 import useProfile from '../hooks/useProfile'

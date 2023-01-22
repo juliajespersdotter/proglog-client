@@ -21,6 +21,11 @@
 @use './components/pagination';
 @use './components/browse';
 
+img {
+	max-height: 100%;
+	max-width: 100%;
+}
+
 html,
 body {
 	color: colors.$primary-white;

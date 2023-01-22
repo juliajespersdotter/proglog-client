@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import ListGameCard from './ListGameCard'
+import moment from 'moment'
 
 const ListSorter = ({ list, data, user }) => {
 	const [sortOption, setSortOption] = useState('name')
@@ -21,8 +22,16 @@ const ListSorter = ({ list, data, user }) => {
 		}
 		if (sortOption === 'date-added') {
 			return sortDirection === 'asc'
-				? list.sort((a, b) => a.date_added - b.date_added)
-				: list.sort((a, b) => b.date_added - a.date_added)
+				? list.sort((a, b) => {
+						a = moment(a.date_added).unix()
+						b = moment(b.date_added).unix()
+						return a - b
+				  })
+				: list.sort((a, b) => {
+						a = moment(a.date_added).unix()
+						b = moment(b.date_added).unix()
+						return b - a
+				  })
 		}
 		if (sortOption === 'release-date') {
 			return sortDirection === 'asc'

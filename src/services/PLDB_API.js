@@ -20,7 +20,6 @@ const get = async (endpoint, options) => {
 	}
 }
 
-// Access the backend to authorize user
 /**
  *
  * Login with steam
@@ -36,41 +35,86 @@ const logoutUser = async () => {
 			return { status: 'error', err }
 		})
 	return res.data
-	// return get(`/auth/logout`, { withCredentials: true })
 }
 
+/**
+ *
+ * @param {integer} steamId
+ * @returns steam user data
+ */
 const getSteamUserData = steamId => {
 	return get(`/api/steam/${steamId}`, { withCredentials: true })
 }
 
+/**
+ *
+ * @param {integer} userId
+ * @returns profile data
+ */
 const getProfile = userId => {
 	return get(`/user/profile/${userId}`, { withCredentials: true })
 }
 
+/**
+ *
+ * @param {integer} userId
+ * @returns user lists
+ */
 const getUserLists = userId => {
 	return get(`/user/lists/${userId}`, { withCredentials: true })
 }
 
+/**
+ *
+ * @param {integer} reviewId
+ * @returns comments
+ */
 const getComments = reviewId => {
 	return get(`/reviews/comments/${reviewId}`, { withCredentials: true })
 }
 
+/**
+ *
+ * @param {integer} userId
+ * @returns user data
+ */
 const getUser = userId => {
 	return get(`/user/${userId}`, { withCredentials: true })
 }
 
+/**
+ *
+ * @param {integer} gameId
+ * @returns reviews
+ */
 const getReviews = gameId => {
 	return get(`/reviews/${gameId}`, { withCredentials: true })
 }
 
-const getList = (listId, option) => {
+/**
+ *
+ * @param {integer} listId
+ * @returns list data
+ */
+const getList = listId => {
 	return get(`/user/lists/${listId}`, { withCredentials: true })
 }
 
+/**
+ *
+ * @param {integer} gameId
+ * @param {integer} listId
+ * @returns game in list
+ */
 const getGameInList = (gameId, listId) => {
 	return get(`/user/lists/${listId}/${gameId}`, { withCredentials: true })
 }
 
+/**
+ *
+ * @param {integer} listId
+ * @returns games in list
+ */
 const getGamesInList = async listId => {
 	const res = await get(`/user/games/${listId}`, { withCredentials: true })
 	if (res && res.status === 'success') {
@@ -89,11 +133,18 @@ const getGamesInList = async listId => {
 	}
 }
 
-const addGameToList = async (userId, gameId, listId) => {
+/**
+ *
+ * @param {integer} userId
+ * @param {object} game
+ * @param {integer} listId
+ * @returns game posted to list
+ */
+const addGameToList = async (userId, game, listId) => {
 	const res = await axios
 		.post(
 			`/user/add/${userId}`,
-			{ gameId, listId },
+			{ game, listId },
 			{ withCredentials: true }
 		)
 		.catch(err => {
@@ -102,6 +153,12 @@ const addGameToList = async (userId, gameId, listId) => {
 	return res.data
 }
 
+/**
+ *
+ * @param {integeer} gameId
+ * @param {object} data
+ * @returns added review
+ */
 const addReview = async (gameId, data) => {
 	const res = await axios
 		.post(`/reviews/${gameId}`, { data }, { withCredentials: true })
@@ -111,6 +168,12 @@ const addReview = async (gameId, data) => {
 	return res.data
 }
 
+/**
+ *
+ * @param {integer} userId
+ * @param {object} data
+ * @returns added list
+ */
 const addList = async (userId, data) => {
 	const res = await axios
 		.post(`/user/lists/${userId}`, { data }, { withCredentials: true })
@@ -120,10 +183,17 @@ const addList = async (userId, data) => {
 	return res.data
 }
 
-const updateGame = async (gameId, listId, data) => {
+/**
+ *
+ * @param {integer} game
+ * @param {integer} listId
+ * @param {object} data
+ * @returns updated game in list
+ */
+const updateGame = async (game, listId, data) => {
 	const res = await axios
 		.post(
-			`/user/games/${listId}/${gameId}`,
+			`/user/games/${listId}/${game}`,
 			{ data },
 			{ withCredentials: true }
 		)
@@ -133,6 +203,12 @@ const updateGame = async (gameId, listId, data) => {
 	return res.data
 }
 
+/**
+ *
+ * @param {integer} reviewId
+ * @param {object} data
+ * @returns comment posted on review
+ */
 const postComment = async (reviewId, data) => {
 	const res = await axios
 		.post(
@@ -146,6 +222,12 @@ const postComment = async (reviewId, data) => {
 	return res.data
 }
 
+/**
+ *
+ * @param {integer} userId
+ * @param {integer} listId
+ * @returns deleted list
+ */
 const deleteList = async (userId, listId) => {
 	const res = await axios
 		.delete(`/user/lists/${userId}/${listId}`, { withCredentials: true })
@@ -155,6 +237,13 @@ const deleteList = async (userId, listId) => {
 	return res.data
 }
 
+/**
+ *
+ * @param {integer} userId
+ * @param {integer} listId
+ * @param {integer} gameId
+ * @returns deleted game from list
+ */
 const deleteGame = async (userId, listId, gameId) => {
 	const res = await axios
 		.delete(`/user/games/${userId}/${listId}/${gameId}`, {
@@ -166,6 +255,12 @@ const deleteGame = async (userId, listId, gameId) => {
 	return res.data
 }
 
+/**
+ *
+ * @param {integer} reviewId
+ * @param {integer} userId
+ * @returns deleted review
+ */
 const deleteReview = async (reviewId, userId) => {
 	const res = await axios
 		.delete(`/reviews/${userId}/${reviewId}`, {
@@ -177,6 +272,12 @@ const deleteReview = async (reviewId, userId) => {
 	return res.data
 }
 
+/**
+ *
+ * @param {integer} commentId
+ * @param {integer} userId
+ * @returns deleted comment
+ */
 const deleteComment = async (commentId, userId) => {
 	const res = await axios
 		.delete(`/reviews/comments/${userId}/${commentId}`, {
