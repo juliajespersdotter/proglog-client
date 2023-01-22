@@ -63,8 +63,12 @@ const getReviews = gameId => {
 	return get(`/reviews/${gameId}`, { withCredentials: true })
 }
 
-const getList = listId => {
+const getList = (listId, option) => {
 	return get(`/user/lists/${listId}`, { withCredentials: true })
+}
+
+const getGameInList = (gameId, listId) => {
+	return get(`/user/lists/${listId}/${gameId}`, { withCredentials: true })
 }
 
 const getGamesInList = async listId => {
@@ -186,6 +190,7 @@ const exports = {
 	getUser,
 	getReviews,
 	getList,
+	getGameInList,
 	getGamesInList,
 	addGameToList,
 	addReview,

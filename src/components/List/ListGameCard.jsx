@@ -8,17 +8,22 @@ import moment from 'moment'
 
 //https://images.igdb.com/igdb/image/upload/t_screenshot_med_2x/dfgkfivjrhcksyymh9vw.jpg
 
-const ListGameCard = ({ data, list, user, stats }) => {
+const ListGameCard = ({ data, list, user }) => {
 	const queryClient = useQueryClient()
 	const [loading, setLoading] = useState()
 	const [coverImg, setCoverImg] = useState('')
 
 	const deleteGame = async () => {
 		setLoading(true)
-		const res = await PLDB_API.deleteGame(user.userId, list.id, data.id)
+		const res = await PLDB_API.deleteGame(
+			user.userId,
+			list.id,
+			data.game_id
+		)
 
 		if (res.status === 'success') {
 			queryClient.invalidateQueries('games-list')
+			setLoading(false)
 		}
 	}
 
