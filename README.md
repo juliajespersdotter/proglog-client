@@ -46,4 +46,6 @@ This project was made as a fun opportunity to learn more fullstack development o
 
 ## Printscreens
 
+#### Login page
+<img src="public/images/screens/loginscreen.png/>"
 
