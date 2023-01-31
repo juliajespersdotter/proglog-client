@@ -1,6 +1,6 @@
 # ProgLog - The logging tool for organized gamers
 
-[React web app](/web/) that fetches data from api <a href="https://github.com/juliajespersdotter/proglog-server">ProgLog server</a>.
+React web app that fetches data from api <a href="https://github.com/juliajespersdotter/proglog-server">ProgLog server</a>.
 
 ProgLog Client is the web app for organized gamers to store games in lists, review games, rate and favourite them to keep track of what games they have played, are currently playing or just to store their favourite games.
 
