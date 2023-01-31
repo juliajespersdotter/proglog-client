@@ -47,5 +47,24 @@ This project was made as a fun opportunity to learn more fullstack development o
 ## Printscreens
 
 #### Login page
-<img src="public/images/screens/loginscreen.png/>"
+<img src="public/images/screens/loginscreen.png/">
+
+#### Landing page
+<img src="public/images/screens/landingscreen.png/">
+
+#### Profile page
+<img src="public/images/screens/profilescreen.png/">
+
+#### Steam profile
+<img src="public/images/screens/steamprofile.png/">
+
+#### Library page
+<img src="public/images/screens/libraryscreen.png/">
+
+#### List page
+<img src="public/images/screens/listscreen.png/">
+
+#### Browse page
+<img src="public/images/screens/browsescreen.png/">
+
 
