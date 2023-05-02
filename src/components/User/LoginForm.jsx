@@ -10,7 +10,7 @@ const LoginForm = () => {
 	const fetchAuthUser = async () => {
 		const res = await PLDB_API.authenticateUser()
 
-		if (res.status === 'success') {
+		if (res && res.status === 'success') {
 			navigate('/')
 			await setUser(res)
 		}
