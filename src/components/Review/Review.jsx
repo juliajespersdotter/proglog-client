@@ -87,7 +87,7 @@ const Review = ({ user, data }) => {
 							{toggle && (
 								<div className='review--content'>
 									<h4>{data.title}</h4>
-									{data.content.length() > 100 ? (
+									{data?.content?.length > 100 ? (
 										<p>
 											{showReview
 												? data.content
@@ -124,7 +124,7 @@ const Review = ({ user, data }) => {
 					) : (
 						<div className='review--content'>
 							<h4>{data.title}</h4>
-							{data.content.length > 100 ? (
+							{data?.content?.length > 100 ? (
 								<p>
 									{showReview
 										? data.content
