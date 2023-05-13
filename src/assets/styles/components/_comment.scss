@@ -111,6 +111,10 @@
 		.comment--username {
 			font-weight: bold;
 			color: colors.$primary-red;
+
+			&:hover {
+				color: colors.$primary-yellow;
+			}
 		}
 	}
 }
