@@ -5,6 +5,7 @@ import moment from 'moment'
 import { ImCross } from 'react-icons/im'
 import PLDB_API from '../../services/PLDB_API'
 import { useQueryClient } from 'react-query'
+import { Link } from 'react-router-dom'
 
 const Comment = ({ data, user }) => {
 	const queryClient = useQueryClient()
