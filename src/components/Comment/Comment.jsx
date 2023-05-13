@@ -32,7 +32,12 @@ const Comment = ({ data, user }) => {
 						<div className='comment--text'>
 							<div className='comment-row'>
 								<p className='comment--username'>
-									{creator.data.username}
+									<Link
+										className='author-link'
+										to={`/profile/${data.created_by}`}
+									>
+										{creator.data.username}
+									</Link>
 								</p>
 								<p>{data.content}</p>
 							</div>
